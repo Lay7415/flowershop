@@ -1,0 +1,645 @@
+{% extends "base.html" %}
+{% load static %}
+{% load order_filters %}
+
+{% block title %}Заказ №{{ order.id }}{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+<style>
+    /* ... ваши стили ... */
+    #delivery-map {
+        height: 400px;
+        margin-bottom: 1rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .courier-marker {
+        background: none;
+        border: none;
+    }
+    .bg-new { background-color: #cfe2ff !important; color: #0a58ca !important; }
+    .bg-pending { background-color: #fff3cd !important; color: #664d03 !important; }
+    .bg-success, .bg-paid, .bg-completed, .bg-delivered { background-color: #d1e7dd !important; color: #146c43 !important; }
+    .bg-failed, .bg-canceled { background-color: #f8d7da !important; color: #842029 !important; }
+    .bg-ready { background-color: #ffda6a !important; color: #614d0c !important; }
+    .bg-delivering { background-color: #aeeeee !important; color: #0b5e5e !important; }
+    .item-photo {
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+        border-radius: 4px;
+    }
+    .bouquet-photo {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 4px;
+    }
+    .delivery-status-card {
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+    .nav-tabs .nav-link {
+        color: #495057;
+        background-color: #f8f9fa;
+        border: 1px solid #dee2e6;
+        margin-right: 5px;
+    }
+    .nav-tabs .nav-link.active {
+        background-color: #fff;
+        border-bottom-color: #fff;
+    }
+    .price-details {
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        padding: 15px;
+        margin-bottom: 20px; /* Этот отступ важен */
+    }
+    .price-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 8px;
+    }
+    .price-total {
+        font-size: 1.2em;
+        font-weight: bold;
+        border-top: 2px solid #dee2e6;
+        padding-top: 8px;
+        margin-top: 8px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-7">
+        <h4>Заказ №{{ order.id }}</h4>
+
+        {# Условие для отображения навигационных вкладок (скрываем для флориста) #}
+        {% if not user.is_florist or user != order.florist %}
+            <ul class="nav nav-tabs mb-3" id="orderTabs" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="details-tab" data-bs-toggle="tab" href="#details" role="tab">
+                        Основная информация
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="delivery-tab" data-bs-toggle="tab" href="#delivery" role="tab">
+                        Доставка
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="payment-tab" data-bs-toggle="tab" href="#payment" role="tab">
+                        Оплата
+                    </a>
+                </li>
+                 {# Можно добавить вкладку истории сюда, если она нужна не-флористам и должна быть в табах #}
+                {# <li class="nav-item">
+                    <a class="nav-link" id="history-tab" data-bs-toggle="tab" href="#history" role="tab">
+                        История
+                    </a>
+                </li> #}
+            </ul>
+        {% else %}
+            {# Для флориста нет навигационных вкладок, но основная информация ниже будет показана #}
+             <hr class="mb-3"> {# Отступ после заголовка для флориста #}
+        {% endif %}
+
+        {# Общий контейнер для содержимого вкладок #}
+        <div class="tab-content" id="orderTabContent">
+
+            <!-- Вкладка основной информации (видима всем) -->
+            {# Для флориста эта вкладка будет всегда видима и активна, даже без навигации #}
+            {# Для остальных пользователей она будет переключаемой #}
+            <div class="tab-pane fade {% if user.is_florist and user == order.florist %}show active{% elif not user.is_florist or user != order.florist %}show active{% endif %}" id="details" role="tabpanel">
+                <p><strong>Статус заказа:</strong> <span class="badge fs-6 bg-{{ order.status }}">{{ order.get_status_display }}</span></p>
+                <p><strong>Создан:</strong> {{ order.created_at|date:"d.m.Y H:i" }}</p>
+                
+                {% if not user.is_florist %}
+                <div class="price-details">
+                    <h5>Детали стоимости</h5>
+                    <div class="price-row">
+                        <span>Стоимость букетов:</span>
+                        <span>{{ order.get_subtotal|floatformat:2 }} ₽</span>
+                    </div>
+                    {% if order.delivery_cost %}
+                    <div class="price-row">
+                        <span>Стоимость доставки:</span>
+                        <span>{{ order.delivery_cost|floatformat:2 }} ₽</span>
+                    </div>
+                    {% endif %}
+                    {% if order.discount %}
+                    <div class="price-row text-success">
+                        <span>Скидка:</span>
+                        <span>-{{ order.discount|floatformat:2 }} ₽</span>
+                    </div>
+                    {% endif %}
+                    <div class="price-row price-total">
+                        <span>Итого к оплате:</span>
+                        <span>{{ order.get_total_cost|floatformat:2 }} ₽</span>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+
+
+            {# Условие для отображения контента вкладок Доставка и Оплата (скрываем для флориста) #}
+            {% if not user.is_florist or user != order.florist %}
+                <!-- Вкладка доставки -->
+                <div class="tab-pane fade" id="delivery" role="tabpanel">
+                    <div class="delivery-status-card">
+                        <p><strong>Адрес:</strong> {{ order.delivery_address_name }}</p>
+                        <p><strong>Желаемое время:</strong> {{ order.delivery_datetime|date:"d.m.Y H:i" }}</p>
+                        <p><strong>Получатель:</strong> {{ order.recipient_name }}</p>
+                        <p><strong>Телефон получателя:</strong> {{ order.recipient_phone }}</p>
+                        
+                        {% if order.courier %}
+                        <p><strong>Курьер:</strong> {{ order.courier.get_full_name }}</p>
+                            {% if order.status == 'delivering' %}
+                            <div class="alert alert-info">
+                                <i class="bi bi-info-circle"></i> Ваш заказ в пути! Следите за перемещением курьера на карте ниже.
+                            </div>
+                            {% endif %}
+                        {% endif %}
+                    </div>
+
+                    {% if order.status == 'delivering' or order.status == 'delivered' %}
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h5 class="mb-0">Карта доставки</h5>
+                        </div>
+                        <div class="card-body">
+                            <div id="delivery-map"></div>
+                            <div id="courier-status" class="mt-2">
+                                {% if order.courier %}
+                                <span class="badge bg-info">Загрузка информации о местоположении курьера...</span>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+
+                <!-- Вкладка оплаты -->
+                <div class="tab-pane fade" id="payment" role="tabpanel">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Информация об оплате</h5>
+                            <p><strong>Статус:</strong> <span class="badge fs-6 bg-{{ order.payment.status }}">{{ order.payment.get_status_display }}</span></p>
+                            {% if order.payment.paid_at %}
+                            <p><strong>Дата оплаты:</strong> {{ order.payment.paid_at|date:"d.m.Y H:i" }}</p>
+                            {% endif %}
+                            {% if order.payment.method %}
+                            <p><strong>Способ оплаты:</strong> {{ order.payment.get_method_display }}</p>
+                            {% endif %}
+                            {% if order.payment.status == 'failed' %}
+                            <div class="alert alert-danger">
+                                <i class="bi bi-exclamation-triangle"></i> Ошибка оплаты: {{ order.payment.error_message }}
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Вкладка истории (если она есть и нужна не-флористам) -->
+                <div class="tab-pane fade" id="history" role="tabpanel">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">История заказа</h5>
+                            <div class="timeline">
+                                {% for event in order.history.all %}
+                                <div class="timeline-item">
+                                    <div class="timeline-date">{{ event.created_at|date:"d.m.Y H:i" }}</div>
+                                    <div class="timeline-content">
+                                        <p>{{ event.description }}</p>
+                                        {% if event.user %}
+                                        <small class="text-muted">{{ event.user.get_full_name }}</small>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                {% empty %}
+                                <p class="text-muted">История событий пуста</p>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %} {# Конец условия для вкладок Доставка, Оплата, История #}
+        </div> {# Конец tab-content #}
+
+        <div class="mt-4">
+            {% if user.is_authenticated %}
+                {# Действия клиента #}
+                {% if order.customer == user %}
+                    {% if order.status == 'new' and order.payment.status != 'success' %}
+                         <a href="{% url 'orders:order_pay' order.id %}" class="btn btn-success">Перейти к оплате</a>
+                    {% endif %}
+                    {% if can_confirm_completion %}
+                        <form action="{% url 'orders:order_confirm' order.pk %}" method="post" class="d-inline">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-primary">Подтвердить получение</button>
+                        </form>
+                     {% endif %}
+                {% endif %}
+
+                {# Действия флориста #}
+                {% if user.is_florist and order.florist == user and order.status == 'paid' %}
+                     <form action="{% url 'orders:florist_task_complete' order.pk %}" method="post" class="d-inline">
+                         {% csrf_token %}
+                         <button type="submit" class="btn btn-warning">Сборка завершена</button>
+                     </form>
+                {% endif %}
+
+                {# Действия курьера #}
+                {% if user.is_courier and order.courier == user %}
+                    {% if order.status == 'ready' %}
+                        <form action="{% url 'orders:courier_start_delivery' order.pk %}" method="post" class="d-inline">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-info">Начать доставку</button>
+                        </form>
+                    {% endif %}
+                     {% if order.status == 'delivering' %}
+                         <form action="{% url 'orders:courier_task_complete' order.pk %}" method="post" class="d-inline">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-success">Доставка выполнена</button>
+                        </form>
+                        <button id="toggle-gps" class="btn btn-warning">
+                            <span id="gps-status-text">Включить GPS</span>
+                        </button>
+                    {% endif %}
+                {% endif %}
+            {% endif %}
+
+            {# Кнопка назад в зависимости от роли #}
+            {% if user.is_florist and order.florist == user %}
+                 <a href="{% url 'orders:florist_dashboard' %}" class="btn btn-outline-secondary ms-2">Назад к заданиям</a>
+            {% elif user.is_courier and order.courier == user %}
+                 <a href="{% url 'orders:courier_dashboard' %}" class="btn btn-outline-secondary ms-2">Назад к доставкам</a>
+            {% elif order.customer == user %}
+                 <a href="{% url 'orders:order_list' %}" class="btn btn-outline-secondary ms-2">Назад к моим заказам</a>
+            {% elif user.is_staff %}
+                 <a href="{% url 'admin:orders_order_changelist' %}" class="btn btn-outline-secondary ms-2">Назад в админку</a>
+            {% endif %}
+        </div>
+
+    </div>
+
+    <div class="col-md-5">
+        <h4>Состав заказа</h4>
+        {# ... остальная часть кода для состава заказа без изменений ... #}
+        {% for item in order.items.all %}
+        <div class="card mb-3">
+            <div class="card-header">
+                <h5 class="card-title mb-0">{{ item.bouquet.name }} ({{ item.quantity }} шт.)</h5>
+            </div>
+            {% if item.bouquet.photo %}
+            <img src="{{ item.bouquet.photo.url }}" alt="{{ item.bouquet.name }}" class="bouquet-photo">
+            {% else %}
+            <img src="{% static 'images/placeholder.png' %}" alt="Нет фото" class="bouquet-photo">
+            {% endif %}
+            <div class="card-body">
+                {% if item.bouquet.flower_items.exists %}
+                <div class="mb-3">
+                    <h6>Цветы:</h6>
+                    {% for flower in item.bouquet.flower_items.all %}
+                    <div class="d-flex align-items-center mb-2">
+                        {% if flower.flower.photo %}
+                        <img src="{{ flower.flower.photo.url }}" alt="{{ flower.flower.name }}" class="item-photo me-2">
+                        {% else %}
+                        <img src="{% static 'images/placeholder.png' %}" alt="Нет фото" class="item-photo me-2">
+                        {% endif %}
+                        <div>
+                            <strong>{{ flower.flower.name }}</strong><br>
+                            <small class="text-muted">Количество: {{ flower.quantity }} шт.</small>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+
+                {% if item.bouquet.ribbon_items.exists %}
+                <div class="mb-3">
+                    <h6>Ленты:</h6>
+                    {% for ribbon in item.bouquet.ribbon_items.all %}
+                    <div class="d-flex align-items-center mb-2">
+                        {% if ribbon.ribbon.photo %}
+                        <img src="{{ ribbon.ribbon.photo.url }}" alt="{{ ribbon.ribbon.name }}" class="item-photo me-2">
+                        {% else %}
+                        <img src="{% static 'images/placeholder.png' %}" alt="Нет фото" class="item-photo me-2">
+                        {% endif %}
+                        <div>
+                            <strong>{{ ribbon.ribbon.name }}</strong><br>
+                            <small class="text-muted">Длина: {{ ribbon.length }} м.</small>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+
+                {% if item.bouquet.wrapper_items.exists %}
+                <div class="mb-3">
+                    <h6>Упаковка:</h6>
+                    {% for wrapper in item.bouquet.wrapper_items.all %}
+                    <div class="d-flex align-items-center mb-2">
+                        {% if wrapper.wrapper.photo %}
+                        <img src="{{ wrapper.wrapper.photo.url }}" alt="{{ wrapper.wrapper.name }}" class="item-photo me-2">
+                        {% else %}
+                        <img src="{% static 'images/placeholder.png' %}" alt="Нет фото" class="item-photo me-2">
+                        {% endif %}
+                        <div>
+                            <strong>{{ wrapper.wrapper.name }}</strong><br>
+                            <small class="text-muted">Длина: {{ wrapper.length }} м.</small>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+{# Скрипты для карты и GPS нужны только если вкладка Доставка отображается #}
+{% if not user.is_florist or user != order.florist %}
+    {# ... ваши скрипты без изменений ... #}
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const csrf_token = '{{ csrf_token }}';
+        const mapElement = document.getElementById('delivery-map');
+        const deliveryLat = {% if order.delivery_lat %}{{ order.delivery_lat|stringformat:"f" }}{% else %}null{% endif %};
+        const deliveryLon = {% if order.delivery_lon %}{{ order.delivery_lon|stringformat:"f" }}{% else %}null{% endif %};
+        const orderStatus = '{{ order.status }}';
+        const shopLat = {% if shop_lat %}{{ shop_lat|stringformat:"f" }}{% else %}null{% endif %};
+        const shopLon = {% if shop_lon %}{{ shop_lon|stringformat:"f" }}{% else %}null{% endif %};
+        const shopName = '{{ shop_name|escapejs }}';
+        const orderId = {{ order.id }};
+        const isCourier = {{ user.id|safe }} === {{ order.courier.id|default:"null"|safe }};
+        
+        let map, shopMarker, deliveryMarker, courierMarker, routeLayer;
+        let gpsWatchId = null;
+        let isGpsActive = false;
+        let lastUpdateTime = null;
+
+        if (mapElement && deliveryLat && deliveryLon) {
+            // Инициализация карты
+            let mapCenter;
+            let zoomLevel;
+
+            if (shopLat && shopLon && orderStatus === 'delivering') {
+                mapCenter = [(deliveryLat + shopLat) / 2, (deliveryLon + shopLon) / 2];
+                zoomLevel = 12;
+            } else {
+                mapCenter = [deliveryLat, deliveryLon];
+                zoomLevel = 14;
+            }
+
+            map = L.map('delivery-map').setView(mapCenter, zoomLevel);
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                attribution: '© OpenStreetMap'
+            }).addTo(map);
+
+            // Маркер точки доставки
+            deliveryMarker = L.marker([deliveryLat, deliveryLon])
+                .addTo(map)
+                .bindPopup('Адрес доставки: {{ order.delivery_address_name|escapejs }}');
+
+            // Если есть координаты магазина и заказ в доставке
+            if (shopLat && shopLon && orderStatus === 'delivering') {
+                // Маркер магазина
+                shopMarker = L.marker([shopLat, shopLon])
+                    .addTo(map)
+                    .bindPopup(shopName);
+
+                // Маркер курьера (начальное положение)
+                const courierInitLat = {% if order.courier_lat %}{{ order.courier_lat|stringformat:"f" }}{% else %}shopLat{% endif %};
+                const courierInitLon = {% if order.courier_lon %}{{ order.courier_lon|stringformat:"f" }}{% else %}shopLon{% endif %};
+
+                courierMarker = L.marker([courierInitLat, courierInitLon], {
+                    icon: L.divIcon({
+                        html: '<div style="background-color:#ff4400;width:15px;height:15px;border-radius:50%;border:2px solid white;"></div>',
+                        className: 'courier-marker',
+                        iconSize: [15, 15],
+                        iconAnchor: [7, 7]
+                    })
+                }).addTo(map);
+
+                // Получаем и отображаем маршрут
+                fetchAndDisplayRoute(shopLat, shopLon, deliveryLat, deliveryLon);
+            }
+
+            // Подгоняем карту под все маркеры
+            const bounds = [];
+            if (deliveryMarker) bounds.push(deliveryMarker.getLatLng());
+            if (shopMarker) bounds.push(shopMarker.getLatLng());
+            if (courierMarker) bounds.push(courierMarker.getLatLng());
+            if (bounds.length > 0) {
+                map.fitBounds(L.latLngBounds(bounds), { padding: [50, 50] });
+            }
+
+            // Если это курьер и заказ в процессе доставки
+            if (isCourier && orderStatus === 'delivering') {
+                const toggleGpsButton = document.getElementById('toggle-gps');
+                if (toggleGpsButton) {
+                    toggleGpsButton.addEventListener('click', toggleGpsTracking);
+                }
+            }
+        }
+
+        // Функция получения маршрута
+        function fetchAndDisplayRoute(startLat, startLon, endLat, endLon) {
+            const osrmUrl = `https://router.project-osrm.org/route/v1/driving/${startLon},${startLat};${endLon},${endLat}?overview=full&geometries=geojson`;
+            
+            fetch(osrmUrl)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.routes && data.routes.length > 0) {
+                        if (routeLayer) {
+                            map.removeLayer(routeLayer);
+                        }
+                        
+                        routeLayer = L.geoJSON(data.routes[0].geometry, {
+                            style: {
+                                color: '#3388ff',
+                                weight: 5,
+                                opacity: 0.7
+                            }
+                        }).addTo(map);
+                        
+                        // Обновляем информацию о маршруте
+                        const distance = (data.routes[0].distance / 1000).toFixed(1);
+                        const duration = Math.round(data.routes[0].duration / 60);
+                        
+                        if (document.getElementById('courier-status')) {
+                            document.getElementById('courier-status').innerHTML = 
+                                `<span class="badge bg-info">Расстояние: ${distance} км</span> 
+                                 <span class="badge bg-info">Примерное время: ${duration} мин.</span>`;
+                        }
+                    }
+                })
+                .catch(error => console.error('Ошибка при получении маршрута:', error));
+        }
+
+        // Функция для отправки координат на сервер
+        function updateCourierLocation(lat, lon) {
+            const formData = new FormData();
+            formData.append('lat', lat.toFixed(6));
+            formData.append('lon', lon.toFixed(6));
+            
+            fetch(`/orders/courier/task/${orderId}/update-location/`, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-CSRFToken': csrf_token
+                }
+            })
+            .then(response => {
+                if (!response.ok) {
+                    return response.json().then(data => {
+                        throw new Error(data.message || 'Network response was not ok');
+                    });
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.status === 'success' && courierMarker) {
+                    courierMarker.setLatLng([data.lat, data.lon]);
+                    if (lastUpdateTime !== data.last_update) {
+                        lastUpdateTime = data.last_update;
+                        courierMarker.bindPopup(`<b>Курьер</b><br>Обновлено: ${data.last_update}`).openPopup();
+                    }
+                    // Обновляем маршрут если есть все точки
+                    if (shopLat && shopLon) {
+                        // При обновлении местоположения курьера, маршрут должен быть от курьера до точки доставки
+                        fetchAndDisplayRoute(data.lat, data.lon, deliveryLat, deliveryLon); 
+                    }
+                }
+            })
+            .catch(error => {
+                console.error('Ошибка при обновлении координат:', error);
+                if (document.getElementById('courier-status')) { // Проверка на существование элемента
+                    document.getElementById('courier-status').innerHTML = 
+                        `<span class="badge bg-danger">Ошибка обновления: ${error.message}</span>`;
+                }
+            });
+        }
+
+        // Функция переключения GPS
+        function toggleGpsTracking() {
+            if (!isGpsActive) {
+                startGpsTracking();
+            } else {
+                stopGpsTracking();
+            }
+        }
+
+        // Функция запуска GPS-трекинга
+        function startGpsTracking() {
+            if (navigator.geolocation) {
+                if (document.getElementById('gps-status-text')) {
+                     document.getElementById('gps-status-text').textContent = 'Выключить GPS';
+                }
+                if (document.getElementById('toggle-gps')) {
+                    document.getElementById('toggle-gps').classList.remove('btn-warning');
+                    document.getElementById('toggle-gps').classList.add('btn-danger');
+                }
+                
+                if (document.getElementById('courier-status')) {
+                    document.getElementById('courier-status').innerHTML = 
+                        '<span class="badge bg-success">GPS активирован</span>';
+                }
+                
+                isGpsActive = true;
+                
+                gpsWatchId = navigator.geolocation.watchPosition(
+                    // Успешное получение позиции
+                    function(position) {
+                        const lat = position.coords.latitude;
+                        const lon = position.coords.longitude;
+                        // Проверяем валидность координат перед отправкой
+                        if (!isNaN(lat) && !isNaN(lon) && 
+                            lat >= -90 && lat <= 90 && 
+                            lon >= -180 && lon <= 180) {
+                            updateCourierLocation(lat, lon);
+                        } else {
+                            console.error('Invalid coordinates received:', lat, lon);
+                            if (document.getElementById('courier-status')) {
+                                document.getElementById('courier-status').innerHTML = 
+                                    '<span class="badge bg-danger">Получены некорректные координаты</span>';
+                            }
+                        }
+                    },
+                    // Ошибка получения позиции
+                    function(error) {
+                        console.error('Ошибка GPS:', error);
+                        stopGpsTracking(); // Попытаемся остановить, если была ошибка
+                        
+                        let errorMsg;
+                        switch(error.code) {
+                            case error.PERMISSION_DENIED:
+                                errorMsg = 'Доступ к геолокации отклонен';
+                                break;
+                            case error.POSITION_UNAVAILABLE:
+                                errorMsg = 'Информация о местоположении недоступна';
+                                break;
+                            case error.TIMEOUT:
+                                errorMsg = 'Истекло время ожидания';
+                                break;
+                            default:
+                                errorMsg = 'Неизвестная ошибка';
+                        }
+                        
+                        if (document.getElementById('courier-status')) {
+                            document.getElementById('courier-status').innerHTML = 
+                                `<span class="badge bg-danger">Ошибка GPS: ${errorMsg}</span>`;
+                        }
+                    },
+                    {
+                        enableHighAccuracy: true,
+                        timeout: 10000, // Увеличено время ожидания
+                        maximumAge: 30000 // Допустимый возраст кэшированных координат
+                    }
+                );
+            } else {
+                 if (document.getElementById('courier-status')) {
+                    document.getElementById('courier-status').innerHTML = 
+                        '<span class="badge bg-danger">Геолокация не поддерживается в вашем браузере</span>';
+                 }
+            }
+        }
+
+        // Функция остановки GPS-трекинга
+        function stopGpsTracking() {
+            if (gpsWatchId !== null) {
+                navigator.geolocation.clearWatch(gpsWatchId);
+                gpsWatchId = null;
+            }
+            
+            if (document.getElementById('gps-status-text')) {
+                document.getElementById('gps-status-text').textContent = 'Включить GPS';
+            }
+            if (document.getElementById('toggle-gps')) {
+                document.getElementById('toggle-gps').classList.remove('btn-danger');
+                document.getElementById('toggle-gps').classList.add('btn-warning');
+            }
+            
+            if (document.getElementById('courier-status')) {
+                document.getElementById('courier-status').innerHTML = 
+                    '<span class="badge bg-warning">GPS отключен</span>';
+            }
+            
+            isGpsActive = false;
+        }
+    });
+    </script>
+{% endif %} {# Конец условия для скриптов #}
+{% endblock %}

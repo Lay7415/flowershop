@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Ваша корзина{% endblock %}
+
+{% block content %}
+<h1>Ваша корзина</h1>
+
+{% if cart|length > 0 %}
+<div class="table-responsive">
+    <table class="table align-middle">
+        <thead>
+            <tr>
+                <th scope="col" style="width: 100px;">Фото</th>
+                <th scope="col">Букет</th>
+                <th scope="col" style="width: 150px;">Количество</th>
+                <th scope="col" class="text-end">Цена за шт.</th>
+                <th scope="col" class="text-end">Общая стоимость</th>
+                <th scope="col" style="width: 50px;"></th> {# Для удаления #}
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in cart %} {# Используем итератор объекта Cart #}
+                <tr>
+                    <td>
+                        {% if item.bouquet.photo %}
+                            <img src="{{ item.bouquet.photo.url }}" alt="{{ item.bouquet.name }}" class="img-thumbnail" style="max-height: 75px;">
+                        {% else %}
+                            <img src="{% static 'images/placeholder.png' %}" alt="Нет фото" class="img-thumbnail" style="max-height: 75px;">
+                        {% endif %}
+                    </td>
+                    <td><a href="{{ item.bouquet.get_absolute_url }}">{{ item.bouquet.name }}</a></td>
+                    <td>
+                        <form action="{% url 'cart:update_cart' item.bouquet.id %}" method="post" class="d-flex">
+                            {% csrf_token %}
+                            <input type="number" name="quantity" value="{{ item.quantity }}" min="0" max="99" class="form-control form-control-sm me-2" style="width: 70px;" onchange="this.form.submit()">
+                            {# Кнопка Обновить не обязательна при onchange #}
+                            {# <button type="submit" class="btn btn-sm btn-outline-secondary">Обновить</button> #}
+                        </form>
+                    </td>
+                    <td class="text-end">{{ item.price|floatformat:2 }} руб.</td>
+                    <td class="text-end">{{ item.total_price|floatformat:2 }} руб.</td>
+                    <td>
+                         <form action="{% url 'cart:remove_from_cart' item.bouquet.id %}" method="post">
+                             {% csrf_token %}
+                             <button type="submit" class="btn btn-sm btn-danger">×</button>
+                         </form>
+                    </td>
+                </tr>
+            {% endfor %}
+            <tr class="table-light">
+                <td colspan="4" class="text-end fw-bold">Итого:</td>
+                <td class="text-end fw-bold">{{ cart.get_total_price|floatformat:2 }} руб.</td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="d-flex justify-content-between mt-4">
+    <a href="{% url 'catalog:bouquet_list' %}" class="btn btn-outline-secondary">Продолжить покупки</a>
+    {% if user.is_authenticated %}
+        <a href="{% url 'orders:order_create' %}" class="btn btn-primary">Оформить заказ</a>
+    {% else %}
+         <a href="{% url 'login' %}?next={% url 'orders:order_create' %}" class="btn btn-primary">Войти и оформить заказ</a>
+    {% endif %}
+</div>
+
+{% else %}
+<div class="alert alert-info" role="alert">
+  Ваша корзина пуста. <a href="{% url 'catalog:bouquet_list' %}" class="alert-link">Перейти в каталог?</a>
+</div>
+{% endif %}
+
+{% endblock %}

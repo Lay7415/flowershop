@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block title %}Оплата заказа №{{ order.id }}{% endblock %}
+
+{% block content %}
+<h1>Оплата заказа №{{ order.id }}</h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>Детали заказа</h2>
+        <p><strong>Статус заказа:</strong> {{ order.get_status_display }}</p>
+        <p><strong>Статус оплаты:</strong> {{ payment.get_status_display }}</p>
+        <p><strong>Сумма к оплате:</strong> {{ payment.amount|floatformat:2 }} руб.</p>
+
+        <h4>Состав заказа:</h4>
+        <ul>
+            {% for item in order.items.all %}
+                <li>{{ item.bouquet.name }} ({{ item.quantity }} шт.) - {{ item.get_item_total|floatformat:2 }} руб.</li>
+            {% endfor %}
+        </ul>
+         <p><strong>Адрес доставки:</strong> {{ order.delivery_address_name }}</p>
+         <p><strong>Время доставки:</strong> {{ order.delivery_datetime|date:"d.m.Y H:i" }}</p>
+         <p><strong>Получатель:</strong> {{ order.recipient_name }}, {{ order.recipient_phone }}</p>
+
+        {% if payment.status == 'failed' %}
+            <div class="alert alert-danger mt-3">
+                <strong>Ошибка оплаты:</strong> {{ payment.error_message }}
+            </div>
+        {% endif %}
+
+    </div>
+    <div class="col-md-6">
+        <h2>Введите данные карты (Имитация)</h2>
+        <p class="text-muted">Это муляж платежной системы. Данные карты не сохраняются и не обрабатываются.</p>
+
+        <form method="post">
+            {% csrf_token %}
+
+             {# Отображение ошибок формы, не связанных с полями #}
+            {% if form.non_field_errors %}
+                <div class="alert alert-danger">
+                    {% for error in form.non_field_errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            <div class="mb-3">
+                <label for="{{ form.card_number.id_for_label }}" class="form-label">{{ form.card_number.label }}</label>
+                {{ form.card_number }}
+                 {% if form.card_number.errors %}<div class="invalid-feedback d-block">{{ form.card_number.errors|striptags }}</div>{% endif %}
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                     <label for="{{ form.expiry_date.id_for_label }}" class="form-label">{{ form.expiry_date.label }}</label>
+                     {{ form.expiry_date }}
+                     {% if form.expiry_date.errors %}<div class="invalid-feedback d-block">{{ form.expiry_date.errors|striptags }}</div>{% endif %}
+                </div>
+                 <div class="col-md-6 mb-3">
+                     <label for="{{ form.cvv.id_for_label }}" class="form-label">{{ form.cvv.label }}</label>
+                     {{ form.cvv }}
+                     {% if form.cvv.errors %}<div class="invalid-feedback d-block">{{ form.cvv.errors|striptags }}</div>{% endif %}
+                </div>
+            </div>
+
+            {# Кнопка активна только если статус оплаты 'Новый' #}
+            <button type="submit" class="btn btn-success btn-lg" {% if payment.status != 'new' %}disabled{% endif %}>
+                Оплатить {{ payment.amount|floatformat:2 }} руб.
+            </button>
+             <a href="{% url 'orders:order_list' %}" class="btn btn-outline-secondary ms-2">К списку заказов</a>
+        </form>
+
+        {% if payment.status == 'pending' %}
+             <div class="alert alert-info mt-3">
+                 Идет обработка платежа...
+                 <div class="spinner-border spinner-border-sm" role="status">
+                     <span class="visually-hidden">Загрузка...</span>
+                 </div>
+             </div>
+         {% endif %}
+    </div>
+</div>
+
+{% endblock %}

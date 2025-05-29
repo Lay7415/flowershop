@@ -1,0 +1,305 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ bouquet.name }}{% endblock %}
+
+{% block content %}
+<div class="bouquet-detail">
+    <nav aria-label="breadcrumb" class="mb-4">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'catalog:bouquet_list' %}" class="text-decoration-none"><i class="bi bi-house"></i> Каталог</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{ bouquet.name }}</li>
+        </ol>
+    </nav>
+
+    <div class="row g-5">
+        <div class="col-md-6">
+            <div class="bouquet-image-wrapper">
+                {% if bouquet.photo %}
+                    <img src="{{ bouquet.photo.url }}" alt="{{ bouquet.name }}" class="img-fluid rounded main-image">
+                {% else %}
+                    <img src="{% static 'images/placeholder.png' %}" alt="Нет фото" class="img-fluid rounded main-image">
+                {% endif %}
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="bouquet-info">
+                <h1 class="display-5 mb-4">{{ bouquet.name }}</h1>
+                <p class="lead mb-4">{{ bouquet.description }}</p>
+                
+                <div class="price-section mb-4">
+                    <span class="price-label">Цена:</span>
+                    <span class="price-value">{{ bouquet.price|floatformat:2 }} ₽</span>
+                </div>
+
+                <form action="{% url 'cart:add_to_cart' bouquet.id %}" method="post" class="add-to-cart-form mb-4">
+                    {% csrf_token %}
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="quantity-input">
+                            <label for="quantity" class="form-label">Количество</label>
+                            <input type="number" name="quantity" id="quantity" value="1" min="1" max="99" class="form-control">
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg flex-grow-1">
+                            <i class="bi bi-cart-plus me-2"></i>Добавить в корзину
+                        </button>
+                    </div>
+                </form>
+
+                <div class="back-to-catalog text-center">
+                    <a href="{% url 'catalog:bouquet_list' %}" class="btn btn-outline-primary">
+                        <i class="bi bi-arrow-left me-2"></i>Вернуться в каталог
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="composition-section mt-5">
+        <h2 class="section-title mb-4">Состав букета</h2>
+        
+        {% if bouquet.flower_items.exists %}
+        <div class="flowers mb-5">
+            <h3 class="composition-subtitle">
+                <i class="bi bi-flower1 me-2"></i>Цветы
+            </h3>
+            <div class="row g-4">
+                {% for item in bouquet.flower_items.all %}
+                <div class="col-md-6 col-lg-4">
+                    <div class="composition-card">
+                        <div class="card-image">
+                            {% if item.flower.photo %}
+                                <img src="{{ item.flower.photo.url }}" alt="{{ item.flower.name }}">
+                            {% else %}
+                                <img src="{% static 'images/placeholder.png' %}" alt="Нет фото">
+                            {% endif %}
+                        </div>
+                        <div class="card-content">
+                            <h4>{{ item.flower.name }}</h4>
+                            <p class="description">{{ item.flower.description|truncatewords:10 }}</p>
+                            <div class="quantity">
+                                <span class="label">Количество:</span>
+                                <span class="value">{{ item.quantity }} шт.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+        
+        {% if bouquet.ribbon_items.exists %}
+        <div class="ribbons mb-5">
+            <h3 class="composition-subtitle">
+                <i class="bi bi-vinyl me-2"></i>Ленты
+            </h3>
+            <div class="row g-4">
+                {% for item in bouquet.ribbon_items.all %}
+                <div class="col-md-6 col-lg-4">
+                    <div class="composition-card">
+                        <div class="card-image">
+                            {% if item.ribbon.photo %}
+                                <img src="{{ item.ribbon.photo.url }}" alt="{{ item.ribbon.name }}">
+                            {% else %}
+                                <img src="{% static 'images/placeholder.png' %}" alt="Нет фото">
+                            {% endif %}
+                        </div>
+                        <div class="card-content">
+                            <h4>{{ item.ribbon.name }}</h4>
+                            <p class="description">{{ item.ribbon.description|truncatewords:10 }}</p>
+                            <div class="quantity">
+                                <span class="label">Длина:</span>
+                                <span class="value">{{ item.length }} м.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+        
+        {% if bouquet.wrapper_items.exists %}
+        <div class="wrappers mb-5">
+            <h3 class="composition-subtitle">
+                <i class="bi bi-box-seam me-2"></i>Упаковка
+            </h3>
+            <div class="row g-4">
+                {% for item in bouquet.wrapper_items.all %}
+                <div class="col-md-6 col-lg-4">
+                    <div class="composition-card">
+                        <div class="card-image">
+                            {% if item.wrapper.photo %}
+                                <img src="{{ item.wrapper.photo.url }}" alt="{{ item.wrapper.name }}">
+                            {% else %}
+                                <img src="{% static 'images/placeholder.png' %}" alt="Нет фото">
+                            {% endif %}
+                        </div>
+                        <div class="card-content">
+                            <h4>{{ item.wrapper.name }}</h4>
+                            <p class="description">{{ item.wrapper.description|truncatewords:10 }}</p>
+                            <div class="quantity">
+                                <span class="label">Длина:</span>
+                                <span class="value">{{ item.length }} м.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+<style>
+    .bouquet-detail {
+        padding: 2rem 0;
+    }
+
+    .breadcrumb {
+        background: transparent;
+    }
+
+    .breadcrumb-item a {
+        color: var(--primary-color);
+    }
+
+    .bouquet-image-wrapper {
+        position: relative;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    .main-image {
+        width: 100%;
+        height: auto;
+        transition: transform 0.3s ease;
+    }
+
+    .bouquet-image-wrapper:hover .main-image {
+        transform: scale(1.05);
+    }
+
+    .bouquet-info {
+        padding: 1rem;
+    }
+
+    .price-section {
+        background: var(--light-bg);
+        padding: 1.5rem;
+        border-radius: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .price-label {
+        font-size: 1.2rem;
+        color: var(--text-color);
+    }
+
+    .price-value {
+        font-size: 2rem;
+        font-weight: 600;
+        color: var(--primary-color);
+    }
+
+    .quantity-input {
+        width: 120px;
+    }
+
+    .add-to-cart-form .btn {
+        height: 100%;
+    }
+
+    .section-title {
+        position: relative;
+        padding-bottom: 1rem;
+        margin-bottom: 2rem;
+        text-align: center;
+        color: var(--primary-color);
+    }
+
+    .section-title::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 3px;
+        background: var(--primary-color);
+    }
+
+    .composition-subtitle {
+        color: var(--text-color);
+        margin-bottom: 1.5rem;
+        font-size: 1.5rem;
+    }
+
+    .composition-card {
+        background: white;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        transition: transform 0.3s ease;
+    }
+
+    .composition-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .card-image {
+        height: 200px;
+        overflow: hidden;
+    }
+
+    .card-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+
+    .composition-card:hover .card-image img {
+        transform: scale(1.05);
+    }
+
+    .card-content {
+        padding: 1.5rem;
+    }
+
+    .card-content h4 {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+        color: var(--text-color);
+    }
+
+    .description {
+        color: #6c757d;
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+    }
+
+    .quantity {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem;
+        background: var(--light-bg);
+        border-radius: 5px;
+    }
+
+    .quantity .label {
+        color: var(--text-color);
+        font-size: 0.9rem;
+    }
+
+    .quantity .value {
+        color: var(--primary-color);
+        font-weight: 600;
+    }
+</style>
+{% endblock %}

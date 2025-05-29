@@ -1,0 +1,337 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Оформление заказа{% endblock %}
+
+{% block styles %}
+{# Подключаем CSS для геокодера, если используем плагин #}
+{# <link rel="stylesheet" href="https://unpkg.com/leaflet-geosearch@3.0.0/dist/geosearch.css" /> #}
+{% endblock %}
+
+{% block content %}
+<h1>Оформление заказа</h1>
+
+<div class="row">
+    <div class="col-md-7">
+        <h2>Адрес и время доставки</h2>
+        <form method="post" id="order-form">
+            {% csrf_token %}
+
+            {# Скрытое поле для расстояния доставки #}
+            <input type="hidden" name="delivery_distance" id="delivery_distance" value="0">
+
+            {# Отображение ошибок формы, не связанных с полями #}
+            {% if form.non_field_errors %}
+                <div class="alert alert-danger">
+                    {% for error in form.non_field_errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            {# Поля формы #}
+            <div class="mb-3">
+                <label for="{{ form.recipient_name.id_for_label }}" class="form-label">{{ form.recipient_name.label }}</label>
+                {{ form.recipient_name }}
+                {% if form.recipient_name.errors %}
+                    <div class="invalid-feedback d-block">
+                        {{ form.recipient_name.errors|striptags }}
+                    </div>
+                {% endif %}
+            </div>
+             <div class="mb-3">
+                <label for="{{ form.recipient_phone.id_for_label }}" class="form-label">{{ form.recipient_phone.label }}</label>
+                {{ form.recipient_phone }}
+                 {% if form.recipient_phone.errors %}
+                    <div class="invalid-feedback d-block">
+                        {{ form.recipient_phone.errors|striptags }}
+                    </div>
+                {% endif %}
+            </div>
+             <div class="mb-3">
+                <label for="{{ form.delivery_address_name.id_for_label }}" class="form-label">{{ form.delivery_address_name.label }}</label>
+                 <div class="input-group">
+                    {{ form.delivery_address_name }}
+                    <button class="btn btn-outline-secondary" type="button" id="search-address-btn">Найти</button>
+                 </div>
+                 <small class="form-text text-muted">Введите адрес для поиска или установите маркер на карте.</small>
+                 {% if form.delivery_address_name.errors %}
+                    <div class="invalid-feedback d-block">
+                        {{ form.delivery_address_name.errors|striptags }}
+                    </div>
+                {% endif %}
+                 {# Скрытые поля для координат #}
+                 {{ form.delivery_lat }}
+                 {{ form.delivery_lon }}
+                  {% if form.delivery_lat.errors or form.delivery_lon.errors %}
+                    <div class="invalid-feedback d-block">
+                        Пожалуйста, выберите точный адрес на карте.
+                    </div>
+                {% endif %}
+            </div>
+
+            {# Карта Leaflet #}
+            <div id="map" class="mb-3"></div>
+
+             <div class="mb-3">
+                <label for="{{ form.delivery_datetime.id_for_label }}" class="form-label">{{ form.delivery_datetime.label }}</label>
+                {{ form.delivery_datetime }}
+                 {% if form.delivery_datetime.errors %}
+                    <div class="invalid-feedback d-block">
+                        {{ form.delivery_datetime.errors|striptags }}
+                    </div>
+                {% endif %}
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-lg">Перейти к оплате</button>
+            <a href="{% url 'cart:cart_detail' %}" class="btn btn-outline-secondary ms-2">Вернуться в корзину</a>
+        </form>
+    </div>
+
+    <div class="col-md-5">
+        <h2>Ваш заказ</h2>
+        <ul class="list-group mb-3">
+            {% for item in cart %}
+            <li class="list-group-item d-flex justify-content-between lh-sm">
+                <div>
+                    <h6 class="my-0">{{ item.bouquet.name }}</h6>
+                    <small class="text-muted">Кол-во: {{ item.quantity }}</small>
+                </div>
+                <span class="text-muted">{{ item.total_price|floatformat:2 }} руб.</span>
+            </li>
+            {% endfor %}
+            <li class="list-group-item d-flex justify-content-between">
+                <span>Стоимость товаров</span>
+                <strong>{{ cart.get_total_price|floatformat:2 }} руб.</strong>
+            </li>
+            <li class="list-group-item d-flex justify-content-between text-success">
+                <span>Стоимость доставки</span>
+                <strong id="delivery-cost">Рассчитывается...</strong>
+            </li>
+            <li class="list-group-item d-flex justify-content-between">
+                <span>Итого</span>
+                <strong id="total-with-delivery">{{ cart.get_total_price|floatformat:2 }} руб.</strong>
+            </li>
+        </ul>
+    </div>
+</div>
+{% endblock %}
+
+
+{% block scripts %}
+{# Подключаем JS для геокодера, если нужен #}
+{# <script src="https://unpkg.com/leaflet-geosearch@3.0.0/dist/geosearch.umd.js"></script> #}
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Координаты по умолчанию (например, центр города)
+    const defaultLat = 55.75; // Используем настройки или значение по умолчанию
+    const defaultLon = 37.61;
+
+    // Получаем поля формы
+    const latInput = document.getElementById('{{ form.delivery_lat.id_for_label }}');
+    const lonInput = document.getElementById('{{ form.delivery_lon.id_for_label }}');
+    const addressInput = document.getElementById('{{ form.delivery_address_name.id_for_label }}');
+    const searchButton = document.getElementById('search-address-btn');
+
+    // Инициализация карты
+    const map = L.map('map').setView([defaultLat, defaultLon], 11); // Начальный масштаб
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '© <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+
+    // Маркер для выбора адреса
+    let marker = null;
+
+    // Функция получения маршрута и расчета стоимости
+    function fetchAndCalculateDelivery(lat, lon) {
+        if (!lat || !lon) return;
+        
+        const shopLat = {{ settings.SHOP_LAT|stringformat:"f" }};
+        const shopLon = {{ settings.SHOP_LON|stringformat:"f" }};
+        
+        const osrmUrl = `https://router.project-osrm.org/route/v1/driving/${shopLon},${shopLat};${lon},${lat}?overview=full`;
+        
+        fetch(osrmUrl)
+            .then(response => response.json())
+            .then(data => {
+                if (data.routes && data.routes.length > 0) {
+                    const distance = data.routes[0].distance; // расстояние в метрах
+                    document.getElementById('delivery_distance').value = distance;
+                    
+                    // Рассчитываем стоимость доставки
+                    const pricePerMeter = {{ settings.BASE_DELIVERY_PRICE_PER_METER|stringformat:"f" }};
+                    const deliveryCost = distance * pricePerMeter;
+                    
+                    // Обновляем отображение
+                    const deliveryCostElement = document.getElementById('delivery-cost');
+                    const totalWithDeliveryElement = document.getElementById('total-with-delivery');
+                    const cartTotal = {{ cart.get_total_price|stringformat:"f" }};
+                    
+                    deliveryCostElement.textContent = deliveryCost.toFixed(2) + ' руб.';
+                    totalWithDeliveryElement.textContent = (cartTotal + deliveryCost).toFixed(2) + ' руб.';
+                }
+            })
+            .catch(error => console.error('Ошибка при получении маршрута:', error));
+    }
+
+    // Функция обновления маркера и полей формы
+    function updateMarker(lat, lon, address = null) {
+        if (marker) {
+            marker.setLatLng([lat, lon]);
+        } else {
+            marker = L.marker([lat, lon], {draggable: true}).addTo(map);
+            // Обработчик перетаскивания маркера
+            marker.on('dragend', function(event) {
+                const position = marker.getLatLng();
+                latInput.value = position.lat.toFixed(6);
+                lonInput.value = position.lng.toFixed(6);
+                fetchAndCalculateDelivery(position.lat, position.lng);
+                reverseGeocode(position.lat, position.lng);
+            });
+        }
+        map.setView([lat, lon], 15); // Приближаем карту
+        latInput.value = lat.toFixed(6);
+        lonInput.value = lon.toFixed(6);
+        if (address) {
+            addressInput.value = address;
+        }
+        fetchAndCalculateDelivery(lat, lon);
+    }
+
+     // Функция обратного геокодирования (Nominatim)
+    function reverseGeocode(lat, lon) {
+        fetch(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lon}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data && data.display_name) {
+                    addressInput.value = data.display_name;
+                }
+            })
+            .catch(error => console.error('Ошибка обратного геокодирования:', error));
+    }
+
+    // Обработчик клика по карте
+    map.on('click', function(e) {
+        const lat = e.latlng.lat;
+        const lon = e.latlng.lng;
+        updateMarker(lat, lon);
+         // Опционально: обратное геокодирование для получения адреса
+        reverseGeocode(lat, lon);
+    });
+
+    // Функция поиска адреса (Nominatim)
+    function searchAddress() {
+        const query = addressInput.value;
+        if (!query) return;
+
+        fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}&limit=1`)
+            .then(response => response.json())
+            .then(data => {
+                if (data && data.length > 0) {
+                    const result = data[0];
+                    const lat = parseFloat(result.lat);
+                    const lon = parseFloat(result.lon);
+                    updateMarker(lat, lon, result.display_name); // Обновляем и адресное поле
+                } else {
+                    alert('Адрес не найден. Попробуйте уточнить запрос или укажите точку на карте.');
+                }
+            })
+            .catch(error => {
+                console.error('Ошибка поиска адреса:', error);
+                alert('Произошла ошибка при поиске адреса.');
+            });
+    }
+
+    // Функция для расчета стоимости доставки
+    function calculateDeliveryCost(lat, lon) {
+        if (!lat || !lon) return;
+        
+        // Формула гаверсинусов для расчета расстояния
+        const R = 6371000; // Радиус Земли в метрах
+        const shopLat = {{ settings.SHOP_LAT|stringformat:"f" }};
+        const shopLon = {{ settings.SHOP_LON|stringformat:"f" }};
+        
+        const φ1 = shopLat * Math.PI/180;
+        const φ2 = lat * Math.PI/180;
+        const Δφ = (lat-shopLat) * Math.PI/180;
+        const Δλ = (lon-shopLon) * Math.PI/180;
+
+        const a = Math.sin(Δφ/2) * Math.sin(Δφ/2) +
+                Math.cos(φ1) * Math.cos(φ2) *
+                Math.sin(Δλ/2) * Math.sin(Δλ/2);
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+        const distance = R * c; // в метрах
+
+        // Рассчитываем стоимость доставки
+        const pricePerMeter = {{ settings.BASE_DELIVERY_PRICE_PER_METER|stringformat:"f" }};
+        const deliveryCost = distance * pricePerMeter;
+        
+        // Обновляем отображение
+        const deliveryCostElement = document.getElementById('delivery-cost');
+        const totalWithDeliveryElement = document.getElementById('total-with-delivery');
+        const cartTotal = {{ cart.get_total_price|stringformat:"f" }};
+        
+        deliveryCostElement.textContent = deliveryCost.toFixed(2) + ' руб.';
+        totalWithDeliveryElement.textContent = (cartTotal + deliveryCost).toFixed(2) + ' руб.';
+    }
+
+    // Обновляем расчет при изменении координат
+    function updateDeliveryCost() {
+        const lat = parseFloat(latInput.value);
+        const lon = parseFloat(lonInput.value);
+        if (lat && lon) {
+            calculateDeliveryCost(lat, lon);
+        }
+    }
+
+    // Добавляем слушатели событий
+    latInput.addEventListener('change', updateDeliveryCost);
+    lonInput.addEventListener('change', updateDeliveryCost);
+
+    // Обработчик кнопки поиска
+    if (searchButton) {
+        searchButton.addEventListener('click', searchAddress);
+    }
+    // Обработчик нажатия Enter в поле адреса
+    addressInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            e.preventDefault(); // Предотвращаем отправку формы
+            searchAddress();
+        }
+    });
+
+     // Если в форме уже есть координаты (например, при ошибке валидации), ставим маркер
+     if (latInput.value && lonInput.value) {
+         updateMarker(parseFloat(latInput.value), parseFloat(lonInput.value));
+     }
+
+    // --- Использование плагина GeoSearch (альтернатива) ---
+    // const provider = new GeoSearch.OpenStreetMapProvider();
+    // const searchControl = new GeoSearch.GeoSearchControl({
+    //     provider: provider,
+    //     style: 'bar', // или 'button'
+    //     showMarker: true, // Показать маркер на результате
+    //     marker: {
+    //         icon: new L.Icon.Default(),
+    //         draggable: true,
+    //     },
+    //     autoClose: true, // Закрыть результаты после выбора
+    //     keepResult: true // Оставить маркер после выбора
+    // });
+    // map.addControl(searchControl);
+
+    // // Обработчик события выбора результата поиска
+    // map.on('geosearch/showlocation', function (result) {
+    //     console.log(result);
+    //     latInput.value = result.location.y.toFixed(6); // lat
+    //     lonInput.value = result.location.x.toFixed(6); // lon
+    //     addressInput.value = result.location.label; // address
+    // });
+    // --- Конец альтернативы GeoSearch ---
+
+});
+</script>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% if is_paginated %}
+<nav aria-label="Page navigation" class="mt-4">
+    <ul class="pagination justify-content-center">
+        {% if page_obj.has_previous %}
+            {% comment %} Сохраняем GET-параметры (q, sort, status) при переходе по страницам {% endcomment %}
+            {% with url_params=request.GET.urlencode %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.previous_page_number }}{% if url_params %}&{{ url_params }}{% endif %}">‹ Пред.</a>
+            </li>
+            {% endwith %}
+        {% else %}
+             <li class="page-item disabled"><span class="page-link">‹ Пред.</span></li>
+        {% endif %}
+
+        {% for i in paginator.page_range %}
+            {% if page_obj.number == i %}
+                <li class="page-item active" aria-current="page"><span class="page-link">{{ i }}</span></li>
+            {% elif i > page_obj.number|add:'-3' and i < page_obj.number|add:'3' %} {# Показываем несколько страниц вокруг текущей #}
+                 {% with url_params=request.GET.urlencode %}
+                 <li class="page-item">
+                     <a class="page-link" href="?page={{ i }}{% if url_params %}&{{ url_params }}{% endif %}">{{ i }}</a>
+                 </li>
+                 {% endwith %}
+             {% elif i == page_obj.number|add:'-3' or i == page_obj.number|add:'3' %}
+                 <li class="page-item disabled"><span class="page-link">...</span></li>
+            {% endif %}
+        {% endfor %}
+
+        {% if page_obj.has_next %}
+             {% with url_params=request.GET.urlencode %}
+             <li class="page-item">
+                 <a class="page-link" href="?page={{ page_obj.next_page_number }}{% if url_params %}&{{ url_params }}{% endif %}">След. ›</a>
+             </li>
+             {% endwith %}
+        {% else %}
+            <li class="page-item disabled"><span class="page-link">След. ›</span></li>
+        {% endif %}
+    </ul>
+</nav>
+{% endif %}
