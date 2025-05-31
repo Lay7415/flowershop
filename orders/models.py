@@ -101,8 +101,10 @@ class Order(models.Model):
     class Meta:
         verbose_name = "Order"
         verbose_name_plural = "Orders"
+        
+    def get_bouquet_cost(self):
+        return self.total_cost - self.delivery_cost
     
-
     def _deduct_flowers(self):
         required_flowers = defaultdict(int)
         for item in self.items.all():

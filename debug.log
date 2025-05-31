@@ -1,0 +1,75 @@
+2025-05-31 16:50:45,223 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-05-31 16:50:45,224 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-05-31 16:50:45,252 [INFO] apscheduler.scheduler: Added job "assign_florist_task" to job store "default"
+2025-05-31 16:50:45,259 [INFO] apscheduler.scheduler: Added job "assign_courier_task" to job store "default"
+2025-05-31 16:50:45,259 [INFO] apscheduler.scheduler: Scheduler started
+2025-05-31 16:50:45,260 [DEBUG] apscheduler.scheduler: Looking for jobs to run
+2025-05-31 16:50:45,281 [DEBUG] apscheduler.scheduler: Next wakeup is due at 2025-05-31 16:55:45.223632+06:00 (in 299.942179 seconds)
+2025-05-31 16:50:45,304 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-05-31 16:50:59,067 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-05-31 16:50:59,068 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-05-31 16:50:59,095 [INFO] apscheduler.scheduler: Added job "assign_florist_task" to job store "default"
+2025-05-31 16:50:59,103 [INFO] apscheduler.scheduler: Added job "assign_courier_task" to job store "default"
+2025-05-31 16:50:59,103 [INFO] apscheduler.scheduler: Scheduler started
+2025-05-31 16:50:59,103 [DEBUG] apscheduler.scheduler: Looking for jobs to run
+2025-05-31 16:50:59,122 [DEBUG] apscheduler.scheduler: Next wakeup is due at 2025-05-31 16:55:59.067479+06:00 (in 299.945351 seconds)
+2025-05-31 16:50:59,139 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-05-31 16:51:01,013 [INFO] django.server: "GET /admin/ HTTP/1.1" 200 21947
+2025-05-31 16:52:35,563 [INFO] django.utils.autoreload: /home/baibolot/flower_shop_project/orders/models.py changed, reloading.
+2025-05-31 16:52:36,350 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-05-31 16:52:38,547 [INFO] django.utils.autoreload: /home/baibolot/flower_shop_project/orders/models.py changed, reloading.
+2025-05-31 16:52:39,552 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-05-31 16:52:42,747 [INFO] django.utils.autoreload: /home/baibolot/flower_shop_project/orders/models.py changed, reloading.
+2025-05-31 16:52:43,502 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-05-31 16:52:45,708 [INFO] django.utils.autoreload: /home/baibolot/flower_shop_project/orders/models.py changed, reloading.
+2025-05-31 16:52:46,767 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-05-31 16:52:51,992 [INFO] django.utils.autoreload: /home/baibolot/flower_shop_project/orders/models.py changed, reloading.
+2025-05-31 16:52:52,904 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-05-31 16:52:55,128 [INFO] django.utils.autoreload: /home/baibolot/flower_shop_project/orders/models.py changed, reloading.
+2025-05-31 16:52:56,127 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-05-31 16:52:56,128 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-05-31 16:52:56,153 [INFO] apscheduler.scheduler: Added job "assign_florist_task" to job store "default"
+2025-05-31 16:52:56,160 [INFO] apscheduler.scheduler: Added job "assign_courier_task" to job store "default"
+2025-05-31 16:52:56,160 [INFO] apscheduler.scheduler: Scheduler started
+2025-05-31 16:52:56,161 [DEBUG] apscheduler.scheduler: Looking for jobs to run
+2025-05-31 16:52:56,182 [DEBUG] apscheduler.scheduler: Next wakeup is due at 2025-05-31 16:57:56.127234+06:00 (in 299.945214 seconds)
+2025-05-31 16:52:56,196 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-05-31 16:53:01,555 [INFO] django.utils.autoreload: /home/baibolot/flower_shop_project/orders/models.py changed, reloading.
+2025-05-31 16:53:02,529 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-05-31 16:53:02,529 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-05-31 16:53:02,558 [INFO] apscheduler.scheduler: Added job "assign_florist_task" to job store "default"
+2025-05-31 16:53:02,568 [INFO] apscheduler.scheduler: Added job "assign_courier_task" to job store "default"
+2025-05-31 16:53:02,568 [INFO] apscheduler.scheduler: Scheduler started
+2025-05-31 16:53:02,569 [DEBUG] apscheduler.scheduler: Looking for jobs to run
+2025-05-31 16:53:02,592 [DEBUG] apscheduler.scheduler: Next wakeup is due at 2025-05-31 16:58:02.528778+06:00 (in 299.936027 seconds)
+2025-05-31 16:53:02,608 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-05-31 16:53:03,953 [INFO] django.utils.autoreload: /home/baibolot/flower_shop_project/orders/models.py changed, reloading.
+2025-05-31 16:53:04,975 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-05-31 16:53:04,976 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-05-31 16:53:05,003 [INFO] apscheduler.scheduler: Added job "assign_florist_task" to job store "default"
+2025-05-31 16:53:05,011 [INFO] apscheduler.scheduler: Added job "assign_courier_task" to job store "default"
+2025-05-31 16:53:05,011 [INFO] apscheduler.scheduler: Scheduler started
+2025-05-31 16:53:05,012 [DEBUG] apscheduler.scheduler: Looking for jobs to run
+2025-05-31 16:53:05,031 [DEBUG] apscheduler.scheduler: Next wakeup is due at 2025-05-31 16:58:04.975332+06:00 (in 299.944331 seconds)
+2025-05-31 16:53:05,047 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-05-31 16:53:06,355 [INFO] django.utils.autoreload: /home/baibolot/flower_shop_project/orders/models.py changed, reloading.
+2025-05-31 16:53:07,233 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-05-31 16:53:07,234 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-05-31 16:53:07,257 [INFO] apscheduler.scheduler: Added job "assign_florist_task" to job store "default"
+2025-05-31 16:53:07,263 [INFO] apscheduler.scheduler: Added job "assign_courier_task" to job store "default"
+2025-05-31 16:53:07,263 [INFO] apscheduler.scheduler: Scheduler started
+2025-05-31 16:53:07,264 [DEBUG] apscheduler.scheduler: Looking for jobs to run
+2025-05-31 16:53:07,281 [DEBUG] apscheduler.scheduler: Next wakeup is due at 2025-05-31 16:58:07.233526+06:00 (in 299.951663 seconds)
+2025-05-31 16:53:07,295 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-05-31 16:54:25,128 [WARNING] django.request: Not Found: /
+2025-05-31 16:54:25,128 [WARNING] django.server: "GET / HTTP/1.1" 404 3102
+2025-05-31 16:54:28,751 [INFO] django.server: "GET /catalog/ HTTP/1.1" 200 22267
+2025-05-31 16:54:32,039 [INFO] django.server: "POST /accounts/logout/ HTTP/1.1" 302 0
+2025-05-31 16:54:32,069 [INFO] django.server: "GET /catalog/ HTTP/1.1" 200 21387
+2025-05-31 16:54:38,003 [INFO] django.server: "GET /accounts/login/ HTTP/1.1" 200 16176
+2025-05-31 16:54:42,486 [INFO] users.views: Successful login for user client0@example.com with role client
+2025-05-31 16:54:42,486 [INFO] users.views: Redirecting user client0@example.com to /catalog/
+2025-05-31 16:54:42,492 [INFO] django.server: "POST /accounts/login/ HTTP/1.1" 302 0
+2025-05-31 16:54:42,524 [INFO] django.server: "GET /catalog/ HTTP/1.1" 200 22271
+2025-05-31 16:54:44,500 [INFO] django.server: "GET /orders/my/ HTTP/1.1" 200 15355
+2025-05-31 16:54:47,547 [INFO] django.server: "GET /orders/5/ HTTP/1.1" 200 35902

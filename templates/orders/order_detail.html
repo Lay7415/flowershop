@@ -96,12 +96,6 @@
                         Оплата
                     </a>
                 </li>
-                 {# Можно добавить вкладку истории сюда, если она нужна не-флористам и должна быть в табах #}
-                {# <li class="nav-item">
-                    <a class="nav-link" id="history-tab" data-bs-toggle="tab" href="#history" role="tab">
-                        История
-                    </a>
-                </li> #}
             </ul>
         {% else %}
             {# Для флориста нет навигационных вкладок, но основная информация ниже будет показана #}
@@ -123,7 +117,7 @@
                     <h5>Детали стоимости</h5>
                     <div class="price-row">
                         <span>Стоимость букетов:</span>
-                        <span>{{ order.get_subtotal|floatformat:2 }} ₽</span>
+                        <span>{{ order.get_bouquet_cost|floatformat:2 }} ₽</span>
                     </div>
                     {% if order.delivery_cost %}
                     <div class="price-row">
@@ -139,7 +133,7 @@
                     {% endif %}
                     <div class="price-row price-total">
                         <span>Итого к оплате:</span>
-                        <span>{{ order.get_total_cost|floatformat:2 }} ₽</span>
+                        <span>{{ order.total_cost|floatformat:2 }} ₽</span>
                     </div>
                 </div>
                 {% endif %}
@@ -200,30 +194,6 @@
                                 <i class="bi bi-exclamation-triangle"></i> Ошибка оплаты: {{ order.payment.error_message }}
                             </div>
                             {% endif %}
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Вкладка истории (если она есть и нужна не-флористам) -->
-                <div class="tab-pane fade" id="history" role="tabpanel">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">История заказа</h5>
-                            <div class="timeline">
-                                {% for event in order.history.all %}
-                                <div class="timeline-item">
-                                    <div class="timeline-date">{{ event.created_at|date:"d.m.Y H:i" }}</div>
-                                    <div class="timeline-content">
-                                        <p>{{ event.description }}</p>
-                                        {% if event.user %}
-                                        <small class="text-muted">{{ event.user.get_full_name }}</small>
-                                        {% endif %}
-                                    </div>
-                                </div>
-                                {% empty %}
-                                <p class="text-muted">История событий пуста</p>
-                                {% endfor %}
-                            </div>
                         </div>
                     </div>
                 </div>
