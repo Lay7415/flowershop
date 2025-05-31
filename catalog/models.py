@@ -10,34 +10,32 @@ class Bouquet(models.Model):
     tag = models.CharField("Tag", max_length=100)
     is_active = models.BooleanField("Active", default=True)
     
-    # Добавляем ManyToMany связи через промежуточные модели
     flowers = models.ManyToManyField('Flower', through='BouquetFlower', related_name='bouquets')
     ribbons = models.ManyToManyField('Ribbon', through='BouquetRibbon', related_name='bouquets')
     wrappers = models.ManyToManyField('Wrapper', through='BouquetWrapper', related_name='bouquets')
 
-    @property
-    def flower_items(self):
-        return BouquetFlowerItem.objects.filter(bouquet=self) # Simulating the related manager
-
-    @property
-    def ribbon_items(self):
-        return BouquetRibbonItem.objects.filter(bouquet=self) # Simulating
-
-    @property
-    def wrapper_items(self):
-        return BouquetWrapperItem.objects.filter(bouquet=self) # Simulating
     class Meta:
-        app_label = 'orders'
-        
+        verbose_name = "Bouquet"
+        verbose_name_plural = "Bouquets"
+        app_label = 'catalog'
+
     def __str__(self):
         return self.name
 
     def get_absolute_url(self):
         return reverse('catalog:bouquet_detail', args=[str(self.id)])
 
-    class Meta:
-        verbose_name = "Bouquet"
-        verbose_name_plural = "Bouquets"
+    @property
+    def flower_items(self):
+        return self.bouquetflower_set.all()
+
+    @property
+    def ribbon_items(self):
+        return self.bouquetribbon_set.all()
+
+    @property
+    def wrapper_items(self):
+        return self.bouquetwrapper_set.all()
 
 class Flower(models.Model):
     name = models.CharField("Name", max_length=100)

@@ -2,10 +2,94 @@
 from django.contrib import admin
 from django.utils.html import format_html
 from django.urls import reverse
+from django.db.models import Sum, Count
+from django.db.models.functions import TruncDay, TruncMonth, TruncYear
+from django.utils import timezone
+from rangefilter.filters import DateRangeFilter
+import plotly.express as px
+import plotly.graph_objects as go
+from django.http import JsonResponse
+from django.template.response import TemplateResponse
+
 from .models import (
     CourierLocation, UserStatus, WorkRecord,
     Order, OrderItem, Payment, Cart, CartItem
 )
+
+class OrderStatisticsMixin:
+    change_list_template = 'admin/orders/order_changelist.html'
+
+    def get_urls(self):
+        from django.urls import path
+        urls = super().get_urls()
+        my_urls = [
+            path('statistics/', self.statistics_view, name='order_statistics'),
+        ]
+        return my_urls + urls
+
+    def statistics_view(self, request):
+        # Статистика по дням
+        daily_stats = Order.objects.filter(
+            status__in=['completed', 'delivered']
+        ).annotate(
+            date=TruncDay('created_at')
+        ).values('date').annotate(
+            total_sales=Count('id'),
+            total_revenue=Sum('total_cost'),
+            total_delivery=Sum('delivery_cost'),
+            net_revenue=Sum('total_cost') - Sum('delivery_cost')
+        ).order_by('date')
+
+        # Создаем графики
+        dates = [stat['date'] for stat in daily_stats]
+        sales = [stat['total_sales'] for stat in daily_stats]
+        revenue = [float(stat['total_revenue']) for stat in daily_stats]
+        net_revenue = [float(stat['net_revenue']) for stat in daily_stats]
+
+        # График продаж
+        sales_fig = go.Figure()
+        sales_fig.add_trace(go.Scatter(x=dates, y=sales, mode='lines+markers', name='Количество заказов'))
+        sales_fig.update_layout(title='Динамика продаж по дням', xaxis_title='Дата', yaxis_title='Количество заказов')
+        
+        # График выручки
+        revenue_fig = go.Figure()
+        revenue_fig.add_trace(go.Scatter(x=dates, y=revenue, mode='lines+markers', name='Общая выручка'))
+        revenue_fig.add_trace(go.Scatter(x=dates, y=net_revenue, mode='lines+markers', name='Чистая прибыль'))
+        revenue_fig.update_layout(title='Динамика выручки по дням', xaxis_title='Дата', yaxis_title='Сумма (сом)')
+
+        # Месячная статистика
+        monthly_stats = Order.objects.filter(
+            status__in=['completed', 'delivered']
+        ).annotate(
+            month=TruncMonth('created_at')
+        ).values('month').annotate(
+            total_sales=Count('id'),
+            total_revenue=Sum('total_cost'),
+            net_revenue=Sum('total_cost') - Sum('delivery_cost')
+        ).order_by('month')
+
+        # Годовая статистика
+        yearly_stats = Order.objects.filter(
+            status__in=['completed', 'delivered']
+        ).annotate(
+            year=TruncYear('created_at')
+        ).values('year').annotate(
+            total_sales=Count('id'),
+            total_revenue=Sum('total_cost'),
+            net_revenue=Sum('total_cost') - Sum('delivery_cost')
+        ).order_by('year')
+
+        context = {
+            'daily_stats': daily_stats,
+            'monthly_stats': monthly_stats,
+            'yearly_stats': yearly_stats,
+            'sales_chart': sales_fig.to_html(full_html=False),
+            'revenue_chart': revenue_fig.to_html(full_html=False),
+            'title': 'Статистика продаж',
+            'opts': self.model._meta,
+        }
+
+        return TemplateResponse(request, 'admin/orders/statistics.html', context)
 
 # Inline для отображения позиций прямо в заказе
 class OrderItemInline(admin.TabularInline): # или admin.StackedInline
@@ -76,12 +160,15 @@ class WorkRecordAdmin(admin.ModelAdmin):
     admin_actions.short_description = 'Actions'
 
 @admin.register(Order)
-class OrderAdmin(admin.ModelAdmin):
+class OrderAdmin(OrderStatisticsMixin, admin.ModelAdmin):
     list_display = (
         'id', 'customer', 'status', 'delivery_datetime',
         'florist', 'courier', 'calculated_total', 'admin_actions'
     )
-    list_filter = ('status', 'delivery_datetime', 'florist', 'courier')
+    list_filter = (
+        ('created_at', DateRangeFilter),
+        'status', 'delivery_datetime', 'florist', 'courier'
+    )
     search_fields = ('id', 'customer__email', 'customer__username', 'recipient_name', 'recipient_phone')
     readonly_fields = ('created_at', 'updated_at', 'total_cost') # Не даем менять вычисляемые/авто поля
     list_select_related = ('customer', 'florist', 'courier') # Оптимизация запросов для списка
@@ -95,7 +182,7 @@ class OrderAdmin(admin.ModelAdmin):
             'fields': ('florist', 'courier')
         }),
         ('Delivery Details', {
-            'fields': ('delivery_address', 'delivery_lat', 'delivery_lon', 
+            'fields': ('delivery_address_name', 'delivery_lat', 'delivery_lon', 
                       'delivery_datetime', 'delivery_cost', 'delivery_distance')
         }),
         ('Recipient', {
@@ -188,4 +275,3 @@ class CartItemAdmin(admin.ModelAdmin):
             f'/admin/orders/cartitem/{obj.pk}/delete/'
         )
     admin_actions.short_description = 'Actions'
-    

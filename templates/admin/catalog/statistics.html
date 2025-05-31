@@ -1,0 +1,111 @@
+{% extends "admin/base_site.html" %}
+{% load i18n admin_urls static admin_list %}
+
+{% block extrastyle %}
+  {{ block.super }}
+  <link rel="stylesheet" type="text/css" href="{% static "admin/css/changelists.css" %}">
+  <style>
+    .stats-container {
+      margin: 20px;
+      padding: 20px;
+      background: white;
+      border-radius: 5px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+    }
+    .stats-section {
+      margin-bottom: 30px;
+    }
+    .chart-container {
+      margin: 20px 0;
+      padding: 10px;
+      background: #f9f9f9;
+      border-radius: 5px;
+    }
+  </style>
+{% endblock %}
+
+{% block content %}
+  <div id="content-main">
+    <div class="stats-container">
+      <div class="stats-section">
+        <h2>Статистика популярности букетов</h2>
+        <div class="chart-container">
+          {{ bouquets_chart|safe }}
+        </div>
+        
+        <table>
+          <tr>
+            <th>Букет</th>
+            <th>Количество заказов</th>
+            <th>Общая выручка</th>
+            <th>Средняя цена</th>
+          </tr>
+          {% for bouquet in popular_bouquets %}
+            <tr>
+              <td>{{ bouquet.name }}</td>
+              <td>{{ bouquet.orders_count }}</td>
+              <td>{{ bouquet.total_revenue|floatformat:2 }} сом</td>
+              <td>{{ bouquet.avg_price|floatformat:2 }} сом</td>
+            </tr>
+          {% endfor %}
+        </table>
+      </div>
+
+      <div class="stats-section">
+        <h2>Статистика компонентов</h2>
+        <div class="chart-container">
+          {{ components_chart|safe }}
+        </div>
+        
+        <h3>Популярные цветы</h3>
+        <table>
+          <tr>
+            <th>Цветок</th>
+            <th>Использований в заказах</th>
+          </tr>
+          {% for flower in popular_flowers %}
+            <tr>
+              <td>{{ flower.name }}</td>
+              <td>{{ flower.usage_count }}</td>
+            </tr>
+          {% endfor %}
+        </table>
+
+        <h3>Популярные ленты</h3>
+        <table>
+          <tr>
+            <th>Лента</th>
+            <th>Использований в заказах</th>
+          </tr>
+          {% for ribbon in popular_ribbons %}
+            <tr>
+              <td>{{ ribbon.name }}</td>
+              <td>{{ ribbon.usage_count }}</td>
+            </tr>
+          {% endfor %}
+        </table>
+
+        <h3>Популярные упаковки</h3>
+        <table>
+          <tr>
+            <th>Упаковка</th>
+            <th>Использований в заказах</th>
+          </tr>
+          {% for wrapper in popular_wrappers %}
+            <tr>
+              <td>{{ wrapper.name }}</td>
+              <td>{{ wrapper.usage_count }}</td>
+            </tr>
+          {% endfor %}
+        </table>
+      </div>
+
+      <div class="stats-section">
+        <h2>Динамика продаж по месяцам</h2>
+        <div class="chart-container">
+          {{ monthly_chart|safe }}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

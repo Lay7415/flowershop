@@ -34,6 +34,7 @@ CSRF_TRUSTED_ORIGINS = [
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',  # Должен быть первым!
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -50,6 +51,59 @@ INSTALLED_APPS = [
     'core.apps.CoreConfig',
     'cart.apps.CartConfig',
 ]
+
+# Настройки темы Jazzmin
+JAZZMIN_SETTINGS = {
+    "site_title": "Flower Shop Admin",
+    "site_header": "Flower Shop",
+    "site_brand": "Flower Shop",
+    "welcome_sign": "Добро пожаловать в панель администратора",
+    "copyright": "Flower Shop Ltd",
+    "search_model": ["orders.Order"],
+    "topmenu_links": [
+        {"name": "Главная", "url": "admin:index"},
+        {"name": "Статистика продаж", "url": "admin:order_statistics"},
+    ],
+    "show_ui_builder": True,
+    "changeform_format": "horizontal_tabs",
+    "icons": {
+        "orders.Order": "fas fa-shopping-cart",
+        "orders.Payment": "fas fa-money-bill",
+        "catalog.Bouquet": "fas fa-flower",
+        "users.User": "fas fa-user",
+    },
+}
+
+JAZZMIN_UI_TWEAKS = {
+    "navbar_small_text": False,
+    "footer_small_text": False,
+    "body_small_text": False,
+    "brand_small_text": False,
+    "brand_colour": "navbar-success",
+    "accent": "accent-teal",
+    "navbar": "navbar-dark",
+    "no_navbar_border": False,
+    "navbar_fixed": False,
+    "layout_boxed": False,
+    "footer_fixed": False,
+    "sidebar_fixed": False,
+    "sidebar": "sidebar-dark-success",
+    "sidebar_nav_small_text": False,
+    "sidebar_disable_expand": False,
+    "sidebar_nav_child_indent": False,
+    "sidebar_nav_compact_style": False,
+    "sidebar_nav_legacy_style": False,
+    "sidebar_nav_flat_style": False,
+    "theme": "default",
+    "button_classes": {
+        "primary": "btn-primary",
+        "secondary": "btn-secondary",
+        "info": "btn-info",
+        "warning": "btn-warning",
+        "danger": "btn-danger",
+        "success": "btn-success"
+    }
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -133,10 +187,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_DIRS = [BASE_DIR / 'static']
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media' 
+MEDIA_ROOT = BASE_DIR / 'media'
+
+# Настройки для отображения изображений в админке
+ADMIN_MEDIA_PREFIX = '/static/admin/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/stable/ref/settings/#default-auto-field
