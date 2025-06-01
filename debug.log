@@ -2276,3 +2276,526 @@ django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: '
 2025-06-01 11:33:57,513 [INFO] django.server: "GET /media/bouquets/%D0%9D%D0%B5%D0%B6%D0%BD%D0%BE%D0%B5%20%D0%BF%D1%80%D0%B8%D0%B7%D0%BD%D0%B0%D0%BD%D0%B8%D0%B5.jpg HTTP/1.1" 304 0
 2025-06-01 11:34:05,969 [INFO] django.server: "POST /orders/3/confirm/ HTTP/1.1" 302 0
 2025-06-01 11:34:06,092 [INFO] django.server: "GET /orders/3/ HTTP/1.1" 200 40067
+2025-06-01 14:43:14,599 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-01 14:43:14,600 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-01 14:43:14,656 [INFO] apscheduler.scheduler: Added job "assign_florist_task" to job store "default"
+2025-06-01 14:43:14,669 [INFO] apscheduler.scheduler: Added job "assign_courier_task" to job store "default"
+2025-06-01 14:43:14,670 [INFO] apscheduler.scheduler: Scheduler started
+2025-06-01 14:43:14,671 [DEBUG] apscheduler.scheduler: Looking for jobs to run
+2025-06-01 14:43:14,709 [DEBUG] apscheduler.scheduler: Next wakeup is due at 2025-06-01 14:48:14.599001+06:00 (in 299.889372 seconds)
+2025-06-01 14:43:14,727 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-01 14:43:22,680 [INFO] django.utils.autoreload: /home/baibolot/flower_shop_project/flower_shop/urls.py changed, reloading.
+2025-06-01 14:43:25,350 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-01 14:43:25,352 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-01 14:43:25,417 [INFO] apscheduler.scheduler: Added job "assign_florist_task" to job store "default"
+2025-06-01 14:43:25,435 [INFO] apscheduler.scheduler: Added job "assign_courier_task" to job store "default"
+2025-06-01 14:43:25,436 [INFO] apscheduler.scheduler: Scheduler started
+2025-06-01 14:43:25,442 [DEBUG] apscheduler.scheduler: Looking for jobs to run
+2025-06-01 14:43:25,515 [DEBUG] apscheduler.scheduler: Next wakeup is due at 2025-06-01 14:48:25.350453+06:00 (in 299.834946 seconds)
+2025-06-01 14:43:25,540 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-01 14:46:53,834 [INFO] django.utils.autoreload: /home/baibolot/flower_shop_project/flower_shop/urls.py changed, reloading.
+2025-06-01 14:46:56,430 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-01 14:46:56,431 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-01 14:46:56,470 [INFO] apscheduler.scheduler: Added job "assign_florist_task" to job store "default"
+2025-06-01 14:46:56,481 [INFO] apscheduler.scheduler: Added job "assign_courier_task" to job store "default"
+2025-06-01 14:46:56,482 [INFO] apscheduler.scheduler: Scheduler started
+2025-06-01 14:46:56,483 [DEBUG] apscheduler.scheduler: Looking for jobs to run
+2025-06-01 14:46:56,513 [DEBUG] apscheduler.scheduler: Next wakeup is due at 2025-06-01 14:51:56.430712+06:00 (in 299.917526 seconds)
+2025-06-01 14:46:56,530 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-01 14:47:17,289 [INFO] django.utils.autoreload: /home/baibolot/flower_shop_project/flower_shop/urls.py changed, reloading.
+2025-06-01 14:47:19,900 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-01 14:47:19,901 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-01 14:47:19,945 [INFO] apscheduler.scheduler: Added job "assign_florist_task" to job store "default"
+2025-06-01 14:47:19,958 [INFO] apscheduler.scheduler: Added job "assign_courier_task" to job store "default"
+2025-06-01 14:47:19,959 [INFO] apscheduler.scheduler: Scheduler started
+2025-06-01 14:47:19,960 [DEBUG] apscheduler.scheduler: Looking for jobs to run
+2025-06-01 14:47:19,995 [DEBUG] apscheduler.scheduler: Next wakeup is due at 2025-06-01 14:52:19.900435+06:00 (in 299.905152 seconds)
+2025-06-01 14:47:20,015 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-01 14:48:01,541 [INFO] django.utils.autoreload: /home/baibolot/flower_shop_project/flower_shop/urls.py changed, reloading.
+2025-06-01 14:48:04,026 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-01 14:48:04,027 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-01 14:48:04,074 [INFO] apscheduler.scheduler: Added job "assign_florist_task" to job store "default"
+2025-06-01 14:48:04,091 [INFO] apscheduler.scheduler: Added job "assign_courier_task" to job store "default"
+2025-06-01 14:48:04,091 [INFO] apscheduler.scheduler: Scheduler started
+2025-06-01 14:48:04,093 [DEBUG] apscheduler.scheduler: Looking for jobs to run
+2025-06-01 14:48:04,135 [DEBUG] apscheduler.scheduler: Next wakeup is due at 2025-06-01 14:53:04.026502+06:00 (in 299.890971 seconds)
+2025-06-01 14:48:04,149 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-01 14:48:14,033 [INFO] django.utils.autoreload: /home/baibolot/flower_shop_project/flower_shop/views.py changed, reloading.
+2025-06-01 14:48:16,564 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-01 14:48:16,565 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-01 14:48:16,612 [INFO] apscheduler.scheduler: Added job "assign_florist_task" to job store "default"
+2025-06-01 14:48:16,622 [INFO] apscheduler.scheduler: Added job "assign_courier_task" to job store "default"
+2025-06-01 14:48:16,623 [INFO] apscheduler.scheduler: Scheduler started
+2025-06-01 14:48:16,624 [DEBUG] apscheduler.scheduler: Looking for jobs to run
+2025-06-01 14:48:16,655 [DEBUG] apscheduler.scheduler: Next wakeup is due at 2025-06-01 14:53:16.564289+06:00 (in 299.908514 seconds)
+2025-06-01 14:48:16,672 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-01 14:51:35,659 [INFO] django.utils.autoreload: /home/baibolot/flower_shop_project/flower_shop/views.py changed, reloading.
+2025-06-01 14:51:38,443 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-01 14:51:38,444 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-01 14:51:38,493 [INFO] apscheduler.scheduler: Added job "assign_florist_task" to job store "default"
+2025-06-01 14:51:38,507 [INFO] apscheduler.scheduler: Added job "assign_courier_task" to job store "default"
+2025-06-01 14:51:38,508 [INFO] apscheduler.scheduler: Scheduler started
+2025-06-01 14:51:38,509 [DEBUG] apscheduler.scheduler: Looking for jobs to run
+2025-06-01 14:51:38,549 [DEBUG] apscheduler.scheduler: Next wakeup is due at 2025-06-01 14:56:38.443009+06:00 (in 299.893875 seconds)
+2025-06-01 14:51:38,568 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-01 14:51:55,722 [INFO] django.utils.autoreload: /home/baibolot/flower_shop_project/flower_shop/views.py changed, reloading.
+2025-06-01 14:51:58,313 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-01 14:51:58,314 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-01 14:51:58,368 [INFO] apscheduler.scheduler: Added job "assign_florist_task" to job store "default"
+2025-06-01 14:51:58,389 [INFO] apscheduler.scheduler: Added job "assign_courier_task" to job store "default"
+2025-06-01 14:51:58,389 [INFO] apscheduler.scheduler: Scheduler started
+2025-06-01 14:51:58,390 [DEBUG] apscheduler.scheduler: Looking for jobs to run
+2025-06-01 14:51:58,430 [DEBUG] apscheduler.scheduler: Next wakeup is due at 2025-06-01 14:56:58.313286+06:00 (in 299.883286 seconds)
+2025-06-01 14:51:58,451 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-01 14:52:51,424 [ERROR] django.request: Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/baibolot/flower_shop_project/.venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/baibolot/flower_shop_project/.venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/baibolot/flower_shop_project/.venv/lib/python3.13/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/baibolot/flower_shop_project/.venv/lib/python3.13/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/baibolot/flower_shop_project/flower_shop/views.py", line 11, in get
+    return redirect('catalog:product_list')
+  File "/home/baibolot/flower_shop_project/.venv/lib/python3.13/site-packages/django/shortcuts.py", line 51, in redirect
+    resolve_url(to, *args, **kwargs),
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/home/baibolot/flower_shop_project/.venv/lib/python3.13/site-packages/django/shortcuts.py", line 184, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+  File "/home/baibolot/flower_shop_project/.venv/lib/python3.13/site-packages/django/urls/base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/home/baibolot/flower_shop_project/.venv/lib/python3.13/site-packages/django/urls/resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'product_list' not found. 'product_list' is not a valid view function or pattern name.
+2025-06-01 14:52:51,433 [ERROR] django.server: "GET / HTTP/1.1" 500 103707
+2025-06-01 14:52:52,474 [ERROR] django.request: Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/baibolot/flower_shop_project/.venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/baibolot/flower_shop_project/.venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/baibolot/flower_shop_project/.venv/lib/python3.13/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/baibolot/flower_shop_project/.venv/lib/python3.13/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/baibolot/flower_shop_project/flower_shop/views.py", line 11, in get
+    return redirect('catalog:product_list')
+  File "/home/baibolot/flower_shop_project/.venv/lib/python3.13/site-packages/django/shortcuts.py", line 51, in redirect
+    resolve_url(to, *args, **kwargs),
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/home/baibolot/flower_shop_project/.venv/lib/python3.13/site-packages/django/shortcuts.py", line 184, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+  File "/home/baibolot/flower_shop_project/.venv/lib/python3.13/site-packages/django/urls/base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/home/baibolot/flower_shop_project/.venv/lib/python3.13/site-packages/django/urls/resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'product_list' not found. 'product_list' is not a valid view function or pattern name.
+2025-06-01 14:52:52,483 [ERROR] django.server: "GET / HTTP/1.1" 500 103707
+2025-06-01 14:52:56,414 [ERROR] django.request: Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/baibolot/flower_shop_project/.venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/baibolot/flower_shop_project/.venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/baibolot/flower_shop_project/.venv/lib/python3.13/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/baibolot/flower_shop_project/.venv/lib/python3.13/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/baibolot/flower_shop_project/flower_shop/views.py", line 11, in get
+    return redirect('catalog:product_list')
+  File "/home/baibolot/flower_shop_project/.venv/lib/python3.13/site-packages/django/shortcuts.py", line 51, in redirect
+    resolve_url(to, *args, **kwargs),
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/home/baibolot/flower_shop_project/.venv/lib/python3.13/site-packages/django/shortcuts.py", line 184, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+  File "/home/baibolot/flower_shop_project/.venv/lib/python3.13/site-packages/django/urls/base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/home/baibolot/flower_shop_project/.venv/lib/python3.13/site-packages/django/urls/resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'product_list' not found. 'product_list' is not a valid view function or pattern name.
+2025-06-01 14:52:56,419 [ERROR] django.server: "GET / HTTP/1.1" 500 103707
+2025-06-01 14:53:22,707 [INFO] django.utils.autoreload: /home/baibolot/flower_shop_project/flower_shop/views.py changed, reloading.
+2025-06-01 14:53:25,430 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-01 14:53:25,430 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-01 14:53:25,475 [INFO] apscheduler.scheduler: Added job "assign_florist_task" to job store "default"
+2025-06-01 14:53:25,490 [INFO] apscheduler.scheduler: Added job "assign_courier_task" to job store "default"
+2025-06-01 14:53:25,491 [INFO] apscheduler.scheduler: Scheduler started
+2025-06-01 14:53:25,492 [DEBUG] apscheduler.scheduler: Looking for jobs to run
+2025-06-01 14:53:25,537 [DEBUG] apscheduler.scheduler: Next wakeup is due at 2025-06-01 14:58:25.429565+06:00 (in 299.892487 seconds)
+2025-06-01 14:53:25,554 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-01 14:53:33,279 [ERROR] django.request: Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/baibolot/flower_shop_project/.venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/baibolot/flower_shop_project/.venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/baibolot/flower_shop_project/.venv/lib/python3.13/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/baibolot/flower_shop_project/.venv/lib/python3.13/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/baibolot/flower_shop_project/flower_shop/views.py", line 11, in get
+    return redirect('catalog:bouqet_list')
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/baibolot/flower_shop_project/.venv/lib/python3.13/site-packages/django/shortcuts.py", line 51, in redirect
+    resolve_url(to, *args, **kwargs),
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/home/baibolot/flower_shop_project/.venv/lib/python3.13/site-packages/django/shortcuts.py", line 184, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+  File "/home/baibolot/flower_shop_project/.venv/lib/python3.13/site-packages/django/urls/base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/home/baibolot/flower_shop_project/.venv/lib/python3.13/site-packages/django/urls/resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'bouq' not found. 'bouq' is not a valid view function or pattern name.
+2025-06-01 14:53:33,291 [ERROR] django.server: "GET / HTTP/1.1" 500 103561
+2025-06-01 14:53:36,991 [ERROR] django.request: Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/baibolot/flower_shop_project/.venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/baibolot/flower_shop_project/.venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/baibolot/flower_shop_project/.venv/lib/python3.13/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/baibolot/flower_shop_project/.venv/lib/python3.13/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/baibolot/flower_shop_project/flower_shop/views.py", line 11, in get
+    return redirect('catalog:bouqet_list')
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/baibolot/flower_shop_project/.venv/lib/python3.13/site-packages/django/shortcuts.py", line 51, in redirect
+    resolve_url(to, *args, **kwargs),
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/home/baibolot/flower_shop_project/.venv/lib/python3.13/site-packages/django/shortcuts.py", line 184, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+  File "/home/baibolot/flower_shop_project/.venv/lib/python3.13/site-packages/django/urls/base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/home/baibolot/flower_shop_project/.venv/lib/python3.13/site-packages/django/urls/resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'bouq' not found. 'bouq' is not a valid view function or pattern name.
+2025-06-01 14:53:36,996 [ERROR] django.server: "GET / HTTP/1.1" 500 103561
+2025-06-01 14:53:37,623 [ERROR] django.request: Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/baibolot/flower_shop_project/.venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/baibolot/flower_shop_project/.venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/baibolot/flower_shop_project/.venv/lib/python3.13/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/baibolot/flower_shop_project/.venv/lib/python3.13/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/baibolot/flower_shop_project/flower_shop/views.py", line 11, in get
+    return redirect('catalog:bouqet_list')
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/baibolot/flower_shop_project/.venv/lib/python3.13/site-packages/django/shortcuts.py", line 51, in redirect
+    resolve_url(to, *args, **kwargs),
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/home/baibolot/flower_shop_project/.venv/lib/python3.13/site-packages/django/shortcuts.py", line 184, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+  File "/home/baibolot/flower_shop_project/.venv/lib/python3.13/site-packages/django/urls/base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/home/baibolot/flower_shop_project/.venv/lib/python3.13/site-packages/django/urls/resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'bouq' not found. 'bouq' is not a valid view function or pattern name.
+2025-06-01 14:53:37,630 [ERROR] django.server: "GET / HTTP/1.1" 500 103561
+2025-06-01 14:53:37,934 [ERROR] django.request: Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/baibolot/flower_shop_project/.venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/baibolot/flower_shop_project/.venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/baibolot/flower_shop_project/.venv/lib/python3.13/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/baibolot/flower_shop_project/.venv/lib/python3.13/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/baibolot/flower_shop_project/flower_shop/views.py", line 11, in get
+    return redirect('catalog:bouqet_list')
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/baibolot/flower_shop_project/.venv/lib/python3.13/site-packages/django/shortcuts.py", line 51, in redirect
+    resolve_url(to, *args, **kwargs),
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/home/baibolot/flower_shop_project/.venv/lib/python3.13/site-packages/django/shortcuts.py", line 184, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+  File "/home/baibolot/flower_shop_project/.venv/lib/python3.13/site-packages/django/urls/base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/home/baibolot/flower_shop_project/.venv/lib/python3.13/site-packages/django/urls/resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'bouq' not found. 'bouq' is not a valid view function or pattern name.
+2025-06-01 14:53:38,038 [ERROR] django.request: Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/baibolot/flower_shop_project/.venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/baibolot/flower_shop_project/.venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/baibolot/flower_shop_project/.venv/lib/python3.13/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/baibolot/flower_shop_project/.venv/lib/python3.13/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/baibolot/flower_shop_project/flower_shop/views.py", line 11, in get
+    return redirect('catalog:bouqet_list')
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/baibolot/flower_shop_project/.venv/lib/python3.13/site-packages/django/shortcuts.py", line 51, in redirect
+    resolve_url(to, *args, **kwargs),
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/home/baibolot/flower_shop_project/.venv/lib/python3.13/site-packages/django/shortcuts.py", line 184, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+  File "/home/baibolot/flower_shop_project/.venv/lib/python3.13/site-packages/django/urls/base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/home/baibolot/flower_shop_project/.venv/lib/python3.13/site-packages/django/urls/resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'bouq' not found. 'bouq' is not a valid view function or pattern name.
+2025-06-01 14:53:38,044 [ERROR] django.server: "GET / HTTP/1.1" 500 103561
+2025-06-01 14:53:44,118 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-01 14:53:44,119 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-01 14:53:44,164 [INFO] apscheduler.scheduler: Added job "assign_florist_task" to job store "default"
+2025-06-01 14:53:44,176 [INFO] apscheduler.scheduler: Added job "assign_courier_task" to job store "default"
+2025-06-01 14:53:44,176 [INFO] apscheduler.scheduler: Scheduler started
+2025-06-01 14:53:44,177 [DEBUG] apscheduler.scheduler: Looking for jobs to run
+2025-06-01 14:53:44,209 [DEBUG] apscheduler.scheduler: Next wakeup is due at 2025-06-01 14:58:44.117964+06:00 (in 299.908928 seconds)
+2025-06-01 14:53:44,228 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-01 14:53:47,876 [INFO] django.utils.autoreload: /home/baibolot/flower_shop_project/flower_shop/views.py changed, reloading.
+2025-06-01 14:53:49,947 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-01 14:53:49,948 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-01 14:53:49,990 [INFO] apscheduler.scheduler: Added job "assign_florist_task" to job store "default"
+2025-06-01 14:53:50,001 [INFO] apscheduler.scheduler: Added job "assign_courier_task" to job store "default"
+2025-06-01 14:53:50,002 [INFO] apscheduler.scheduler: Scheduler started
+2025-06-01 14:53:50,003 [DEBUG] apscheduler.scheduler: Looking for jobs to run
+2025-06-01 14:53:50,037 [DEBUG] apscheduler.scheduler: Next wakeup is due at 2025-06-01 14:58:49.947239+06:00 (in 299.909423 seconds)
+2025-06-01 14:53:50,052 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-01 14:53:51,702 [INFO] django.server: "GET / HTTP/1.1" 302 0
+2025-06-01 14:53:51,794 [INFO] django.server: "GET /catalog/ HTTP/1.1" 200 38175
+2025-06-01 14:53:58,405 [INFO] django.server: "GET / HTTP/1.1" 302 0
+2025-06-01 14:53:58,494 [INFO] django.server: "GET /catalog/ HTTP/1.1" 200 38175
+2025-06-01 14:54:00,512 [INFO] django.server: "POST /accounts/logout/ HTTP/1.1" 302 0
+2025-06-01 14:54:00,579 [INFO] django.server: "GET /catalog/ HTTP/1.1" 200 37291
+2025-06-01 14:54:02,155 [INFO] django.server: "GET /accounts/login/ HTTP/1.1" 200 16176
+2025-06-01 14:54:02,508 [WARNING] django.request: Not Found: /favicon.ico
+2025-06-01 14:54:12,539 [INFO] users.views: Successful login for user florist1@example.com with role florist
+2025-06-01 14:54:12,540 [INFO] users.views: Redirecting user florist1@example.com to /orders/florist/dashboard/
+2025-06-01 14:54:12,548 [INFO] django.server: "POST /accounts/login/ HTTP/1.1" 302 0
+2025-06-01 14:54:12,605 [INFO] django.server: "GET /orders/florist/dashboard/ HTTP/1.1" 200 11985
+2025-06-01 14:54:16,386 [INFO] django.server: "GET / HTTP/1.1" 302 0
+2025-06-01 14:54:16,417 [INFO] django.server: "GET /catalog/ HTTP/1.1" 302 0
+2025-06-01 14:54:16,507 [INFO] django.server: "GET /catalog/ HTTP/1.1" 302 0
+2025-06-01 14:54:16,578 [INFO] django.server: "GET /catalog/ HTTP/1.1" 302 0
+2025-06-01 14:54:16,647 [INFO] django.server: "GET /catalog/ HTTP/1.1" 302 0
+2025-06-01 14:54:16,714 [INFO] django.server: "GET /catalog/ HTTP/1.1" 302 0
+2025-06-01 14:54:16,781 [INFO] django.server: "GET /catalog/ HTTP/1.1" 302 0
+2025-06-01 14:54:16,848 [INFO] django.server: "GET /catalog/ HTTP/1.1" 302 0
+2025-06-01 14:54:16,914 [INFO] django.server: "GET /catalog/ HTTP/1.1" 302 0
+2025-06-01 14:54:16,983 [INFO] django.server: "GET /catalog/ HTTP/1.1" 302 0
+2025-06-01 14:54:17,051 [INFO] django.server: "GET /catalog/ HTTP/1.1" 302 0
+2025-06-01 14:54:17,122 [INFO] django.server: "GET /catalog/ HTTP/1.1" 302 0
+2025-06-01 14:54:17,191 [INFO] django.server: "GET /catalog/ HTTP/1.1" 302 0
+2025-06-01 14:54:17,259 [INFO] django.server: "GET /catalog/ HTTP/1.1" 302 0
+2025-06-01 14:54:17,328 [INFO] django.server: "GET /catalog/ HTTP/1.1" 302 0
+2025-06-01 14:54:17,394 [INFO] django.server: "GET /catalog/ HTTP/1.1" 302 0
+2025-06-01 14:54:17,461 [INFO] django.server: "GET /catalog/ HTTP/1.1" 302 0
+2025-06-01 14:54:17,529 [INFO] django.server: "GET /catalog/ HTTP/1.1" 302 0
+2025-06-01 14:54:17,596 [INFO] django.server: "GET /catalog/ HTTP/1.1" 302 0
+2025-06-01 14:54:17,665 [INFO] django.server: "GET /catalog/ HTTP/1.1" 302 0
+2025-06-01 14:54:17,731 [INFO] django.server: "GET /catalog/ HTTP/1.1" 302 0
+2025-06-01 14:55:01,697 [INFO] django.utils.autoreload: /home/baibolot/flower_shop_project/core/decorators.py changed, reloading.
+2025-06-01 14:55:04,271 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-01 14:55:04,271 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-01 14:55:04,311 [INFO] apscheduler.scheduler: Added job "assign_florist_task" to job store "default"
+2025-06-01 14:55:04,323 [INFO] apscheduler.scheduler: Added job "assign_courier_task" to job store "default"
+2025-06-01 14:55:04,324 [INFO] apscheduler.scheduler: Scheduler started
+2025-06-01 14:55:04,324 [DEBUG] apscheduler.scheduler: Looking for jobs to run
+2025-06-01 14:55:04,360 [DEBUG] apscheduler.scheduler: Next wakeup is due at 2025-06-01 15:00:04.270905+06:00 (in 299.910521 seconds)
+2025-06-01 14:55:04,377 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-01 14:55:07,015 [INFO] django.utils.autoreload: /home/baibolot/flower_shop_project/core/decorators.py changed, reloading.
+2025-06-01 14:55:09,209 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-01 14:55:09,210 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-01 14:55:09,253 [INFO] apscheduler.scheduler: Added job "assign_florist_task" to job store "default"
+2025-06-01 14:55:09,267 [INFO] apscheduler.scheduler: Added job "assign_courier_task" to job store "default"
+2025-06-01 14:55:09,267 [INFO] apscheduler.scheduler: Scheduler started
+2025-06-01 14:55:09,268 [DEBUG] apscheduler.scheduler: Looking for jobs to run
+2025-06-01 14:55:09,306 [DEBUG] apscheduler.scheduler: Next wakeup is due at 2025-06-01 15:00:09.209141+06:00 (in 299.902682 seconds)
+2025-06-01 14:55:09,329 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-01 14:55:25,318 [INFO] django.utils.autoreload: /home/baibolot/flower_shop_project/flower_shop/views.py changed, reloading.
+2025-06-01 14:55:27,562 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-01 14:55:27,563 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-01 14:55:27,612 [INFO] apscheduler.scheduler: Added job "assign_florist_task" to job store "default"
+2025-06-01 14:55:27,626 [INFO] apscheduler.scheduler: Added job "assign_courier_task" to job store "default"
+2025-06-01 14:55:27,626 [INFO] apscheduler.scheduler: Scheduler started
+2025-06-01 14:55:27,627 [DEBUG] apscheduler.scheduler: Looking for jobs to run
+2025-06-01 14:55:27,669 [DEBUG] apscheduler.scheduler: Next wakeup is due at 2025-06-01 15:00:27.562222+06:00 (in 299.893105 seconds)
+2025-06-01 14:55:27,685 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-01 14:55:31,033 [INFO] django.utils.autoreload: /home/baibolot/flower_shop_project/flower_shop/views.py changed, reloading.
+2025-06-01 14:55:33,285 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-01 14:55:33,286 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-01 14:55:33,333 [INFO] apscheduler.scheduler: Added job "assign_florist_task" to job store "default"
+2025-06-01 14:55:33,345 [INFO] apscheduler.scheduler: Added job "assign_courier_task" to job store "default"
+2025-06-01 14:55:33,346 [INFO] apscheduler.scheduler: Scheduler started
+2025-06-01 14:55:33,347 [DEBUG] apscheduler.scheduler: Looking for jobs to run
+2025-06-01 14:55:33,379 [DEBUG] apscheduler.scheduler: Next wakeup is due at 2025-06-01 15:00:33.285022+06:00 (in 299.905452 seconds)
+2025-06-01 14:55:33,399 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-01 14:56:14,648 [INFO] django.utils.autoreload: /home/baibolot/flower_shop_project/flower_shop/views.py changed, reloading.
+2025-06-01 14:56:16,874 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-01 14:56:16,875 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-01 14:56:16,918 [INFO] apscheduler.scheduler: Added job "assign_florist_task" to job store "default"
+2025-06-01 14:56:16,931 [INFO] apscheduler.scheduler: Added job "assign_courier_task" to job store "default"
+2025-06-01 14:56:16,931 [INFO] apscheduler.scheduler: Scheduler started
+2025-06-01 14:56:16,932 [DEBUG] apscheduler.scheduler: Looking for jobs to run
+2025-06-01 14:56:16,967 [DEBUG] apscheduler.scheduler: Next wakeup is due at 2025-06-01 15:01:16.874634+06:00 (in 299.906905 seconds)
+2025-06-01 14:56:16,987 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-01 14:56:24,407 [INFO] django.utils.autoreload: /home/baibolot/flower_shop_project/flower_shop/views.py changed, reloading.
+2025-06-01 14:56:26,707 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-01 14:56:26,708 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-01 14:56:26,751 [INFO] apscheduler.scheduler: Added job "assign_florist_task" to job store "default"
+2025-06-01 14:56:26,763 [INFO] apscheduler.scheduler: Added job "assign_courier_task" to job store "default"
+2025-06-01 14:56:26,764 [INFO] apscheduler.scheduler: Scheduler started
+2025-06-01 14:56:26,764 [DEBUG] apscheduler.scheduler: Looking for jobs to run
+2025-06-01 14:56:26,800 [DEBUG] apscheduler.scheduler: Next wakeup is due at 2025-06-01 15:01:26.707676+06:00 (in 299.907569 seconds)
+2025-06-01 14:56:26,816 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-01 14:56:30,741 [INFO] django.server: "GET /catalog/ HTTP/1.1" 302 0
+2025-06-01 14:56:30,776 [INFO] django.server: "GET /catalog/ HTTP/1.1" 302 0
+2025-06-01 14:56:30,846 [INFO] django.server: "GET /catalog/ HTTP/1.1" 302 0
+2025-06-01 14:56:30,919 [INFO] django.server: "GET /catalog/ HTTP/1.1" 302 0
+2025-06-01 14:56:30,986 [INFO] django.server: "GET /catalog/ HTTP/1.1" 302 0
+2025-06-01 14:56:31,057 [INFO] django.server: "GET /catalog/ HTTP/1.1" 302 0
+2025-06-01 14:56:31,125 [INFO] django.server: "GET /catalog/ HTTP/1.1" 302 0
+2025-06-01 14:56:31,196 [INFO] django.server: "GET /catalog/ HTTP/1.1" 302 0
+2025-06-01 14:56:31,267 [INFO] django.server: "GET /catalog/ HTTP/1.1" 302 0
+2025-06-01 14:56:31,345 [INFO] django.server: "GET /catalog/ HTTP/1.1" 302 0
+2025-06-01 14:56:31,419 [INFO] django.server: "GET /catalog/ HTTP/1.1" 302 0
+2025-06-01 14:56:31,502 [INFO] django.server: "GET /catalog/ HTTP/1.1" 302 0
+2025-06-01 14:56:31,579 [INFO] django.server: "GET /catalog/ HTTP/1.1" 302 0
+2025-06-01 14:56:31,649 [INFO] django.server: "GET /catalog/ HTTP/1.1" 302 0
+2025-06-01 14:56:31,725 [INFO] django.server: "GET /catalog/ HTTP/1.1" 302 0
+2025-06-01 14:56:32,846 [INFO] django.server: "GET /orders/florist/dashboard/ HTTP/1.1" 200 26018
+2025-06-01 14:56:35,098 [INFO] django.server: "GET /orders/florist/dashboard/ HTTP/1.1" 200 11985
+2025-06-01 14:56:39,464 [ERROR] django.request: Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/baibolot/flower_shop_project/.venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/baibolot/flower_shop_project/.venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/baibolot/flower_shop_project/.venv/lib/python3.13/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/baibolot/flower_shop_project/.venv/lib/python3.13/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/baibolot/flower_shop_project/flower_shop/views.py", line 7, in get
+    if request.request.user.role == 'florist':
+       ^^^^^^^^^^^^^^^
+AttributeError: 'WSGIRequest' object has no attribute 'request'
+2025-06-01 14:56:39,469 [ERROR] django.server: "GET / HTTP/1.1" 500 83710
+2025-06-01 14:56:51,561 [INFO] django.utils.autoreload: /home/baibolot/flower_shop_project/flower_shop/views.py changed, reloading.
+2025-06-01 14:56:53,753 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-01 14:56:53,754 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-01 14:56:53,806 [INFO] apscheduler.scheduler: Added job "assign_florist_task" to job store "default"
+2025-06-01 14:56:53,821 [INFO] apscheduler.scheduler: Added job "assign_courier_task" to job store "default"
+2025-06-01 14:56:53,821 [INFO] apscheduler.scheduler: Scheduler started
+2025-06-01 14:56:53,822 [DEBUG] apscheduler.scheduler: Looking for jobs to run
+2025-06-01 14:56:53,855 [DEBUG] apscheduler.scheduler: Next wakeup is due at 2025-06-01 15:01:53.753451+06:00 (in 299.898371 seconds)
+2025-06-01 14:56:53,876 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-01 14:56:55,574 [INFO] django.utils.autoreload: /home/baibolot/flower_shop_project/flower_shop/views.py changed, reloading.
+2025-06-01 14:56:57,826 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-01 14:56:57,827 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-01 14:56:57,870 [INFO] apscheduler.scheduler: Added job "assign_florist_task" to job store "default"
+2025-06-01 14:56:57,883 [INFO] apscheduler.scheduler: Added job "assign_courier_task" to job store "default"
+2025-06-01 14:56:57,883 [INFO] apscheduler.scheduler: Scheduler started
+2025-06-01 14:56:57,884 [DEBUG] apscheduler.scheduler: Looking for jobs to run
+2025-06-01 14:56:57,917 [DEBUG] apscheduler.scheduler: Next wakeup is due at 2025-06-01 15:01:57.825971+06:00 (in 299.908928 seconds)
+2025-06-01 14:56:57,934 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-01 14:56:59,988 [INFO] django.server: "GET / HTTP/1.1" 302 0
+2025-06-01 14:57:00,065 [INFO] django.server: "GET /orders/florist/dashboard/ HTTP/1.1" 200 11985
+2025-06-01 14:57:00,285 [WARNING] django.request: Not Found: /favicon.ico
+2025-06-01 14:57:04,178 [INFO] django.server: "GET / HTTP/1.1" 302 0
+2025-06-01 14:57:04,236 [INFO] django.server: "GET /orders/florist/dashboard/ HTTP/1.1" 200 11985
+2025-06-01 15:01:57,827 [DEBUG] apscheduler.scheduler: Looking for jobs to run
+2025-06-01 15:01:57,833 [INFO] apscheduler.executors.default: Running job "assign_florist_task (trigger: interval[0:05:00], next run at: 2025-06-01 15:06:57 +06)" (scheduled at 2025-06-01 15:01:57.825971+06:00)
+2025-06-01 15:01:57,835 [INFO] core.tasks: === Начало выполнения assign_florist_task ===
+2025-06-01 15:01:57,849 [INFO] apscheduler.executors.default: Running job "assign_courier_task (trigger: interval[0:05:00], next run at: 2025-06-01 15:06:57 +06)" (scheduled at 2025-06-01 15:01:57.826768+06:00)
+2025-06-01 15:01:57,853 [INFO] core.tasks: === Начало выполнения assign_courier_task ===
+2025-06-01 15:01:57,876 [INFO] core.tasks: Найдено 0 заказов для назначения флористам
+2025-06-01 15:01:57,878 [INFO] core.tasks: Текущее время: 2025-06-01 09:01:57.835970+00:00, мин. порог: 2025-06-01 09:31:57.835970+00:00, макс. порог: 2025-06-01 12:31:57.835970+00:00
+2025-06-01 15:01:57,888 [INFO] core.tasks: Нет заказов для назначения флористов.
+2025-06-01 15:01:57,889 [INFO] core.tasks: Найдено 0 заказов для назначения курьерам
+2025-06-01 15:01:57,890 [INFO] apscheduler.executors.default: Job "assign_florist_task (trigger: interval[0:05:00], next run at: 2025-06-01 15:06:57 +06)" executed successfully
+2025-06-01 15:01:57,890 [INFO] core.tasks: Нет заказов для назначения курьерам.
+2025-06-01 15:01:57,891 [INFO] apscheduler.executors.default: Job "assign_courier_task (trigger: interval[0:05:00], next run at: 2025-06-01 15:06:57 +06)" executed successfully
+2025-06-01 15:01:57,904 [DEBUG] apscheduler.scheduler: Next wakeup is due at 2025-06-01 15:06:57.825971+06:00 (in 299.921542 seconds)
+2025-06-01 15:03:51,164 [WARNING] django.security.csrf: Forbidden (CSRF token from POST incorrect.): /accounts/logout/
+2025-06-01 15:03:51,166 [WARNING] django.server: "POST /accounts/logout/ HTTP/1.1" 403 2545
+2025-06-01 15:03:55,256 [INFO] django.server: "GET /catalog/ HTTP/1.1" 302 0
+2025-06-01 15:03:55,289 [INFO] django.server: "GET /catalog/ HTTP/1.1" 302 0
+2025-06-01 15:03:55,359 [INFO] django.server: "GET /catalog/ HTTP/1.1" 302 0
+2025-06-01 15:03:55,436 [INFO] django.server: "GET /catalog/ HTTP/1.1" 302 0
+2025-06-01 15:03:55,510 [INFO] django.server: "GET /catalog/ HTTP/1.1" 302 0
+2025-06-01 15:03:55,586 [INFO] django.server: "GET /catalog/ HTTP/1.1" 302 0
+2025-06-01 15:03:55,656 [INFO] django.server: "GET /catalog/ HTTP/1.1" 302 0
+2025-06-01 15:03:55,726 [INFO] django.server: "GET /catalog/ HTTP/1.1" 302 0
+2025-06-01 15:03:55,799 [INFO] django.server: "GET /catalog/ HTTP/1.1" 302 0
+2025-06-01 15:03:55,935 [INFO] django.server: "GET /catalog/ HTTP/1.1" 302 0
+2025-06-01 15:03:56,000 [INFO] django.server: "GET /catalog/ HTTP/1.1" 302 0
+2025-06-01 15:03:56,150 [INFO] django.server: "GET /catalog/ HTTP/1.1" 302 0
+2025-06-01 15:03:56,183 [INFO] django.server: "GET /catalog/ HTTP/1.1" 302 0
+2025-06-01 15:03:56,258 [INFO] django.server: "GET /catalog/ HTTP/1.1" 302 0
+2025-06-01 15:03:56,333 [INFO] django.server: "GET /catalog/ HTTP/1.1" 302 0
+2025-06-01 15:03:56,542 [INFO] django.server: "GET /catalog/ HTTP/1.1" 302 0
+2025-06-01 15:03:56,576 [INFO] django.server: "GET /catalog/ HTTP/1.1" 302 0
+2025-06-01 15:03:56,653 [INFO] django.server: "GET /catalog/ HTTP/1.1" 302 0
+2025-06-01 15:03:56,722 [INFO] django.server: "GET /catalog/ HTTP/1.1" 302 0
+2025-06-01 15:03:56,796 [INFO] django.server: "GET /catalog/ HTTP/1.1" 302 0
+2025-06-01 15:03:57,051 [INFO] django.server: "GET /catalog/ HTTP/1.1" 302 0
+2025-06-01 15:05:15,008 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-01 15:05:15,009 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-01 15:05:15,054 [INFO] apscheduler.scheduler: Added job "assign_florist_task" to job store "default"
+2025-06-01 15:05:15,066 [INFO] apscheduler.scheduler: Added job "assign_courier_task" to job store "default"
+2025-06-01 15:05:15,066 [INFO] apscheduler.scheduler: Scheduler started
+2025-06-01 15:05:15,067 [DEBUG] apscheduler.scheduler: Looking for jobs to run
+2025-06-01 15:05:15,101 [DEBUG] apscheduler.scheduler: Next wakeup is due at 2025-06-01 15:10:15.008574+06:00 (in 299.906999 seconds)
+2025-06-01 15:05:15,116 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-01 15:05:37,516 [INFO] django.server: "GET /orders/florist/dashboard/ HTTP/1.1" 200 20432
+2025-06-01 15:05:37,714 [WARNING] django.request: Not Found: /favicon.ico
+2025-06-01 15:05:39,024 [INFO] django.server: "GET /orders/florist/dashboard/ HTTP/1.1" 200 11985
+2025-06-01 15:05:43,421 [INFO] django.server: "GET / HTTP/1.1" 302 0
+2025-06-01 15:05:43,463 [INFO] django.server: "GET /orders/florist/dashboard/ HTTP/1.1" 200 11985
+2025-06-01 15:06:00,596 [INFO] django.server: "GET /orders/florist/dashboard/ HTTP/1.1" 200 11985
+2025-06-01 15:07:40,766 [INFO] django.utils.autoreload: /home/baibolot/flower_shop_project/flower_shop/settings.py changed, reloading.
+2025-06-01 15:07:43,198 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-01 15:07:43,199 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-01 15:07:43,242 [INFO] apscheduler.scheduler: Added job "assign_florist_task" to job store "default"
+2025-06-01 15:07:43,256 [INFO] apscheduler.scheduler: Added job "assign_courier_task" to job store "default"
+2025-06-01 15:07:43,257 [INFO] apscheduler.scheduler: Scheduler started
+2025-06-01 15:07:43,258 [DEBUG] apscheduler.scheduler: Looking for jobs to run
+2025-06-01 15:07:43,292 [DEBUG] apscheduler.scheduler: Next wakeup is due at 2025-06-01 15:12:43.197828+06:00 (in 299.905606 seconds)
+2025-06-01 15:07:43,316 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-01 15:08:00,061 [INFO] django.server: "GET / HTTP/1.1" 302 0
+2025-06-01 15:08:00,253 [INFO] django.server: "GET /catalog/ HTTP/1.1" 200 37291
+2025-06-01 15:08:00,490 [INFO] django.server: "GET / HTTP/1.1" 302 0
+2025-06-01 15:08:00,735 [INFO] django.server: "GET /catalog/ HTTP/1.1" 200 37291
+2025-06-01 15:08:15,280 [INFO] django.server: "GET / HTTP/1.1" 302 0
+2025-06-01 15:08:15,517 [INFO] django.server: "GET /catalog/ HTTP/1.1" 200 37291
+2025-06-01 15:08:15,911 [INFO] django.server: "GET /static/css/style.css HTTP/1.1" 200 0
+2025-06-01 15:08:16,323 [INFO] django.server: "GET /media/bouquets/%D0%97%D0%BE%D0%BB%D0%BE%D1%82%D0%BE%D0%B5%20%D1%81%D0%B8%D1%8F%D0%BD%D0%B8%D0%B5.webp HTTP/1.1" 200 137152
+2025-06-01 15:08:16,325 [INFO] django.server: "GET /media/bouquets/%D0%92%D0%B5%D1%81%D0%B5%D0%BD%D0%BD%D0%B5%D0%B5%20%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B5%D0%BD%D0%B8%D0%B5.jpg HTTP/1.1" 200 135731
+2025-06-01 15:08:16,440 [INFO] django.server: "GET /static/js/main.js HTTP/1.1" 200 0
+2025-06-01 15:08:16,442 [INFO] django.server: "GET /media/bouquets/%D0%A0%D0%BE%D0%BC%D0%B0%D0%BD%D1%82%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9%20%D1%81%D1%8E%D1%80%D0%BF%D1%80%D0%B8%D0%B7 HTTP/1.1" 200 9897
+2025-06-01 15:08:16,443 [INFO] django.server: "GET /media/bouquets/%D0%A1%D0%BE%D0%BB%D0%BD%D0%B5%D1%87%D0%BD%D1%8B%D0%B9%20%D0%B4%D0%B5%D0%BD%D1%8C.jpg HTTP/1.1" 200 11011
+2025-06-01 15:08:16,449 [INFO] django.server: "GET /media/bouquets/%D0%9E%D1%81%D0%B5%D0%BD%D0%BD%D0%B8%D0%B9%20%D0%B2%D0%B0%D0%BB%D1%8C%D1%81.jpg HTTP/1.1" 200 135051
+2025-06-01 15:08:16,453 [INFO] django.server: "GET /media/bouquets/%D0%9F%D1%80%D0%BE%D1%81%D1%82%D0%BE%20%D1%82%D0%B0%D0%BA.jpg HTTP/1.1" 200 141475
+2025-06-01 15:08:16,455 [INFO] django.server: "GET /media/bouquets/%D0%9A%D0%BE%D1%80%D0%BE%D0%BB%D0%B5%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%20%D1%81%D0%B8%D0%BD%D0%B8%D0%B9.webp HTTP/1.1" 200 394886
+2025-06-01 15:08:16,458 [INFO] django.server: "GET /media/bouquets/%D0%9D%D0%B5%D0%B6%D0%BD%D0%BE%D0%B5%20%D0%BF%D1%80%D0%B8%D0%B7%D0%BD%D0%B0%D0%BD%D0%B8%D0%B5.jpg HTTP/1.1" 200 180370
+2025-06-01 15:08:16,462 [INFO] django.server: "GET /media/bouquets/%D0%9F%D0%BE%D0%BB%D0%B5%D0%B2%D0%BE%D0%B9%20%D1%88%D0%B8%D0%BA.jpg HTTP/1.1" 200 944540
+2025-06-01 15:08:17,341 [WARNING] django.request: Not Found: /favicon.ico
+2025-06-01 15:08:17,341 [WARNING] django.server: "GET /favicon.ico HTTP/1.1" 404 3328
+2025-06-01 15:08:17,934 [INFO] django.server: "GET /accounts/login/ HTTP/1.1" 200 16176
+2025-06-01 15:08:23,490 [INFO] users.views: Successful login for user florist1@example.com with role florist
+2025-06-01 15:08:23,493 [INFO] users.views: Redirecting user florist1@example.com to /orders/florist/dashboard/
+2025-06-01 15:08:23,501 [INFO] django.server: "POST /accounts/login/ HTTP/1.1" 302 0
+2025-06-01 15:08:23,729 [INFO] django.server: "GET /orders/florist/dashboard/ HTTP/1.1" 200 11985
+2025-06-01 15:08:27,878 [INFO] django.server: "GET / HTTP/1.1" 302 0
+2025-06-01 15:08:28,105 [INFO] django.server: "GET /orders/florist/dashboard/ HTTP/1.1" 200 11985
+2025-06-01 15:08:32,276 [INFO] django.server: "GET // HTTP/1.1" 302 0
+2025-06-01 15:08:32,503 [INFO] django.server: "GET /orders/florist/dashboard/ HTTP/1.1" 200 11985

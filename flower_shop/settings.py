@@ -28,7 +28,7 @@ DEBUG = True
 ALLOWED_HOSTS = ["*"]
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://2277-185-66-252-23.ngrok-free.app', # Замените на ваш актуальный ngrok URL
+    'https://e455-185-66-252-23.ngrok-free.app', # Замените на ваш актуальный ngrok URL
 ]
 
 # Application definition
