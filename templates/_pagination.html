@@ -1,40 +1,72 @@
-{% if is_paginated %}
-<nav aria-label="Page navigation" class="mt-4">
-    <ul class="pagination justify-content-center">
-        {% if page_obj.has_previous %}
-            {% comment %} Сохраняем GET-параметры (q, sort, status) при переходе по страницам {% endcomment %}
-            {% with url_params=request.GET.urlencode %}
-            <li class="page-item">
-                <a class="page-link" href="?page={{ page_obj.previous_page_number }}{% if url_params %}&{{ url_params }}{% endif %}">‹ Пред.</a>
-            </li>
-            {% endwith %}
-        {% else %}
-             <li class="page-item disabled"><span class="page-link">‹ Пред.</span></li>
-        {% endif %}
+{% load static %}
 
-        {% for i in paginator.page_range %}
-            {% if page_obj.number == i %}
-                <li class="page-item active" aria-current="page"><span class="page-link">{{ i }}</span></li>
-            {% elif i > page_obj.number|add:'-3' and i < page_obj.number|add:'3' %} {# Показываем несколько страниц вокруг текущей #}
-                 {% with url_params=request.GET.urlencode %}
-                 <li class="page-item">
-                     <a class="page-link" href="?page={{ i }}{% if url_params %}&{{ url_params }}{% endif %}">{{ i }}</a>
-                 </li>
-                 {% endwith %}
-             {% elif i == page_obj.number|add:'-3' or i == page_obj.number|add:'3' %}
-                 <li class="page-item disabled"><span class="page-link">...</span></li>
+{% if page_obj.paginator.num_pages > 1 %}
+    <nav aria-label="Page navigation" class="mt-4">
+        <ul class="pagination justify-content-center">
+            {% if page_obj.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.previous_page_number }}{% for key, value in request.GET.items %}{% if key != 'page' %}&{{ key }}={{ value }}{% endif %}{% endfor %}">
+                        <i class="bi bi-chevron-left"></i>
+                    </a>
+                </li>
+            {% else %}
+                <li class="page-item disabled">
+                    <span class="page-link"><i class="bi bi-chevron-left"></i></span>
+                </li>
             {% endif %}
-        {% endfor %}
 
-        {% if page_obj.has_next %}
-             {% with url_params=request.GET.urlencode %}
-             <li class="page-item">
-                 <a class="page-link" href="?page={{ page_obj.next_page_number }}{% if url_params %}&{{ url_params }}{% endif %}">След. ›</a>
-             </li>
-             {% endwith %}
-        {% else %}
-            <li class="page-item disabled"><span class="page-link">След. ›</span></li>
-        {% endif %}
-    </ul>
-</nav>
+            {% for i in page_obj.paginator.page_range %}
+                {% if page_obj.number == i %}
+                    <li class="page-item active">
+                        <span class="page-link">{{ i }}</span>
+                    </li>
+                {% else %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ i }}{% for key, value in request.GET.items %}{% if key != 'page' %}&{{ key }}={{ value }}{% endif %}{% endfor %}">{{ i }}</a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+
+            {% if page_obj.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.next_page_number }}{% for key, value in request.GET.items %}{% if key != 'page' %}&{{ key }}={{ value }}{% endif %}{% endfor %}">
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                </li>
+            {% else %}
+                <li class="page-item disabled">
+                    <span class="page-link"><i class="bi bi-chevron-right"></i></span>
+                </li>
+            {% endif %}
+        </ul>
+    </nav>
 {% endif %}
+
+<style>
+.pagination {
+    margin-top: 3rem;
+}
+
+.page-link {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    border: none;
+    margin: 0 3px;
+    color: var(--text-color);
+    border-radius: 50%;
+}
+
+.page-item.active .page-link {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.page-link:hover {
+    background-color: var(--light-bg);
+    color: var(--primary-color);
+}
+</style>

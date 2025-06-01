@@ -1,0 +1,113 @@
+{% load static %}
+
+<div class="filters-section mb-4">
+    <div class="card">
+        <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h5 class="card-title mb-0">Фильтры</h5>
+                {% if current_query or current_min_price or current_max_price or current_tag %}
+                    <a href="{% url 'catalog:bouquet_list' %}" class="btn btn-outline-secondary btn-sm">
+                        <i class="bi bi-x-circle"></i> Очистить фильтры
+                    </a>
+                {% endif %}
+            </div>
+
+            <form method="get" action="{% url 'catalog:bouquet_list' %}" class="filter-form">
+                <!-- Price Range Filter -->
+                <div class="mb-3">
+                    <h6 class="filter-heading">Диапазон цен</h6>
+                    <div class="row g-2">
+                        <div class="col">
+                            <input type="number" name="min_price" class="form-control" placeholder="От" value="{{ current_min_price }}">
+                        </div>
+                        <div class="col">
+                            <input type="number" name="max_price" class="form-control" placeholder="До" value="{{ current_max_price }}">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tag Filter -->
+                <div class="mb-3">
+                    <h6 class="filter-heading">Теги</h6>
+                    <div class="tag-buttons">
+                        <a href="{% url 'catalog:bouquet_list' %}{% if current_query %}?q={{ current_query }}{% endif %}" 
+                           class="btn btn-sm mb-1 {% if not current_tag %}btn-primary{% else %}btn-outline-primary{% endif %}">
+                            Все
+                        </a>
+                        {% for tag in all_tags %}
+                        <a href="?tag={{ tag }}{% if current_query %}&q={{ current_query }}{% endif %}" 
+                           class="btn btn-sm mb-1 {% if current_tag == tag %}btn-primary{% else %}btn-outline-primary{% endif %}">
+                            {{ tag }}
+                        </a>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <!-- Search -->
+                <div class="mb-3">
+                    <h6 class="filter-heading">Поиск</h6>
+                    <div class="input-group">
+                        <input type="text" name="q" class="form-control" placeholder="Поиск букетов..." value="{{ current_query }}">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Hidden fields to preserve sorting -->
+                <input type="hidden" name="sort" value="{{ current_sort }}">
+
+                <!-- Apply Filters Button -->
+                <button type="submit" class="btn btn-primary w-100">
+                    Применить фильтры
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<style>
+.filters-section .card {
+    border-radius: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.filter-heading {
+    color: var(--text-color);
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+}
+
+.tag-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tag-buttons .btn {
+    border-radius: 20px;
+    padding: 0.25rem 0.75rem;
+}
+
+.filter-form .form-control {
+    border-radius: 20px;
+}
+
+.filter-form .input-group .form-control {
+    border-radius: 20px 0 0 20px;
+}
+
+.filter-form .input-group .btn {
+    border-radius: 0 20px 20px 0;
+}
+
+.btn-outline-secondary {
+    border-color: #dee2e6;
+}
+
+.btn-outline-secondary:hover {
+    background-color: #f8f9fa;
+    border-color: #dee2e6;
+    color: var(--primary-color);
+}
+</style>

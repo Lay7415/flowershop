@@ -137,3 +137,427 @@
 2025-06-01 09:18:54,996 [INFO] core.tasks: === Начало выполнения assign_courier_task ===
 2025-06-01 09:18:54,998 [INFO] core.tasks: Найдено 0 заказов для назначения курьерам
 2025-06-01 09:18:54,998 [INFO] core.tasks: Нет заказов для назначения курьерам.
+2025-06-01 09:30:09,973 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-01 09:30:09,973 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-01 09:30:09,997 [INFO] apscheduler.scheduler: Added job "assign_florist_task" to job store "default"
+2025-06-01 09:30:10,005 [INFO] apscheduler.scheduler: Added job "assign_courier_task" to job store "default"
+2025-06-01 09:30:10,005 [INFO] apscheduler.scheduler: Scheduler started
+2025-06-01 09:30:10,005 [DEBUG] apscheduler.scheduler: Looking for jobs to run
+2025-06-01 09:30:10,024 [DEBUG] apscheduler.scheduler: Next wakeup is due at 2025-06-01 09:35:09.972958+06:00 (in 299.948508 seconds)
+2025-06-01 09:30:10,033 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-01 09:30:11,767 [INFO] core.tasks: === Начало выполнения assign_florist_task ===
+2025-06-01 09:30:11,787 [INFO] core.tasks: Найдено 0 заказов для назначения флористам
+2025-06-01 09:30:11,788 [INFO] core.tasks: Текущее время: 2025-06-01 03:30:11.767957+00:00, мин. порог: 2025-06-01 04:00:11.767957+00:00, макс. порог: 2025-06-01 07:00:11.767957+00:00
+2025-06-01 09:30:11,791 [INFO] core.tasks: Нет заказов для назначения флористов.
+2025-06-01 09:30:11,792 [INFO] core.tasks: === Начало выполнения assign_courier_task ===
+2025-06-01 09:30:11,794 [INFO] core.tasks: Найдено 0 заказов для назначения курьерам
+2025-06-01 09:30:11,794 [INFO] core.tasks: Нет заказов для назначения курьерам.
+2025-06-01 09:30:17,887 [INFO] django.server: "GET /catalog/ HTTP/1.1" 200 31358
+2025-06-01 09:30:18,067 [INFO] django.server: "GET /media/bouquets/%D0%92%D0%B5%D1%81%D0%B5%D0%BD%D0%BD%D0%B5%D0%B5%20%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B5%D0%BD%D0%B8%D0%B5.jpg HTTP/1.1" 200 135731
+2025-06-01 09:30:18,069 [INFO] django.server: "GET /media/bouquets/%D0%9A%D0%BE%D1%80%D0%BE%D0%BB%D0%B5%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%20%D1%81%D0%B8%D0%BD%D0%B8%D0%B9.webp HTTP/1.1" 200 394886
+2025-06-01 09:30:18,071 [INFO] django.server: "GET /media/bouquets/%D0%9E%D1%81%D0%B5%D0%BD%D0%BD%D0%B8%D0%B9%20%D0%B2%D0%B0%D0%BB%D1%8C%D1%81.jpg HTTP/1.1" 200 135051
+2025-06-01 09:30:18,074 [INFO] django.server: "GET /media/bouquets/%D0%97%D0%BE%D0%BB%D0%BE%D1%82%D0%BE%D0%B5%20%D1%81%D0%B8%D1%8F%D0%BD%D0%B8%D0%B5.webp HTTP/1.1" 200 137152
+2025-06-01 09:30:18,078 [INFO] django.server: "GET /media/bouquets/%D0%9D%D0%B5%D0%B6%D0%BD%D0%BE%D0%B5%20%D0%BF%D1%80%D0%B8%D0%B7%D0%BD%D0%B0%D0%BD%D0%B8%D0%B5.jpg HTTP/1.1" 200 180370
+2025-06-01 09:30:18,090 [INFO] django.server: "GET /media/bouquets/%D0%A0%D0%BE%D0%BC%D0%B0%D0%BD%D1%82%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9%20%D1%81%D1%8E%D1%80%D0%BF%D1%80%D0%B8%D0%B7 HTTP/1.1" 200 9897
+2025-06-01 09:30:18,091 [INFO] django.server: "GET /media/bouquets/%D0%A1%D0%BE%D0%BB%D0%BD%D0%B5%D1%87%D0%BD%D1%8B%D0%B9%20%D0%B4%D0%B5%D0%BD%D1%8C.jpg HTTP/1.1" 200 11011
+2025-06-01 09:30:18,094 [INFO] django.server: "GET /media/bouquets/%D0%9F%D1%80%D0%BE%D1%81%D1%82%D0%BE%20%D1%82%D0%B0%D0%BA.jpg HTTP/1.1" 200 141475
+2025-06-01 09:30:18,098 [INFO] django.server: "GET /media/bouquets/%D0%9F%D0%BE%D0%BB%D0%B5%D0%B2%D0%BE%D0%B9%20%D1%88%D0%B8%D0%BA.jpg HTTP/1.1" 200 944540
+2025-06-01 09:30:18,182 [WARNING] django.request: Not Found: /favicon.ico
+2025-06-01 09:30:19,538 [INFO] django.server: "GET /catalog/ HTTP/1.1" 200 31358
+2025-06-01 09:30:25,522 [INFO] django.server: "POST /accounts/logout/ HTTP/1.1" 302 0
+2025-06-01 09:30:25,554 [INFO] django.server: "GET /catalog/ HTTP/1.1" 200 30478
+2025-06-01 09:30:26,499 [INFO] django.server: "GET /accounts/login/ HTTP/1.1" 200 16176
+2025-06-01 09:31:01,611 [INFO] users.views: Successful login for user client1@example.com with role client
+2025-06-01 09:31:01,611 [INFO] users.views: Redirecting user client1@example.com to /catalog/
+2025-06-01 09:31:01,616 [INFO] django.server: "POST /accounts/login/ HTTP/1.1" 302 0
+2025-06-01 09:31:01,650 [INFO] django.server: "GET /catalog/ HTTP/1.1" 200 31362
+2025-06-01 09:31:06,808 [INFO] django.server: "GET /catalog/5/ HTTP/1.1" 200 23295
+2025-06-01 09:31:06,896 [INFO] django.server: "GET /media/flowers/%D0%A4%D0%B8%D0%BE%D0%BB%D0%B5%D1%82%D0%BE%D0%B2%D0%B0%D1%8F%20%D1%8D%D1%83%D1%81%D1%82%D0%BE%D0%BC%D0%B0.jpg HTTP/1.1" 200 9899
+2025-06-01 09:31:06,898 [INFO] django.server: "GET /media/flowers/%D0%A1%D0%B8%D0%BD%D0%B8%D0%B9%20%D0%B8%D1%80%D0%B8%D1%81.jpg HTTP/1.1" 200 45772
+2025-06-01 09:31:06,901 [INFO] django.server: "GET /media/wrappers/%D0%A6%D0%B2%D0%B5%D1%82%D0%BD%D0%B0%D1%8F%20%D0%BC%D0%B0%D1%82%D0%BE%D0%B2%D0%B0%D1%8F%20%D0%BF%D0%BB%D0%B5%D0%BD%D0%BA%D0%B0%20%D1%81%D0%B8%D0%BD%D1%8F%D1%8F.jpg HTTP/1.1" 200 5175
+2025-06-01 09:31:06,902 [INFO] django.server: "GET /media/ribbons/%D0%A8%D0%B5%D0%BB%D0%BA%D0%BE%D0%B2%D0%B0%D1%8F%20%D0%BB%D0%B5%D0%BD%D1%82%D0%B0%20%D1%81%D0%B8%D0%BD%D1%8F%D1%8F.jpg HTTP/1.1" 200 99430
+2025-06-01 09:31:06,906 [INFO] django.server: "GET /media/ribbons/%D0%A1%D0%B5%D1%80%D0%B5%D0%B1%D1%80%D1%8F%D0%BD%D0%B0%D1%8F%20%D0%BB%D0%B5%D0%BD%D1%82%D0%B0%20%D1%81%20%D0%BB%D1%8E%D1%80%D0%B5%D0%BA%D1%81%D0%BE%D0%BC.jpg HTTP/1.1" 200 78752
+2025-06-01 09:31:11,794 [INFO] core.tasks: === Начало выполнения assign_florist_task ===
+2025-06-01 09:31:11,797 [INFO] core.tasks: Найдено 0 заказов для назначения флористам
+2025-06-01 09:31:11,797 [INFO] core.tasks: Текущее время: 2025-06-01 03:31:11.795323+00:00, мин. порог: 2025-06-01 04:01:11.795323+00:00, макс. порог: 2025-06-01 07:01:11.795323+00:00
+2025-06-01 09:31:11,800 [INFO] core.tasks: Нет заказов для назначения флористов.
+2025-06-01 09:31:11,800 [INFO] core.tasks: === Начало выполнения assign_courier_task ===
+2025-06-01 09:31:11,803 [INFO] core.tasks: Найдено 0 заказов для назначения курьерам
+2025-06-01 09:31:11,803 [INFO] core.tasks: Нет заказов для назначения курьерам.
+2025-06-01 09:31:19,556 [INFO] django.server: "GET /catalog/2/ HTTP/1.1" 200 21967
+2025-06-01 09:31:19,613 [INFO] django.server: "GET /media/wrappers/%D0%9F%D1%80%D0%BE%D0%B7%D1%80%D0%B0%D1%87%D0%BD%D0%B0%D1%8F%20%D0%BF%D0%BB%D0%B5%D0%BD%D0%BA%D0%B0.jpeg HTTP/1.1" 200 63220
+2025-06-01 09:31:19,615 [INFO] django.server: "GET /media/flowers/%D0%9A%D1%80%D0%B0%D1%81%D0%BD%D1%8B%D0%B9%20%D1%82%D1%8E%D0%BB%D1%8C%D0%BF%D0%B0%D0%BD.jpg HTTP/1.1" 200 151843
+2025-06-01 09:31:19,616 [INFO] django.server: "GET /media/ribbons/%D0%9E%D1%80%D0%B3%D0%B0%D0%BD%D0%B7%D0%B0%20%D0%B1%D0%B5%D0%BB%D0%B0%D1%8F HTTP/1.1" 200 120055
+2025-06-01 09:32:11,804 [INFO] core.tasks: === Начало выполнения assign_florist_task ===
+2025-06-01 09:32:11,806 [INFO] core.tasks: Найдено 0 заказов для назначения флористам
+2025-06-01 09:32:11,806 [INFO] core.tasks: Текущее время: 2025-06-01 03:32:11.804489+00:00, мин. порог: 2025-06-01 04:02:11.804489+00:00, макс. порог: 2025-06-01 07:02:11.804489+00:00
+2025-06-01 09:32:11,809 [INFO] core.tasks: Нет заказов для назначения флористов.
+2025-06-01 09:32:11,809 [INFO] core.tasks: === Начало выполнения assign_courier_task ===
+2025-06-01 09:32:11,811 [INFO] core.tasks: Найдено 0 заказов для назначения курьерам
+2025-06-01 09:32:11,811 [INFO] core.tasks: Нет заказов для назначения курьерам.
+2025-06-01 09:33:07,616 [INFO] django.server: "POST /cart/add/2/ HTTP/1.1" 302 0
+2025-06-01 09:33:07,648 [INFO] django.server: "GET /cart/ HTTP/1.1" 200 15094
+2025-06-01 09:33:11,812 [INFO] core.tasks: === Начало выполнения assign_florist_task ===
+2025-06-01 09:33:11,814 [INFO] core.tasks: Найдено 0 заказов для назначения флористам
+2025-06-01 09:33:11,814 [INFO] core.tasks: Текущее время: 2025-06-01 03:33:11.812519+00:00, мин. порог: 2025-06-01 04:03:11.812519+00:00, макс. порог: 2025-06-01 07:03:11.812519+00:00
+2025-06-01 09:33:11,816 [INFO] core.tasks: Нет заказов для назначения флористов.
+2025-06-01 09:33:11,816 [INFO] core.tasks: === Начало выполнения assign_courier_task ===
+2025-06-01 09:33:11,818 [INFO] core.tasks: Найдено 0 заказов для назначения курьерам
+2025-06-01 09:33:11,819 [INFO] core.tasks: Нет заказов для назначения курьерам.
+2025-06-01 09:33:17,940 [INFO] django.server: "POST /cart/update/2/ HTTP/1.1" 302 0
+2025-06-01 09:33:17,969 [INFO] django.server: "GET /cart/ HTTP/1.1" 200 15096
+2025-06-01 09:33:20,814 [INFO] django.server: "POST /cart/update/2/ HTTP/1.1" 302 0
+2025-06-01 09:33:20,839 [INFO] django.server: "GET /cart/ HTTP/1.1" 200 15096
+2025-06-01 09:33:22,496 [INFO] django.server: "GET /orders/create/ HTTP/1.1" 200 25466
+2025-06-01 09:34:04,187 [INFO] django.server: "POST /orders/create/ HTTP/1.1" 302 0
+2025-06-01 09:34:04,232 [INFO] django.server: "GET /orders/1/pay/ HTTP/1.1" 200 14973
+2025-06-01 09:34:11,819 [INFO] core.tasks: === Начало выполнения assign_florist_task ===
+2025-06-01 09:34:11,822 [INFO] core.tasks: Найдено 0 заказов для назначения флористам
+2025-06-01 09:34:11,822 [INFO] core.tasks: Текущее время: 2025-06-01 03:34:11.819620+00:00, мин. порог: 2025-06-01 04:04:11.819620+00:00, макс. порог: 2025-06-01 07:04:11.819620+00:00
+2025-06-01 09:34:11,825 [INFO] core.tasks: Нет заказов для назначения флористов.
+2025-06-01 09:34:11,825 [INFO] core.tasks: === Начало выполнения assign_courier_task ===
+2025-06-01 09:34:11,828 [INFO] core.tasks: Найдено 0 заказов для назначения курьерам
+2025-06-01 09:34:11,828 [INFO] core.tasks: Нет заказов для назначения курьерам.
+2025-06-01 09:34:36,206 [INFO] django.server: "POST /orders/1/pay/ HTTP/1.1" 302 0
+2025-06-01 09:34:36,300 [INFO] django.server: "GET /orders/1/ HTTP/1.1" 200 35324
+2025-06-01 09:34:36,474 [INFO] django.server: "GET /media/bouquets/%D0%92%D0%B5%D1%81%D0%B5%D0%BD%D0%BD%D0%B5%D0%B5%20%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B5%D0%BD%D0%B8%D0%B5.jpg HTTP/1.1" 200 135731
+2025-06-01 09:35:09,973 [DEBUG] apscheduler.scheduler: Looking for jobs to run
+2025-06-01 09:35:09,976 [INFO] apscheduler.executors.default: Running job "assign_florist_task (trigger: interval[0:05:00], next run at: 2025-06-01 09:35:09 +06)" (scheduled at 2025-06-01 09:35:09.972958+06:00)
+2025-06-01 09:35:09,978 [INFO] core.tasks: === Начало выполнения assign_florist_task ===
+2025-06-01 09:35:09,986 [INFO] apscheduler.executors.default: Running job "assign_courier_task (trigger: interval[0:05:00], next run at: 2025-06-01 09:35:09 +06)" (scheduled at 2025-06-01 09:35:09.973452+06:00)
+2025-06-01 09:35:09,988 [INFO] core.tasks: === Начало выполнения assign_courier_task ===
+2025-06-01 09:35:09,994 [INFO] core.tasks: Найдено 1 заказов для назначения флористам
+2025-06-01 09:35:09,994 [INFO] core.tasks: Текущее время: 2025-06-01 03:35:09.978495+00:00, мин. порог: 2025-06-01 04:05:09.978495+00:00, макс. порог: 2025-06-01 07:05:09.978495+00:00
+2025-06-01 09:35:09,999 [INFO] core.tasks: Заказ #1: время доставки 2025-06-01 04:30:00+00:00
+2025-06-01 09:35:10,004 [INFO] core.tasks: Найдено 10 активных флористов
+2025-06-01 09:35:10,005 [INFO] core.tasks: Начинаем распределение заказов между флористами...
+2025-06-01 09:35:10,008 [INFO] core.tasks: Найдено 0 заказов для назначения курьерам
+2025-06-01 09:35:10,008 [INFO] core.tasks: Нет заказов для назначения курьерам.
+2025-06-01 09:35:10,008 [INFO] apscheduler.executors.default: Job "assign_courier_task (trigger: interval[0:05:00], next run at: 2025-06-01 09:40:09 +06)" executed successfully
+2025-06-01 09:35:10,010 [DEBUG] core.tasks: Выбран флорист florist8@example.com для заказа #1
+2025-06-01 09:35:10,016 [INFO] core.tasks: Заказ #1 успешно назначен флористу florist8@example.com
+2025-06-01 09:35:10,016 [INFO] core.tasks: === Завершение assign_florist_task. Назначено заказов: 1 ===
+2025-06-01 09:35:10,017 [INFO] apscheduler.executors.default: Job "assign_florist_task (trigger: interval[0:05:00], next run at: 2025-06-01 09:40:09 +06)" executed successfully
+2025-06-01 09:35:10,021 [DEBUG] apscheduler.scheduler: Next wakeup is due at 2025-06-01 09:40:09.972958+06:00 (in 299.951763 seconds)
+2025-06-01 09:35:11,828 [INFO] core.tasks: === Начало выполнения assign_florist_task ===
+2025-06-01 09:35:11,831 [INFO] core.tasks: Найдено 0 заказов для назначения флористам
+2025-06-01 09:35:11,831 [INFO] core.tasks: Текущее время: 2025-06-01 03:35:11.829028+00:00, мин. порог: 2025-06-01 04:05:11.829028+00:00, макс. порог: 2025-06-01 07:05:11.829028+00:00
+2025-06-01 09:35:11,833 [INFO] core.tasks: Нет заказов для назначения флористов.
+2025-06-01 09:35:11,833 [INFO] core.tasks: === Начало выполнения assign_courier_task ===
+2025-06-01 09:35:11,835 [INFO] core.tasks: Найдено 0 заказов для назначения курьерам
+2025-06-01 09:35:11,835 [INFO] core.tasks: Нет заказов для назначения курьерам.
+2025-06-01 09:35:22,458 [INFO] django.server: "POST /accounts/logout/ HTTP/1.1" 302 0
+2025-06-01 09:35:22,494 [INFO] django.server: "GET /catalog/ HTTP/1.1" 200 30478
+2025-06-01 09:35:22,678 [INFO] django.server: "GET /media/bouquets/%D0%9A%D0%BE%D1%80%D0%BE%D0%BB%D0%B5%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%20%D1%81%D0%B8%D0%BD%D0%B8%D0%B9.webp HTTP/1.1" 304 0
+2025-06-01 09:35:22,679 [INFO] django.server: "GET /media/bouquets/%D0%97%D0%BE%D0%BB%D0%BE%D1%82%D0%BE%D0%B5%20%D1%81%D0%B8%D1%8F%D0%BD%D0%B8%D0%B5.webp HTTP/1.1" 304 0
+2025-06-01 09:35:22,681 [INFO] django.server: "GET /media/bouquets/%D0%9D%D0%B5%D0%B6%D0%BD%D0%BE%D0%B5%20%D0%BF%D1%80%D0%B8%D0%B7%D0%BD%D0%B0%D0%BD%D0%B8%D0%B5.jpg HTTP/1.1" 304 0
+2025-06-01 09:35:22,684 [INFO] django.server: "GET /media/bouquets/%D0%9E%D1%81%D0%B5%D0%BD%D0%BD%D0%B8%D0%B9%20%D0%B2%D0%B0%D0%BB%D1%8C%D1%81.jpg HTTP/1.1" 304 0
+2025-06-01 09:35:22,691 [INFO] django.server: "GET /media/bouquets/%D0%9F%D0%BE%D0%BB%D0%B5%D0%B2%D0%BE%D0%B9%20%D1%88%D0%B8%D0%BA.jpg HTTP/1.1" 304 0
+2025-06-01 09:35:22,692 [INFO] django.server: "GET /media/bouquets/%D0%9F%D1%80%D0%BE%D1%81%D1%82%D0%BE%20%D1%82%D0%B0%D0%BA.jpg HTTP/1.1" 304 0
+2025-06-01 09:35:22,701 [INFO] django.server: "GET /media/bouquets/%D0%A1%D0%BE%D0%BB%D0%BD%D0%B5%D1%87%D0%BD%D1%8B%D0%B9%20%D0%B4%D0%B5%D0%BD%D1%8C.jpg HTTP/1.1" 304 0
+2025-06-01 09:35:22,702 [INFO] django.server: "GET /media/bouquets/%D0%A0%D0%BE%D0%BC%D0%B0%D0%BD%D1%82%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9%20%D1%81%D1%8E%D1%80%D0%BF%D1%80%D0%B8%D0%B7 HTTP/1.1" 200 9897
+2025-06-01 09:35:23,784 [INFO] django.server: "GET /accounts/login/ HTTP/1.1" 200 16176
+2025-06-01 09:35:28,212 [INFO] users.views: Successful login for user florist8@example.com with role florist
+2025-06-01 09:35:28,212 [INFO] users.views: Redirecting user florist8@example.com to /orders/florist/dashboard/
+2025-06-01 09:35:28,217 [INFO] django.server: "POST /accounts/login/ HTTP/1.1" 302 0
+2025-06-01 09:35:28,255 [INFO] django.server: "GET /orders/florist/dashboard/ HTTP/1.1" 200 13332
+2025-06-01 09:35:35,686 [INFO] django.server: "GET /orders/1/ HTTP/1.1" 200 17971
+2025-06-01 09:35:35,795 [INFO] django.server: "GET /media/wrappers/%D0%9F%D1%80%D0%BE%D0%B7%D1%80%D0%B0%D1%87%D0%BD%D0%B0%D1%8F%20%D0%BF%D0%BB%D0%B5%D0%BD%D0%BA%D0%B0.jpeg HTTP/1.1" 200 63220
+2025-06-01 09:35:58,778 [INFO] django.server: "POST /orders/florist/task/1/complete/ HTTP/1.1" 302 0
+2025-06-01 09:35:58,838 [INFO] django.server: "GET /orders/1/ HTTP/1.1" 200 18113
+2025-06-01 09:35:58,965 [INFO] django.server: "GET /media/ribbons/%D0%9E%D1%80%D0%B3%D0%B0%D0%BD%D0%B7%D0%B0%20%D0%B1%D0%B5%D0%BB%D0%B0%D1%8F HTTP/1.1" 200 120055
+2025-06-01 09:36:11,836 [INFO] core.tasks: === Начало выполнения assign_florist_task ===
+2025-06-01 09:36:11,838 [INFO] core.tasks: Найдено 0 заказов для назначения флористам
+2025-06-01 09:36:11,838 [INFO] core.tasks: Текущее время: 2025-06-01 03:36:11.836530+00:00, мин. порог: 2025-06-01 04:06:11.836530+00:00, макс. порог: 2025-06-01 07:06:11.836530+00:00
+2025-06-01 09:36:11,840 [INFO] core.tasks: Нет заказов для назначения флористов.
+2025-06-01 09:36:11,841 [INFO] core.tasks: === Начало выполнения assign_courier_task ===
+2025-06-01 09:36:11,843 [INFO] core.tasks: Найдено 1 заказов для назначения курьерам
+2025-06-01 09:36:11,846 [INFO] core.tasks: Найдено 10 активных курьеров
+2025-06-01 09:36:11,848 [INFO] core.tasks: Начинаем распределение заказов между курьерами...
+2025-06-01 09:36:11,856 [DEBUG] core.tasks: Выбран курьер courier4@example.com для заказа #1
+2025-06-01 09:36:11,861 [INFO] core.tasks: Заказ #1 успешно назначен курьеру courier4@example.com
+2025-06-01 09:36:11,861 [INFO] core.tasks: === Завершение assign_courier_task. Назначено заказов: 1 ===
+2025-06-01 09:36:12,741 [INFO] django.server: "POST /accounts/logout/ HTTP/1.1" 302 0
+2025-06-01 09:36:12,779 [INFO] django.server: "GET /catalog/ HTTP/1.1" 200 30478
+2025-06-01 09:36:13,934 [INFO] django.server: "GET /accounts/login/ HTTP/1.1" 200 16176
+2025-06-01 09:36:38,735 [INFO] users.views: Successful login for user courier4@example.com with role courier
+2025-06-01 09:36:38,735 [INFO] users.views: Redirecting user courier4@example.com to /orders/courier/dashboard/
+2025-06-01 09:36:38,740 [INFO] django.server: "POST /accounts/login/ HTTP/1.1" 302 0
+2025-06-01 09:36:38,774 [INFO] django.server: "GET /orders/courier/dashboard/ HTTP/1.1" 200 13642
+2025-06-01 09:36:44,759 [INFO] django.server: "POST /orders/courier/task/1/start/ HTTP/1.1" 302 0
+2025-06-01 09:36:44,822 [INFO] django.server: "GET /orders/1/ HTTP/1.1" 200 36419
+2025-06-01 09:36:44,977 [INFO] django.server: "GET /media/flowers/%D0%9A%D1%80%D0%B0%D1%81%D0%BD%D1%8B%D0%B9%20%D1%82%D1%8E%D0%BB%D1%8C%D0%BF%D0%B0%D0%BD.jpg HTTP/1.1" 304 0
+2025-06-01 09:36:44,980 [INFO] django.server: "GET /media/flowers/%D0%A1%D0%B8%D0%BD%D0%B8%D0%B9%20%D0%B8%D1%80%D0%B8%D1%81.jpg HTTP/1.1" 304 0
+2025-06-01 09:37:05,182 [INFO] django.server: "POST /orders/courier/task/1/complete/ HTTP/1.1" 302 0
+2025-06-01 09:37:05,244 [INFO] django.server: "GET /orders/1/ HTTP/1.1" 200 35563
+2025-06-01 09:37:08,753 [INFO] django.server: "POST /accounts/logout/ HTTP/1.1" 302 0
+2025-06-01 09:37:08,786 [INFO] django.server: "GET /catalog/ HTTP/1.1" 200 30478
+2025-06-01 09:37:10,250 [INFO] django.server: "GET /accounts/login/ HTTP/1.1" 200 16176
+2025-06-01 09:37:11,861 [INFO] core.tasks: === Начало выполнения assign_florist_task ===
+2025-06-01 09:37:11,866 [INFO] core.tasks: Найдено 0 заказов для назначения флористам
+2025-06-01 09:37:11,866 [INFO] core.tasks: Текущее время: 2025-06-01 03:37:11.862243+00:00, мин. порог: 2025-06-01 04:07:11.862243+00:00, макс. порог: 2025-06-01 07:07:11.862243+00:00
+2025-06-01 09:37:11,870 [INFO] core.tasks: Нет заказов для назначения флористов.
+2025-06-01 09:37:11,870 [INFO] core.tasks: === Начало выполнения assign_courier_task ===
+2025-06-01 09:37:11,873 [INFO] core.tasks: Найдено 0 заказов для назначения курьерам
+2025-06-01 09:37:11,873 [INFO] core.tasks: Нет заказов для назначения курьерам.
+2025-06-01 09:37:17,768 [INFO] users.views: Successful login for user client1@example.com with role client
+2025-06-01 09:37:17,768 [INFO] users.views: Redirecting user client1@example.com to /catalog/
+2025-06-01 09:37:17,772 [INFO] django.server: "POST /accounts/login/ HTTP/1.1" 302 0
+2025-06-01 09:37:17,813 [INFO] django.server: "GET /catalog/ HTTP/1.1" 200 31362
+2025-06-01 09:37:19,902 [INFO] django.server: "GET /orders/my/ HTTP/1.1" 200 13425
+2025-06-01 09:37:21,993 [INFO] django.server: "GET /orders/1/ HTTP/1.1" 200 36133
+2025-06-01 09:37:28,813 [INFO] django.server: "POST /orders/1/confirm/ HTTP/1.1" 302 0
+2025-06-01 09:37:28,870 [INFO] django.server: "GET /orders/1/ HTTP/1.1" 200 35475
+2025-06-01 09:38:11,874 [INFO] core.tasks: === Начало выполнения assign_florist_task ===
+2025-06-01 09:38:11,876 [INFO] core.tasks: Найдено 0 заказов для назначения флористам
+2025-06-01 09:38:11,877 [INFO] core.tasks: Текущее время: 2025-06-01 03:38:11.874496+00:00, мин. порог: 2025-06-01 04:08:11.874496+00:00, макс. порог: 2025-06-01 07:08:11.874496+00:00
+2025-06-01 09:38:11,878 [INFO] core.tasks: Нет заказов для назначения флористов.
+2025-06-01 09:38:11,879 [INFO] core.tasks: === Начало выполнения assign_courier_task ===
+2025-06-01 09:38:11,881 [INFO] core.tasks: Найдено 0 заказов для назначения курьерам
+2025-06-01 09:38:11,881 [INFO] core.tasks: Нет заказов для назначения курьерам.
+2025-06-01 09:38:40,404 [INFO] django.server: "POST /accounts/logout/ HTTP/1.1" 302 0
+2025-06-01 09:38:40,437 [INFO] django.server: "GET /catalog/ HTTP/1.1" 200 30478
+2025-06-01 09:38:43,447 [INFO] django.server: "POST /cart/add/3/ HTTP/1.1" 302 0
+2025-06-01 09:38:43,474 [INFO] django.server: "GET /accounts/login/?next=/cart/add/3/ HTTP/1.1" 200 16658
+2025-06-01 09:39:11,881 [INFO] core.tasks: === Начало выполнения assign_florist_task ===
+2025-06-01 09:39:11,884 [INFO] core.tasks: Найдено 0 заказов для назначения флористам
+2025-06-01 09:39:11,884 [INFO] core.tasks: Текущее время: 2025-06-01 03:39:11.882135+00:00, мин. порог: 2025-06-01 04:09:11.882135+00:00, макс. порог: 2025-06-01 07:09:11.882135+00:00
+2025-06-01 09:39:11,886 [INFO] core.tasks: Нет заказов для назначения флористов.
+2025-06-01 09:39:11,886 [INFO] core.tasks: === Начало выполнения assign_courier_task ===
+2025-06-01 09:39:11,888 [INFO] core.tasks: Найдено 0 заказов для назначения курьерам
+2025-06-01 09:39:11,889 [INFO] core.tasks: Нет заказов для назначения курьерам.
+2025-06-01 09:40:09,974 [DEBUG] apscheduler.scheduler: Looking for jobs to run
+2025-06-01 09:40:09,978 [INFO] apscheduler.executors.default: Running job "assign_florist_task (trigger: interval[0:05:00], next run at: 2025-06-01 09:45:09 +06)" (scheduled at 2025-06-01 09:40:09.972958+06:00)
+2025-06-01 09:40:09,979 [INFO] core.tasks: === Начало выполнения assign_florist_task ===
+2025-06-01 09:40:09,982 [INFO] core.tasks: Найдено 0 заказов для назначения флористам
+2025-06-01 09:40:09,982 [INFO] core.tasks: Текущее время: 2025-06-01 03:40:09.979420+00:00, мин. порог: 2025-06-01 04:10:09.979420+00:00, макс. порог: 2025-06-01 07:10:09.979420+00:00
+2025-06-01 09:40:09,985 [INFO] core.tasks: Нет заказов для назначения флористов.
+2025-06-01 09:40:09,985 [INFO] apscheduler.executors.default: Job "assign_florist_task (trigger: interval[0:05:00], next run at: 2025-06-01 09:45:09 +06)" executed successfully
+2025-06-01 09:40:09,988 [INFO] apscheduler.executors.default: Running job "assign_courier_task (trigger: interval[0:05:00], next run at: 2025-06-01 09:45:09 +06)" (scheduled at 2025-06-01 09:40:09.973452+06:00)
+2025-06-01 09:40:09,992 [INFO] core.tasks: === Начало выполнения assign_courier_task ===
+2025-06-01 09:40:09,994 [INFO] core.tasks: Найдено 0 заказов для назначения курьерам
+2025-06-01 09:40:09,995 [INFO] core.tasks: Нет заказов для назначения курьерам.
+2025-06-01 09:40:09,996 [INFO] apscheduler.executors.default: Job "assign_courier_task (trigger: interval[0:05:00], next run at: 2025-06-01 09:45:09 +06)" executed successfully
+2025-06-01 09:40:10,009 [DEBUG] apscheduler.scheduler: Next wakeup is due at 2025-06-01 09:45:09.972958+06:00 (in 299.963371 seconds)
+2025-06-01 09:40:11,889 [INFO] core.tasks: === Начало выполнения assign_florist_task ===
+2025-06-01 09:40:11,892 [INFO] core.tasks: Найдено 0 заказов для назначения флористам
+2025-06-01 09:40:11,892 [INFO] core.tasks: Текущее время: 2025-06-01 03:40:11.889827+00:00, мин. порог: 2025-06-01 04:10:11.889827+00:00, макс. порог: 2025-06-01 07:10:11.889827+00:00
+2025-06-01 09:40:11,894 [INFO] core.tasks: Нет заказов для назначения флористов.
+2025-06-01 09:40:11,894 [INFO] core.tasks: === Начало выполнения assign_courier_task ===
+2025-06-01 09:40:11,897 [INFO] core.tasks: Найдено 0 заказов для назначения курьерам
+2025-06-01 09:40:11,897 [INFO] core.tasks: Нет заказов для назначения курьерам.
+2025-06-01 09:40:45,913 [INFO] django.server: "GET /catalog/?q=%D0%AD%D0%BB%D0%B5%D0%B3%D0%B0%D0%BD%D1%82%D0%BD%D1%8B%D0%B9+%D0%B1%D1%83%D0%BA%D0%B5%D1%82+%D0%B2+%D1%81%D0%B8%D0%BD%D0%B8%D1%85+%D1%82%D0%BE%D0%BD%D0%B0%D1%85.&sort= HTTP/1.1" 200 16866
+2025-06-01 09:40:46,046 [INFO] django.server: "GET /media/bouquets/%D0%9A%D0%BE%D1%80%D0%BE%D0%BB%D0%B5%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%20%D1%81%D0%B8%D0%BD%D0%B8%D0%B9.webp HTTP/1.1" 304 0
+2025-06-01 09:41:11,898 [INFO] core.tasks: === Начало выполнения assign_florist_task ===
+2025-06-01 09:41:11,900 [INFO] core.tasks: Найдено 0 заказов для назначения флористам
+2025-06-01 09:41:11,901 [INFO] core.tasks: Текущее время: 2025-06-01 03:41:11.898563+00:00, мин. порог: 2025-06-01 04:11:11.898563+00:00, макс. порог: 2025-06-01 07:11:11.898563+00:00
+2025-06-01 09:41:11,903 [INFO] core.tasks: Нет заказов для назначения флористов.
+2025-06-01 09:41:11,903 [INFO] core.tasks: === Начало выполнения assign_courier_task ===
+2025-06-01 09:41:11,905 [INFO] core.tasks: Найдено 0 заказов для назначения курьерам
+2025-06-01 09:41:11,905 [INFO] core.tasks: Нет заказов для назначения курьерам.
+2025-06-01 09:42:11,906 [INFO] core.tasks: === Начало выполнения assign_florist_task ===
+2025-06-01 09:42:11,908 [INFO] core.tasks: Найдено 0 заказов для назначения флористам
+2025-06-01 09:42:11,909 [INFO] core.tasks: Текущее время: 2025-06-01 03:42:11.906523+00:00, мин. порог: 2025-06-01 04:12:11.906523+00:00, макс. порог: 2025-06-01 07:12:11.906523+00:00
+2025-06-01 09:42:11,911 [INFO] core.tasks: Нет заказов для назначения флористов.
+2025-06-01 09:42:11,911 [INFO] core.tasks: === Начало выполнения assign_courier_task ===
+2025-06-01 09:42:11,914 [INFO] core.tasks: Найдено 0 заказов для назначения курьерам
+2025-06-01 09:42:11,914 [INFO] core.tasks: Нет заказов для назначения курьерам.
+2025-06-01 09:42:24,980 [INFO] django.utils.autoreload: /home/baibolot/flower_shop_project/catalog/views.py changed, reloading.
+2025-06-01 09:42:26,830 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-01 09:42:26,831 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-01 09:42:26,860 [INFO] apscheduler.scheduler: Added job "assign_florist_task" to job store "default"
+2025-06-01 09:42:26,871 [INFO] apscheduler.scheduler: Added job "assign_courier_task" to job store "default"
+2025-06-01 09:42:26,871 [INFO] apscheduler.scheduler: Scheduler started
+2025-06-01 09:42:26,872 [DEBUG] apscheduler.scheduler: Looking for jobs to run
+2025-06-01 09:42:26,894 [DEBUG] apscheduler.scheduler: Next wakeup is due at 2025-06-01 09:47:26.830633+06:00 (in 299.936679 seconds)
+2025-06-01 09:42:26,916 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-01 09:43:11,915 [INFO] core.tasks: === Начало выполнения assign_florist_task ===
+2025-06-01 09:43:11,918 [INFO] core.tasks: Найдено 0 заказов для назначения флористам
+2025-06-01 09:43:11,918 [INFO] core.tasks: Текущее время: 2025-06-01 03:43:11.915601+00:00, мин. порог: 2025-06-01 04:13:11.915601+00:00, макс. порог: 2025-06-01 07:13:11.915601+00:00
+2025-06-01 09:43:11,920 [INFO] core.tasks: Нет заказов для назначения флористов.
+2025-06-01 09:43:11,921 [INFO] core.tasks: === Начало выполнения assign_courier_task ===
+2025-06-01 09:43:11,923 [INFO] core.tasks: Найдено 0 заказов для назначения курьерам
+2025-06-01 09:43:11,923 [INFO] core.tasks: Нет заказов для назначения курьерам.
+2025-06-01 09:44:11,924 [INFO] core.tasks: === Начало выполнения assign_florist_task ===
+2025-06-01 09:44:11,926 [INFO] core.tasks: Найдено 0 заказов для назначения флористам
+2025-06-01 09:44:11,927 [INFO] core.tasks: Текущее время: 2025-06-01 03:44:11.924405+00:00, мин. порог: 2025-06-01 04:14:11.924405+00:00, макс. порог: 2025-06-01 07:14:11.924405+00:00
+2025-06-01 09:44:11,929 [INFO] core.tasks: Нет заказов для назначения флористов.
+2025-06-01 09:44:11,930 [INFO] core.tasks: === Начало выполнения assign_courier_task ===
+2025-06-01 09:44:11,935 [INFO] core.tasks: Найдено 0 заказов для назначения курьерам
+2025-06-01 09:44:11,936 [INFO] core.tasks: Нет заказов для назначения курьерам.
+2025-06-01 09:44:33,628 [INFO] django.utils.autoreload: /home/baibolot/flower_shop_project/catalog/views.py changed, reloading.
+2025-06-01 09:44:35,229 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-01 09:44:35,230 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-01 09:44:35,257 [INFO] apscheduler.scheduler: Added job "assign_florist_task" to job store "default"
+2025-06-01 09:44:35,263 [INFO] apscheduler.scheduler: Added job "assign_courier_task" to job store "default"
+2025-06-01 09:44:35,264 [INFO] apscheduler.scheduler: Scheduler started
+2025-06-01 09:44:35,264 [DEBUG] apscheduler.scheduler: Looking for jobs to run
+2025-06-01 09:44:35,283 [DEBUG] apscheduler.scheduler: Next wakeup is due at 2025-06-01 09:49:35.229250+06:00 (in 299.946072 seconds)
+2025-06-01 09:44:35,292 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-01 09:45:11,936 [INFO] core.tasks: === Начало выполнения assign_florist_task ===
+2025-06-01 09:45:11,939 [INFO] core.tasks: Найдено 0 заказов для назначения флористам
+2025-06-01 09:45:11,939 [INFO] core.tasks: Текущее время: 2025-06-01 03:45:11.937010+00:00, мин. порог: 2025-06-01 04:15:11.937010+00:00, макс. порог: 2025-06-01 07:15:11.937010+00:00
+2025-06-01 09:45:11,943 [INFO] core.tasks: Нет заказов для назначения флористов.
+2025-06-01 09:45:11,943 [INFO] core.tasks: === Начало выполнения assign_courier_task ===
+2025-06-01 09:45:11,945 [INFO] core.tasks: Найдено 0 заказов для назначения курьерам
+2025-06-01 09:45:11,946 [INFO] core.tasks: Нет заказов для назначения курьерам.
+2025-06-01 09:46:11,946 [INFO] core.tasks: === Начало выполнения assign_florist_task ===
+2025-06-01 09:46:11,948 [INFO] core.tasks: Найдено 0 заказов для назначения флористам
+2025-06-01 09:46:11,949 [INFO] core.tasks: Текущее время: 2025-06-01 03:46:11.946706+00:00, мин. порог: 2025-06-01 04:16:11.946706+00:00, макс. порог: 2025-06-01 07:16:11.946706+00:00
+2025-06-01 09:46:11,950 [INFO] core.tasks: Нет заказов для назначения флористов.
+2025-06-01 09:46:11,951 [INFO] core.tasks: === Начало выполнения assign_courier_task ===
+2025-06-01 09:46:11,953 [INFO] core.tasks: Найдено 0 заказов для назначения курьерам
+2025-06-01 09:46:11,953 [INFO] core.tasks: Нет заказов для назначения курьерам.
+2025-06-01 09:47:11,953 [INFO] core.tasks: === Начало выполнения assign_florist_task ===
+2025-06-01 09:47:11,956 [INFO] core.tasks: Найдено 0 заказов для назначения флористам
+2025-06-01 09:47:11,956 [INFO] core.tasks: Текущее время: 2025-06-01 03:47:11.953858+00:00, мин. порог: 2025-06-01 04:17:11.953858+00:00, макс. порог: 2025-06-01 07:17:11.953858+00:00
+2025-06-01 09:47:11,958 [INFO] core.tasks: Нет заказов для назначения флористов.
+2025-06-01 09:47:11,958 [INFO] core.tasks: === Начало выполнения assign_courier_task ===
+2025-06-01 09:47:11,960 [INFO] core.tasks: Найдено 0 заказов для назначения курьерам
+2025-06-01 09:47:11,961 [INFO] core.tasks: Нет заказов для назначения курьерам.
+2025-06-01 09:48:11,961 [INFO] core.tasks: === Начало выполнения assign_florist_task ===
+2025-06-01 09:48:11,964 [INFO] core.tasks: Найдено 0 заказов для назначения флористам
+2025-06-01 09:48:11,964 [INFO] core.tasks: Текущее время: 2025-06-01 03:48:11.961798+00:00, мин. порог: 2025-06-01 04:18:11.961798+00:00, макс. порог: 2025-06-01 07:18:11.961798+00:00
+2025-06-01 09:48:11,967 [INFO] core.tasks: Нет заказов для назначения флористов.
+2025-06-01 09:48:11,967 [INFO] core.tasks: === Начало выполнения assign_courier_task ===
+2025-06-01 09:48:11,969 [INFO] core.tasks: Найдено 0 заказов для назначения курьерам
+2025-06-01 09:48:11,970 [INFO] core.tasks: Нет заказов для назначения курьерам.
+2025-06-01 09:49:11,970 [INFO] core.tasks: === Начало выполнения assign_florist_task ===
+2025-06-01 09:49:11,973 [INFO] core.tasks: Найдено 0 заказов для назначения флористам
+2025-06-01 09:49:11,973 [INFO] core.tasks: Текущее время: 2025-06-01 03:49:11.970880+00:00, мин. порог: 2025-06-01 04:19:11.970880+00:00, макс. порог: 2025-06-01 07:19:11.970880+00:00
+2025-06-01 09:49:11,976 [INFO] core.tasks: Нет заказов для назначения флористов.
+2025-06-01 09:49:11,976 [INFO] core.tasks: === Начало выполнения assign_courier_task ===
+2025-06-01 09:49:11,978 [INFO] core.tasks: Найдено 0 заказов для назначения курьерам
+2025-06-01 09:49:11,979 [INFO] core.tasks: Нет заказов для назначения курьерам.
+2025-06-01 09:49:17,273 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-01 09:49:17,274 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-01 09:49:17,298 [INFO] apscheduler.scheduler: Added job "assign_florist_task" to job store "default"
+2025-06-01 09:49:17,305 [INFO] apscheduler.scheduler: Added job "assign_courier_task" to job store "default"
+2025-06-01 09:49:17,305 [INFO] apscheduler.scheduler: Scheduler started
+2025-06-01 09:49:17,306 [DEBUG] apscheduler.scheduler: Looking for jobs to run
+2025-06-01 09:49:17,322 [DEBUG] apscheduler.scheduler: Next wakeup is due at 2025-06-01 09:54:17.273524+06:00 (in 299.950625 seconds)
+2025-06-01 09:49:17,332 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-01 09:49:25,986 [INFO] django.server: "GET /catalog/?q=%D0%AD%D0%BB%D0%B5%D0%B3%D0%B0%D0%BD%D1%82%D0%BD%D1%8B%D0%B9+%D0%B1%D1%83%D0%BA%D0%B5%D1%82+%D0%B2+%D1%81%D0%B8%D0%BD%D0%B8%D1%85+%D1%82%D0%BE%D0%BD%D0%B0%D1%85.&sort= HTTP/1.1" 200 21701
+2025-06-01 09:49:26,107 [INFO] django.server: "GET /media/bouquets/%D0%9A%D0%BE%D1%80%D0%BE%D0%BB%D0%B5%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%20%D1%81%D0%B8%D0%BD%D0%B8%D0%B9.webp HTTP/1.1" 304 0
+2025-06-01 09:49:33,460 [INFO] django.server: "GET /catalog/ HTTP/1.1" 200 36929
+2025-06-01 09:49:33,694 [INFO] django.server: "GET /media/bouquets/%D0%92%D0%B5%D1%81%D0%B5%D0%BD%D0%BD%D0%B5%D0%B5%20%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B5%D0%BD%D0%B8%D0%B5.jpg HTTP/1.1" 200 135731
+2025-06-01 09:49:33,713 [INFO] django.server: "GET /media/bouquets/%D0%9D%D0%B5%D0%B6%D0%BD%D0%BE%D0%B5%20%D0%BF%D1%80%D0%B8%D0%B7%D0%BD%D0%B0%D0%BD%D0%B8%D0%B5.jpg HTTP/1.1" 304 0
+2025-06-01 09:49:33,717 [INFO] django.server: "GET /media/bouquets/%D0%9E%D1%81%D0%B5%D0%BD%D0%BD%D0%B8%D0%B9%20%D0%B2%D0%B0%D0%BB%D1%8C%D1%81.jpg HTTP/1.1" 304 0
+2025-06-01 09:49:33,728 [INFO] django.server: "GET /media/bouquets/%D0%A0%D0%BE%D0%BC%D0%B0%D0%BD%D1%82%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9%20%D1%81%D1%8E%D1%80%D0%BF%D1%80%D0%B8%D0%B7 HTTP/1.1" 200 9897
+2025-06-01 09:49:33,728 [INFO] django.server: "GET /media/bouquets/%D0%9F%D0%BE%D0%BB%D0%B5%D0%B2%D0%BE%D0%B9%20%D1%88%D0%B8%D0%BA.jpg HTTP/1.1" 304 0
+2025-06-01 09:49:33,729 [INFO] django.server: "GET /media/bouquets/%D0%97%D0%BE%D0%BB%D0%BE%D1%82%D0%BE%D0%B5%20%D1%81%D0%B8%D1%8F%D0%BD%D0%B8%D0%B5.webp HTTP/1.1" 200 137152
+2025-06-01 09:49:33,730 [INFO] django.server: "GET /media/bouquets/%D0%A1%D0%BE%D0%BB%D0%BD%D0%B5%D1%87%D0%BD%D1%8B%D0%B9%20%D0%B4%D0%B5%D0%BD%D1%8C.jpg HTTP/1.1" 200 11011
+2025-06-01 09:49:33,736 [INFO] django.server: "GET /media/bouquets/%D0%9F%D1%80%D0%BE%D1%81%D1%82%D0%BE%20%D1%82%D0%B0%D0%BA.jpg HTTP/1.1" 200 141475
+2025-06-01 09:49:38,706 [INFO] django.server: "GET /catalog/?tag=%D1%82%D0%BE%D1%80%D0%B6%D0%B5%D1%81%D1%82%D0%B2%D0%BE HTTP/1.1" 200 20934
+2025-06-01 09:49:41,104 [INFO] django.server: "GET /catalog/?tag=%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B5%D0%BD%D0%B8%D0%B5 HTTP/1.1" 200 20869
+2025-06-01 09:49:42,851 [INFO] django.server: "GET /catalog/?tag=%D0%BB%D1%8E%D0%B1%D0%BE%D0%B2%D1%8C HTTP/1.1" 200 20957
+2025-06-01 09:49:47,995 [INFO] django.server: "GET /catalog/ HTTP/1.1" 200 36929
+2025-06-01 09:50:11,979 [INFO] core.tasks: === Начало выполнения assign_florist_task ===
+2025-06-01 09:50:11,981 [INFO] core.tasks: Найдено 0 заказов для назначения флористам
+2025-06-01 09:50:11,982 [INFO] core.tasks: Текущее время: 2025-06-01 03:50:11.979646+00:00, мин. порог: 2025-06-01 04:20:11.979646+00:00, макс. порог: 2025-06-01 07:20:11.979646+00:00
+2025-06-01 09:50:11,984 [INFO] core.tasks: Нет заказов для назначения флористов.
+2025-06-01 09:50:11,984 [INFO] core.tasks: === Начало выполнения assign_courier_task ===
+2025-06-01 09:50:11,986 [INFO] core.tasks: Найдено 0 заказов для назначения курьерам
+2025-06-01 09:50:11,986 [INFO] core.tasks: Нет заказов для назначения курьерам.
+2025-06-01 09:50:15,779 [INFO] django.server: "GET /catalog/?min_price=1800&max_price=2000&q=&sort= HTTP/1.1" 200 22994
+2025-06-01 09:50:21,432 [INFO] django.server: "GET /catalog/?sort=price_desc&min_price=1800&max_price=2000 HTTP/1.1" 200 23004
+2025-06-01 09:50:31,115 [INFO] django.server: "GET /catalog/4/ HTTP/1.1" 200 22414
+2025-06-01 09:50:31,227 [INFO] django.server: "GET /media/flowers/%D0%A0%D0%BE%D0%B7%D0%BE%D0%B2%D0%B0%D1%8F%20%D0%B3%D0%B2%D0%BE%D0%B7%D0%B4%D0%B8%D0%BA%D0%B0.jpg HTTP/1.1" 200 5459
+2025-06-01 09:50:31,228 [INFO] django.server: "GET /media/wrappers/%D0%9A%D0%BE%D1%80%D0%B5%D0%B9%D1%81%D0%BA%D0%B0%D1%8F%20%D0%BF%D0%BB%D0%B5%D0%BD%D0%BA%D0%B0%20%D0%B4%D0%B2%D1%83%D1%85%D1%81%D1%82%D0%BE%D1%80%D0%BE%D0%BD%D0%BD%D1%8F%D1%8F.jpg HTTP/1.1" 200 8441
+2025-06-01 09:50:31,230 [INFO] django.server: "GET /media/flowers/%D0%91%D0%B5%D0%BB%D0%B0%D1%8F%20%D1%85%D1%80%D0%B8%D0%B7%D0%B0%D0%BD%D1%82%D0%B5%D0%BC%D0%B0.jpg HTTP/1.1" 200 32576
+2025-06-01 09:50:31,231 [INFO] django.server: "GET /media/wrappers/%D0%91%D1%83%D0%BC%D0%B0%D0%B3%D0%B0%20%D1%82%D0%B8%D1%88%D1%8C%D1%8E%20%D0%B1%D0%B5%D0%BB%D0%B0%D1%8F.jpg HTTP/1.1" 200 24898
+2025-06-01 09:50:31,232 [INFO] django.server: "GET /media/ribbons/%D0%90%D1%82%D0%BB%D0%B0%D1%81%D0%BD%D0%B0%D1%8F%20%D0%BB%D0%B5%D0%BD%D1%82%D0%B0%20%D1%80%D0%BE%D0%B7%D0%BE%D0%B2%D0%B0%D1%8F.jpg HTTP/1.1" 200 115590
+2025-06-01 09:50:36,757 [INFO] django.server: "GET /catalog/?min_price=1800&max_price=2000&q=%D0%9D%D0%B5%D0%B6%D0%BD%D0%BE%D0%B5+%D0%BF%D1%80%D0%B8%D0%B7%D0%BD%D0%B0%D0%BD%D0%B8%D0%B5&sort=price_desc HTTP/1.1" 200 21448
+2025-06-01 09:51:11,986 [INFO] core.tasks: === Начало выполнения assign_florist_task ===
+2025-06-01 09:51:11,990 [INFO] core.tasks: Найдено 0 заказов для назначения флористам
+2025-06-01 09:51:11,990 [INFO] core.tasks: Текущее время: 2025-06-01 03:51:11.987343+00:00, мин. порог: 2025-06-01 04:21:11.987343+00:00, макс. порог: 2025-06-01 07:21:11.987343+00:00
+2025-06-01 09:51:11,993 [INFO] core.tasks: Нет заказов для назначения флористов.
+2025-06-01 09:51:11,993 [INFO] core.tasks: === Начало выполнения assign_courier_task ===
+2025-06-01 09:51:11,996 [INFO] core.tasks: Найдено 0 заказов для назначения курьерам
+2025-06-01 09:51:11,996 [INFO] core.tasks: Нет заказов для назначения курьерам.
+2025-06-01 09:52:11,996 [INFO] core.tasks: === Начало выполнения assign_florist_task ===
+2025-06-01 09:52:11,999 [INFO] core.tasks: Найдено 0 заказов для назначения флористам
+2025-06-01 09:52:11,999 [INFO] core.tasks: Текущее время: 2025-06-01 03:52:11.997028+00:00, мин. порог: 2025-06-01 04:22:11.997028+00:00, макс. порог: 2025-06-01 07:22:11.997028+00:00
+2025-06-01 09:52:12,002 [INFO] core.tasks: Нет заказов для назначения флористов.
+2025-06-01 09:52:12,002 [INFO] core.tasks: === Начало выполнения assign_courier_task ===
+2025-06-01 09:52:12,004 [INFO] core.tasks: Найдено 0 заказов для назначения курьерам
+2025-06-01 09:52:12,004 [INFO] core.tasks: Нет заказов для назначения курьерам.
+2025-06-01 09:53:12,005 [INFO] core.tasks: === Начало выполнения assign_florist_task ===
+2025-06-01 09:53:12,007 [INFO] core.tasks: Найдено 0 заказов для назначения флористам
+2025-06-01 09:53:12,008 [INFO] core.tasks: Текущее время: 2025-06-01 03:53:12.005434+00:00, мин. порог: 2025-06-01 04:23:12.005434+00:00, макс. порог: 2025-06-01 07:23:12.005434+00:00
+2025-06-01 09:53:12,010 [INFO] core.tasks: Нет заказов для назначения флористов.
+2025-06-01 09:53:12,011 [INFO] core.tasks: === Начало выполнения assign_courier_task ===
+2025-06-01 09:53:12,013 [INFO] core.tasks: Найдено 0 заказов для назначения курьерам
+2025-06-01 09:53:12,014 [INFO] core.tasks: Нет заказов для назначения курьерам.
+2025-06-01 09:54:12,014 [INFO] core.tasks: === Начало выполнения assign_florist_task ===
+2025-06-01 09:54:12,016 [INFO] core.tasks: Найдено 0 заказов для назначения флористам
+2025-06-01 09:54:12,016 [INFO] core.tasks: Текущее время: 2025-06-01 03:54:12.014639+00:00, мин. порог: 2025-06-01 04:24:12.014639+00:00, макс. порог: 2025-06-01 07:24:12.014639+00:00
+2025-06-01 09:54:12,019 [INFO] core.tasks: Нет заказов для назначения флористов.
+2025-06-01 09:54:12,019 [INFO] core.tasks: === Начало выполнения assign_courier_task ===
+2025-06-01 09:54:12,021 [INFO] core.tasks: Найдено 0 заказов для назначения курьерам
+2025-06-01 09:54:12,021 [INFO] core.tasks: Нет заказов для назначения курьерам.
+2025-06-01 09:55:06,362 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-01 09:55:06,362 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-01 09:55:06,387 [INFO] apscheduler.scheduler: Added job "assign_florist_task" to job store "default"
+2025-06-01 09:55:06,395 [INFO] apscheduler.scheduler: Added job "assign_courier_task" to job store "default"
+2025-06-01 09:55:06,396 [INFO] apscheduler.scheduler: Scheduler started
+2025-06-01 09:55:06,396 [DEBUG] apscheduler.scheduler: Looking for jobs to run
+2025-06-01 09:55:06,417 [DEBUG] apscheduler.scheduler: Next wakeup is due at 2025-06-01 10:00:06.362266+06:00 (in 299.945000 seconds)
+2025-06-01 09:55:06,426 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-01 09:55:10,648 [INFO] django.server: "GET /catalog/?min_price=1800&max_price=2000&q=%D0%9D%D0%B5%D0%B6%D0%BD%D0%BE%D0%B5+%D0%BF%D1%80%D0%B8%D0%B7%D0%BD%D0%B0%D0%BD%D0%B8%D0%B5&sort=price_desc HTTP/1.1" 200 22021
+2025-06-01 09:55:10,744 [INFO] django.server: "GET /media/bouquets/%D0%9D%D0%B5%D0%B6%D0%BD%D0%BE%D0%B5%20%D0%BF%D1%80%D0%B8%D0%B7%D0%BD%D0%B0%D0%BD%D0%B8%D0%B5.jpg HTTP/1.1" 200 180370
+2025-06-01 09:55:10,803 [WARNING] django.request: Not Found: /favicon.ico
+2025-06-01 09:55:12,021 [INFO] core.tasks: === Начало выполнения assign_florist_task ===
+2025-06-01 09:55:12,024 [INFO] core.tasks: Найдено 0 заказов для назначения флористам
+2025-06-01 09:55:12,024 [INFO] core.tasks: Текущее время: 2025-06-01 03:55:12.022215+00:00, мин. порог: 2025-06-01 04:25:12.022215+00:00, макс. порог: 2025-06-01 07:25:12.022215+00:00
+2025-06-01 09:55:12,027 [INFO] core.tasks: Нет заказов для назначения флористов.
+2025-06-01 09:55:12,027 [INFO] core.tasks: === Начало выполнения assign_courier_task ===
+2025-06-01 09:55:12,029 [INFO] core.tasks: Найдено 0 заказов для назначения курьерам
+2025-06-01 09:55:12,030 [INFO] core.tasks: Нет заказов для назначения курьерам.
+2025-06-01 09:55:13,317 [INFO] django.server: "GET /catalog/ HTTP/1.1" 200 37291
+2025-06-01 09:55:13,449 [INFO] django.server: "GET /media/bouquets/%D0%92%D0%B5%D1%81%D0%B5%D0%BD%D0%BD%D0%B5%D0%B5%20%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B5%D0%BD%D0%B8%D0%B5.jpg HTTP/1.1" 304 0
+2025-06-01 09:55:13,449 [INFO] django.server: "GET /media/bouquets/%D0%97%D0%BE%D0%BB%D0%BE%D1%82%D0%BE%D0%B5%20%D1%81%D0%B8%D1%8F%D0%BD%D0%B8%D0%B5.webp HTTP/1.1" 304 0
+2025-06-01 09:55:13,450 [INFO] django.server: "GET /media/bouquets/%D0%9A%D0%BE%D1%80%D0%BE%D0%BB%D0%B5%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%20%D1%81%D0%B8%D0%BD%D0%B8%D0%B9.webp HTTP/1.1" 304 0
+2025-06-01 09:55:13,456 [INFO] django.server: "GET /media/bouquets/%D0%9E%D1%81%D0%B5%D0%BD%D0%BD%D0%B8%D0%B9%20%D0%B2%D0%B0%D0%BB%D1%8C%D1%81.jpg HTTP/1.1" 304 0
+2025-06-01 09:55:13,458 [INFO] django.server: "GET /media/bouquets/%D0%9F%D1%80%D0%BE%D1%81%D1%82%D0%BE%20%D1%82%D0%B0%D0%BA.jpg HTTP/1.1" 304 0
+2025-06-01 09:55:13,458 [INFO] django.server: "GET /media/bouquets/%D0%9F%D0%BE%D0%BB%D0%B5%D0%B2%D0%BE%D0%B9%20%D1%88%D0%B8%D0%BA.jpg HTTP/1.1" 304 0
+2025-06-01 09:55:13,465 [INFO] django.server: "GET /media/bouquets/%D0%A0%D0%BE%D0%BC%D0%B0%D0%BD%D1%82%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9%20%D1%81%D1%8E%D1%80%D0%BF%D1%80%D0%B8%D0%B7 HTTP/1.1" 304 0
+2025-06-01 09:55:13,470 [INFO] django.server: "GET /media/bouquets/%D0%A1%D0%BE%D0%BB%D0%BD%D0%B5%D1%87%D0%BD%D1%8B%D0%B9%20%D0%B4%D0%B5%D0%BD%D1%8C.jpg HTTP/1.1" 304 0
+2025-06-01 09:55:25,103 [INFO] django.server: "GET /catalog/?min_price=&max_price=&q=%D1%81%D0%B8%D0%BD%D0%B8%D0%B9&sort= HTTP/1.1" 200 25636
+2025-06-01 09:56:12,030 [INFO] core.tasks: === Начало выполнения assign_florist_task ===
+2025-06-01 09:56:12,033 [INFO] core.tasks: Найдено 0 заказов для назначения флористам
+2025-06-01 09:56:12,033 [INFO] core.tasks: Текущее время: 2025-06-01 03:56:12.031035+00:00, мин. порог: 2025-06-01 04:26:12.031035+00:00, макс. порог: 2025-06-01 07:26:12.031035+00:00
+2025-06-01 09:56:12,035 [INFO] core.tasks: Нет заказов для назначения флористов.
+2025-06-01 09:56:12,035 [INFO] core.tasks: === Начало выполнения assign_courier_task ===
+2025-06-01 09:56:12,037 [INFO] core.tasks: Найдено 0 заказов для назначения курьерам
+2025-06-01 09:56:12,038 [INFO] core.tasks: Нет заказов для назначения курьерам.
+2025-06-01 09:56:45,760 [INFO] django.server: "GET /catalog/2/ HTTP/1.1" 200 21083
+2025-06-01 09:56:45,843 [INFO] django.server: "GET /media/ribbons/%D0%9E%D1%80%D0%B3%D0%B0%D0%BD%D0%B7%D0%B0%20%D0%B1%D0%B5%D0%BB%D0%B0%D1%8F HTTP/1.1" 304 0
+2025-06-01 09:56:45,846 [INFO] django.server: "GET /media/wrappers/%D0%9F%D1%80%D0%BE%D0%B7%D1%80%D0%B0%D1%87%D0%BD%D0%B0%D1%8F%20%D0%BF%D0%BB%D0%B5%D0%BD%D0%BA%D0%B0.jpeg HTTP/1.1" 304 0
+2025-06-01 09:56:45,877 [INFO] django.server: "GET /media/flowers/%D0%9A%D1%80%D0%B0%D1%81%D0%BD%D1%8B%D0%B9%20%D1%82%D1%8E%D0%BB%D1%8C%D0%BF%D0%B0%D0%BD.jpg HTTP/1.1" 304 0
+2025-06-01 09:56:45,878 [INFO] django.server: "GET /media/flowers/%D0%A1%D0%B8%D0%BD%D0%B8%D0%B9%20%D0%B8%D1%80%D0%B8%D1%81.jpg HTTP/1.1" 304 0
+2025-06-01 09:56:55,223 [INFO] django.server: "GET /cart/ HTTP/1.1" 302 0
+2025-06-01 09:56:55,260 [INFO] django.server: "GET /accounts/login/?next=/cart/ HTTP/1.1" 200 16658
+2025-06-01 09:57:02,910 [INFO] users.views: Successful login for user client1@example.com with role client
+2025-06-01 09:57:02,911 [INFO] users.views: Redirecting user client1@example.com to /catalog/
+2025-06-01 09:57:02,915 [INFO] django.server: "POST /accounts/login/ HTTP/1.1" 302 0
+2025-06-01 09:57:02,958 [INFO] django.server: "GET /catalog/ HTTP/1.1" 200 38175
+2025-06-01 09:57:09,847 [INFO] django.server: "POST /cart/add/2/ HTTP/1.1" 302 0
+2025-06-01 09:57:09,885 [INFO] django.server: "GET /cart/ HTTP/1.1" 200 15094
+2025-06-01 09:57:12,038 [INFO] core.tasks: === Начало выполнения assign_florist_task ===
+2025-06-01 09:57:12,041 [INFO] core.tasks: Найдено 0 заказов для назначения флористам
+2025-06-01 09:57:12,041 [INFO] core.tasks: Текущее время: 2025-06-01 03:57:12.038827+00:00, мин. порог: 2025-06-01 04:27:12.038827+00:00, макс. порог: 2025-06-01 07:27:12.038827+00:00
+2025-06-01 09:57:12,043 [INFO] core.tasks: Нет заказов для назначения флористов.
+2025-06-01 09:57:12,043 [INFO] core.tasks: === Начало выполнения assign_courier_task ===
+2025-06-01 09:57:12,045 [INFO] core.tasks: Найдено 0 заказов для назначения курьерам
+2025-06-01 09:57:12,046 [INFO] core.tasks: Нет заказов для назначения курьерам.
+2025-06-01 09:57:15,201 [INFO] django.server: "POST /cart/update/2/ HTTP/1.1" 302 0
+2025-06-01 09:57:15,236 [INFO] django.server: "GET /cart/ HTTP/1.1" 200 15096
+2025-06-01 09:57:16,842 [INFO] django.server: "GET /orders/create/ HTTP/1.1" 200 25466
+2025-06-01 09:58:12,046 [INFO] core.tasks: === Начало выполнения assign_florist_task ===
+2025-06-01 09:58:12,048 [INFO] core.tasks: Найдено 0 заказов для назначения флористам
+2025-06-01 09:58:12,049 [INFO] core.tasks: Текущее время: 2025-06-01 03:58:12.046664+00:00, мин. порог: 2025-06-01 04:28:12.046664+00:00, макс. порог: 2025-06-01 07:28:12.046664+00:00
+2025-06-01 09:58:12,051 [INFO] core.tasks: Нет заказов для назначения флористов.
+2025-06-01 09:58:12,051 [INFO] core.tasks: === Начало выполнения assign_courier_task ===
+2025-06-01 09:58:12,053 [INFO] core.tasks: Найдено 0 заказов для назначения курьерам
+2025-06-01 09:58:12,054 [INFO] core.tasks: Нет заказов для назначения курьерам.
