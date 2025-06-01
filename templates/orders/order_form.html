@@ -125,14 +125,19 @@
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     // Координаты по умолчанию (например, центр города)
-    const defaultLat = 55.75; // Используем настройки или значение по умолчанию
-    const defaultLon = 37.61;
+    const defaultLat = {{ settings.SHOP_LAT|stringformat:"f" }}; // Используем координаты магазина как начальные
+    const defaultLon = {{ settings.SHOP_LON|stringformat:"f" }};
 
     // Получаем поля формы
     const latInput = document.getElementById('{{ form.delivery_lat.id_for_label }}');
     const lonInput = document.getElementById('{{ form.delivery_lon.id_for_label }}');
     const addressInput = document.getElementById('{{ form.delivery_address_name.id_for_label }}');
     const searchButton = document.getElementById('search-address-btn');
+
+    // Глобальные переменные для маркеров и маршрута
+    window.marker = null; // Маркер точки доставки
+    window.shopMarker = null; // Маркер магазина
+    window.routeLayer = null; // Слой с маршрутом
 
     // Инициализация карты
     const map = L.map('map').setView([defaultLat, defaultLon], 11); // Начальный масштаб
@@ -142,9 +147,6 @@ document.addEventListener('DOMContentLoaded', function() {
         attribution: '© <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
 
-    // Маркер для выбора адреса
-    let marker = null;
-
     // Функция получения маршрута и расчета стоимости
     function fetchAndCalculateDelivery(lat, lon) {
         if (!lat || !lon) return;
@@ -152,7 +154,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const shopLat = {{ settings.SHOP_LAT|stringformat:"f" }};
         const shopLon = {{ settings.SHOP_LON|stringformat:"f" }};
         
-        const osrmUrl = `https://router.project-osrm.org/route/v1/driving/${shopLon},${shopLat};${lon},${lat}?overview=full`;
+        const osrmUrl = `https://router.project-osrm.org/route/v1/driving/${shopLon},${shopLat};${lon},${lat}?overview=full&geometries=geojson`;
         
         fetch(osrmUrl)
             .then(response => response.json())
@@ -172,20 +174,50 @@ document.addEventListener('DOMContentLoaded', function() {
                     
                     deliveryCostElement.textContent = deliveryCost.toFixed(2) + ' руб.';
                     totalWithDeliveryElement.textContent = (cartTotal + deliveryCost).toFixed(2) + ' руб.';
+
+                    // Отображаем маршрут на карте
+                    if (window.routeLayer) {
+                        map.removeLayer(window.routeLayer);
+                    }
+                    window.routeLayer = L.geoJSON(data.routes[0].geometry, {
+                        style: {
+                            color: '#3388ff',
+                            weight: 5,
+                            opacity: 0.7
+                        }
+                    }).addTo(map);
+
+                    // Добавляем маркер магазина, если его еще нет
+                    if (!window.shopMarker) {
+                        window.shopMarker = L.marker([shopLat, shopLon])
+                            .addTo(map)
+                            .bindPopup('{{ settings.SHOP_NAME|escapejs }}');
+                    }
+
+                    // Подгоняем карту под маршрут
+                    const bounds = L.latLngBounds([
+                        [shopLat, shopLon],
+                        [lat, lon]
+                    ]);
+                    map.fitBounds(bounds, { padding: [50, 50] });
                 }
             })
-            .catch(error => console.error('Ошибка при получении маршрута:', error));
+            .catch(error => {
+                console.error('Ошибка при получении маршрута:', error);
+                // Показываем пользователю сообщение об ошибке
+                alert('Не удалось построить маршрут. Пожалуйста, попробуйте выбрать другую точку доставки.');
+            });
     }
 
     // Функция обновления маркера и полей формы
     function updateMarker(lat, lon, address = null) {
-        if (marker) {
-            marker.setLatLng([lat, lon]);
+        if (window.marker) {
+            window.marker.setLatLng([lat, lon]);
         } else {
-            marker = L.marker([lat, lon], {draggable: true}).addTo(map);
+            window.marker = L.marker([lat, lon], {draggable: true}).addTo(map);
             // Обработчик перетаскивания маркера
-            marker.on('dragend', function(event) {
-                const position = marker.getLatLng();
+            window.marker.on('dragend', function(event) {
+                const position = window.marker.getLatLng();
                 latInput.value = position.lat.toFixed(6);
                 lonInput.value = position.lng.toFixed(6);
                 fetchAndCalculateDelivery(position.lat, position.lng);
