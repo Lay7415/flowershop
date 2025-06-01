@@ -18,6 +18,14 @@
         background: none;
         border: none;
     }
+    .delivery-info-badge {
+        font-size: 0.9rem;
+        margin-right: 0.5rem;
+    }
+    #delivery-info {
+        font-size: 0.9rem;
+        color: #666;
+    }
     .bg-new { background-color: #cfe2ff !important; color: #0a58ca !important; }
     .bg-pending { background-color: #fff3cd !important; color: #664d03 !important; }
     .bg-success, .bg-paid, .bg-completed, .bg-delivered { background-color: #d1e7dd !important; color: #146c43 !important; }
@@ -150,31 +158,43 @@
                         <p><strong>Получатель:</strong> {{ order.recipient_name }}</p>
                         <p><strong>Телефон получателя:</strong> {{ order.recipient_phone }}</p>
                         
-                        {% if order.courier %}
+                        {% if order.courier and not user.is_courier%}
                         <p><strong>Курьер:</strong> {{ order.courier.get_full_name }}</p>
                             {% if order.status == 'delivering' %}
                             <div class="alert alert-info">
                                 <i class="bi bi-info-circle"></i> Ваш заказ в пути! Следите за перемещением курьера на карте ниже.
                             </div>
+                            {% elif order.status == 'ready' %}
+                            <div class="alert alert-warning">
+                                <i class="bi bi-clock"></i> Курьер еще не начал доставку. Ожидайте обновления статуса.
+                            </div>
                             {% endif %}
                         {% endif %}
+                        
+                        <div class="alert alert-light border mt-3">
+                            <div id="delivery-info">
+                                <i class="bi bi-info-circle"></i> На карте отображен маршрут доставки от магазина до указанного адреса
+                            </div>
+                        </div>
                     </div>
 
-                    {% if order.status == 'delivering' or order.status == 'delivered' %}
                     <div class="card mb-4">
                         <div class="card-header">
                             <h5 class="mb-0">Карта доставки</h5>
                         </div>
                         <div class="card-body">
                             <div id="delivery-map"></div>
+                            {% if order.courier %}
                             <div id="courier-status" class="mt-2">
-                                {% if order.courier %}
-                                <span class="badge bg-info">Загрузка информации о местоположении курьера...</span>
+                                {% if order.status == 'delivering' %}
+                                    <span class="badge bg-info">Загрузка информации о местоположении курьера...</span>
+                                {% elif order.status == 'ready' %}
+                                    <span class="badge bg-warning">Ожидание начала доставки</span>
                                 {% endif %}
                             </div>
+                            {% endif %}
                         </div>
                     </div>
-                    {% endif %}
                 </div>
 
                 <!-- Вкладка оплаты -->
@@ -358,18 +378,19 @@
         let isGpsActive = false;
         let lastUpdateTime = null;
 
+        // Инициализируем карту только если есть элемент карты и координаты доставки
         if (mapElement && deliveryLat && deliveryLon) {
-            // Инициализация карты
-            let mapCenter;
-            let zoomLevel;
-
-            if (shopLat && shopLon && orderStatus === 'delivering') {
-                mapCenter = [(deliveryLat + shopLat) / 2, (deliveryLon + shopLon) / 2];
-                zoomLevel = 12;
-            } else {
-                mapCenter = [deliveryLat, deliveryLon];
-                zoomLevel = 14;
+            console.log('Initializing map with delivery coordinates:', deliveryLat, deliveryLon);
+            
+            // Проверяем наличие координат магазина
+            if (!shopLat || !shopLon) {
+                console.error('Shop coordinates are missing!');
+                return;
             }
+
+            // Инициализация карты
+            const mapCenter = [(deliveryLat + shopLat) / 2, (deliveryLon + shopLon) / 2];
+            const zoomLevel = 12;
 
             map = L.map('delivery-map').setView(mapCenter, zoomLevel);
 
@@ -383,14 +404,13 @@
                 .addTo(map)
                 .bindPopup('Адрес доставки: {{ order.delivery_address_name|escapejs }}');
 
-            // Если есть координаты магазина и заказ в доставке
-            if (shopLat && shopLon && orderStatus === 'delivering') {
-                // Маркер магазина
-                shopMarker = L.marker([shopLat, shopLon])
-                    .addTo(map)
-                    .bindPopup(shopName);
+            // Маркер магазина
+            shopMarker = L.marker([shopLat, shopLon])
+                .addTo(map)
+                .bindPopup(shopName);
 
-                // Маркер курьера (начальное положение)
+            // Маркер курьера только для статуса delivering
+            if (orderStatus === 'delivering') {
                 const courierInitLat = {% if order.courier_lat %}{{ order.courier_lat|stringformat:"f" }}{% else %}shopLat{% endif %};
                 const courierInitLon = {% if order.courier_lon %}{{ order.courier_lon|stringformat:"f" }}{% else %}shopLon{% endif %};
 
@@ -402,10 +422,11 @@
                         iconAnchor: [7, 7]
                     })
                 }).addTo(map);
-
-                // Получаем и отображаем маршрут
-                fetchAndDisplayRoute(shopLat, shopLon, deliveryLat, deliveryLon);
             }
+
+            // Всегда показываем маршрут между магазином и точкой доставки
+            console.log('Fetching route from shop to delivery point');
+            fetchAndDisplayRoute(shopLat, shopLon, deliveryLat, deliveryLon);
 
             // Подгоняем карту под все маркеры
             const bounds = [];
@@ -425,14 +446,18 @@
             }
         }
 
-        // Функция получения маршрута
+        // Функция получения и отображения маршрута
         function fetchAndDisplayRoute(startLat, startLon, endLat, endLon) {
+            console.log('Fetching route:', {startLat, startLon, endLat, endLon});
+            
             const osrmUrl = `https://router.project-osrm.org/route/v1/driving/${startLon},${startLat};${endLon},${endLat}?overview=full&geometries=geojson`;
             
             fetch(osrmUrl)
                 .then(response => response.json())
                 .then(data => {
                     if (data.routes && data.routes.length > 0) {
+                        console.log('Route received successfully');
+                        
                         if (routeLayer) {
                             map.removeLayer(routeLayer);
                         }
@@ -449,14 +474,44 @@
                         const distance = (data.routes[0].distance / 1000).toFixed(1);
                         const duration = Math.round(data.routes[0].duration / 60);
                         
-                        if (document.getElementById('courier-status')) {
-                            document.getElementById('courier-status').innerHTML = 
+                        // Обновляем информацию о доставке для всех пользователей
+                        const deliveryInfoDiv = document.getElementById('delivery-info');
+                        if (deliveryInfoDiv) {
+                            const baseInfo = `
+                                <span class="delivery-info-badge badge bg-info">Расстояние: ${distance} км</span>
+                                <span class="delivery-info-badge badge bg-info">Примерное время в пути: ${duration} мин</span>
+                            `;
+                            
+                            let statusText = '';
+                            if (orderStatus === 'delivering') {
+                                statusText = '<br><small class="text-muted mt-2">Текущий маршрут курьера</small>';
+                            } else if (orderStatus === 'ready') {
+                                statusText = '<br><small class="text-muted mt-2">Запланированный маршрут (ожидание курьера)</small>';
+                            } else {
+                                statusText = '<br><small class="text-muted mt-2">Запланированный маршрут доставки</small>';
+                            }
+                            
+                            deliveryInfoDiv.innerHTML = baseInfo + statusText;
+                        }
+                        
+                        // Дополнительно обновляем статус курьера, если заказ в доставке
+                        const statusDiv = document.getElementById('courier-status');
+                        if (orderStatus === 'delivering' && statusDiv) {
+                            statusDiv.innerHTML = 
                                 `<span class="badge bg-info">Расстояние: ${distance} км</span> 
                                  <span class="badge bg-info">Примерное время: ${duration} мин.</span>`;
                         }
+                    } else {
+                        console.error('No routes found in response:', data);
                     }
                 })
-                .catch(error => console.error('Ошибка при получении маршрута:', error));
+                .catch(error => {
+                    console.error('Error fetching route:', error);
+                    const deliveryInfoDiv = document.getElementById('delivery-info');
+                    if (deliveryInfoDiv) {
+                        deliveryInfoDiv.innerHTML = '<span class="badge bg-danger">Ошибка при получении маршрута</span>';
+                    }
+                });
         }
 
         // Функция для отправки координат на сервер
@@ -609,7 +664,8 @@
             
             isGpsActive = false;
         }
-    });
+    }
+    );
     </script>
 {% endif %} {# Конец условия для скриптов #}
 {% endblock %}

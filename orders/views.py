@@ -94,10 +94,9 @@ def order_pay(request, order_id):
     order = get_object_or_404(Order, id=order_id, customer=request.user)
     payment = order.payment 
 
-    if order.status != "new" or payment.status != "new":
+    if order.status != "new" or payment.status != "new" and payment.status != "failed":
         messages.info(request, "Этот заказ уже обрабатывается или оплачен.")
         return redirect("orders:order_detail", pk=order.id)
-
     if request.method == 'POST':
         form = PaymentForm(request.POST)
         if form.is_valid():
@@ -177,12 +176,12 @@ def order_detail(request, pk):
 
     context = {"order": order}
 
-    if order.status == "delivering":
-        context["shop_lat"] = float(settings.SHOP_LAT)
-        context["shop_lon"] = float(settings.SHOP_LON)
-        context["shop_name"] = settings.SHOP_NAME
+    # Всегда передаем координаты магазина, нужны для построения маршрута
+    context["shop_lat"] = float(settings.SHOP_LAT)
+    context["shop_lon"] = float(settings.SHOP_LON)
+    context["shop_name"] = settings.SHOP_NAME
     
-    print(f"Shop coordinates for order {pk}: {context.get('shop_lat', 'N/A')}, {context.get('shop_lon', 'N/A')}")
+    print(f"Shop coordinates for order {pk}: {context['shop_lat']}, {context['shop_lon']}")
 
     context["can_confirm_completion"] = (
         order.customer == request.user and order.status == "delivered"
