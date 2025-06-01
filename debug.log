@@ -2799,3 +2799,159 @@ AttributeError: 'WSGIRequest' object has no attribute 'request'
 2025-06-01 15:08:28,105 [INFO] django.server: "GET /orders/florist/dashboard/ HTTP/1.1" 200 11985
 2025-06-01 15:08:32,276 [INFO] django.server: "GET // HTTP/1.1" 302 0
 2025-06-01 15:08:32,503 [INFO] django.server: "GET /orders/florist/dashboard/ HTTP/1.1" 200 11985
+2025-06-01 15:12:43,198 [DEBUG] apscheduler.scheduler: Looking for jobs to run
+2025-06-01 15:12:43,202 [INFO] apscheduler.executors.default: Running job "assign_florist_task (trigger: interval[0:05:00], next run at: 2025-06-01 15:12:43 +06)" (scheduled at 2025-06-01 15:12:43.197828+06:00)
+2025-06-01 15:12:43,204 [INFO] core.tasks: === Начало выполнения assign_florist_task ===
+2025-06-01 15:12:43,215 [INFO] apscheduler.executors.default: Running job "assign_courier_task (trigger: interval[0:05:00], next run at: 2025-06-01 15:17:43 +06)" (scheduled at 2025-06-01 15:12:43.198705+06:00)
+2025-06-01 15:12:43,219 [INFO] core.tasks: === Начало выполнения assign_courier_task ===
+2025-06-01 15:12:43,231 [INFO] core.tasks: Найдено 0 заказов для назначения флористам
+2025-06-01 15:12:43,234 [INFO] core.tasks: Текущее время: 2025-06-01 09:12:43.205244+00:00, мин. порог: 2025-06-01 09:42:43.205244+00:00, макс. порог: 2025-06-01 12:42:43.205244+00:00
+2025-06-01 15:12:43,244 [INFO] core.tasks: Нет заказов для назначения флористов.
+2025-06-01 15:12:43,244 [INFO] apscheduler.executors.default: Job "assign_florist_task (trigger: interval[0:05:00], next run at: 2025-06-01 15:17:43 +06)" executed successfully
+2025-06-01 15:12:43,246 [INFO] core.tasks: Найдено 0 заказов для назначения курьерам
+2025-06-01 15:12:43,248 [INFO] core.tasks: Нет заказов для назначения курьерам.
+2025-06-01 15:12:43,250 [INFO] apscheduler.executors.default: Job "assign_courier_task (trigger: interval[0:05:00], next run at: 2025-06-01 15:17:43 +06)" executed successfully
+2025-06-01 15:12:43,265 [DEBUG] apscheduler.scheduler: Next wakeup is due at 2025-06-01 15:17:43.197828+06:00 (in 299.931940 seconds)
+2025-06-01 15:17:43,200 [DEBUG] apscheduler.scheduler: Looking for jobs to run
+2025-06-01 15:17:43,205 [INFO] apscheduler.executors.default: Running job "assign_florist_task (trigger: interval[0:05:00], next run at: 2025-06-01 15:22:43 +06)" (scheduled at 2025-06-01 15:17:43.197828+06:00)
+2025-06-01 15:17:43,206 [INFO] core.tasks: === Начало выполнения assign_florist_task ===
+2025-06-01 15:17:43,211 [INFO] core.tasks: Найдено 0 заказов для назначения флористам
+2025-06-01 15:17:43,212 [INFO] core.tasks: Текущее время: 2025-06-01 09:17:43.206816+00:00, мин. порог: 2025-06-01 09:47:43.206816+00:00, макс. порог: 2025-06-01 12:47:43.206816+00:00
+2025-06-01 15:17:43,216 [INFO] apscheduler.executors.default: Running job "assign_courier_task (trigger: interval[0:05:00], next run at: 2025-06-01 15:22:43 +06)" (scheduled at 2025-06-01 15:17:43.198705+06:00)
+2025-06-01 15:17:43,217 [INFO] core.tasks: Нет заказов для назначения флористов.
+2025-06-01 15:17:43,217 [INFO] core.tasks: === Начало выполнения assign_courier_task ===
+2025-06-01 15:17:43,218 [INFO] apscheduler.executors.default: Job "assign_florist_task (trigger: interval[0:05:00], next run at: 2025-06-01 15:22:43 +06)" executed successfully
+2025-06-01 15:17:43,225 [INFO] core.tasks: Найдено 0 заказов для назначения курьерам
+2025-06-01 15:17:43,227 [INFO] core.tasks: Нет заказов для назначения курьерам.
+2025-06-01 15:17:43,228 [INFO] apscheduler.executors.default: Job "assign_courier_task (trigger: interval[0:05:00], next run at: 2025-06-01 15:22:43 +06)" executed successfully
+2025-06-01 15:17:43,257 [DEBUG] apscheduler.scheduler: Next wakeup is due at 2025-06-01 15:22:43.197828+06:00 (in 299.940383 seconds)
+2025-06-01 15:22:43,198 [DEBUG] apscheduler.scheduler: Looking for jobs to run
+2025-06-01 15:22:43,203 [INFO] apscheduler.executors.default: Running job "assign_florist_task (trigger: interval[0:05:00], next run at: 2025-06-01 15:27:43 +06)" (scheduled at 2025-06-01 15:22:43.197828+06:00)
+2025-06-01 15:22:43,203 [INFO] core.tasks: === Начало выполнения assign_florist_task ===
+2025-06-01 15:22:43,209 [INFO] core.tasks: Найдено 0 заказов для назначения флористам
+2025-06-01 15:22:43,210 [INFO] core.tasks: Текущее время: 2025-06-01 09:22:43.204130+00:00, мин. порог: 2025-06-01 09:52:43.204130+00:00, макс. порог: 2025-06-01 12:52:43.204130+00:00
+2025-06-01 15:22:43,215 [INFO] apscheduler.executors.default: Running job "assign_courier_task (trigger: interval[0:05:00], next run at: 2025-06-01 15:27:43 +06)" (scheduled at 2025-06-01 15:22:43.198705+06:00)
+2025-06-01 15:22:43,216 [INFO] core.tasks: Нет заказов для назначения флористов.
+2025-06-01 15:22:43,217 [INFO] core.tasks: === Начало выполнения assign_courier_task ===
+2025-06-01 15:22:43,218 [INFO] apscheduler.executors.default: Job "assign_florist_task (trigger: interval[0:05:00], next run at: 2025-06-01 15:27:43 +06)" executed successfully
+2025-06-01 15:22:43,226 [INFO] core.tasks: Найдено 0 заказов для назначения курьерам
+2025-06-01 15:22:43,227 [INFO] core.tasks: Нет заказов для назначения курьерам.
+2025-06-01 15:22:43,228 [INFO] apscheduler.executors.default: Job "assign_courier_task (trigger: interval[0:05:00], next run at: 2025-06-01 15:27:43 +06)" executed successfully
+2025-06-01 15:22:43,255 [DEBUG] apscheduler.scheduler: Next wakeup is due at 2025-06-01 15:27:43.197828+06:00 (in 299.942297 seconds)
+2025-06-01 15:27:43,198 [DEBUG] apscheduler.scheduler: Looking for jobs to run
+2025-06-01 15:27:43,204 [INFO] apscheduler.executors.default: Running job "assign_florist_task (trigger: interval[0:05:00], next run at: 2025-06-01 15:32:43 +06)" (scheduled at 2025-06-01 15:27:43.197828+06:00)
+2025-06-01 15:27:43,204 [INFO] core.tasks: === Начало выполнения assign_florist_task ===
+2025-06-01 15:27:43,211 [INFO] core.tasks: Найдено 0 заказов для назначения флористам
+2025-06-01 15:27:43,212 [INFO] core.tasks: Текущее время: 2025-06-01 09:27:43.205665+00:00, мин. порог: 2025-06-01 09:57:43.205665+00:00, макс. порог: 2025-06-01 12:57:43.205665+00:00
+2025-06-01 15:27:43,217 [INFO] apscheduler.executors.default: Running job "assign_courier_task (trigger: interval[0:05:00], next run at: 2025-06-01 15:32:43 +06)" (scheduled at 2025-06-01 15:27:43.198705+06:00)
+2025-06-01 15:27:43,218 [INFO] core.tasks: === Начало выполнения assign_courier_task ===
+2025-06-01 15:27:43,223 [INFO] core.tasks: Нет заказов для назначения флористов.
+2025-06-01 15:27:43,227 [INFO] core.tasks: Найдено 0 заказов для назначения курьерам
+2025-06-01 15:27:43,227 [INFO] apscheduler.executors.default: Job "assign_florist_task (trigger: interval[0:05:00], next run at: 2025-06-01 15:32:43 +06)" executed successfully
+2025-06-01 15:27:43,228 [INFO] core.tasks: Нет заказов для назначения курьерам.
+2025-06-01 15:27:43,234 [INFO] apscheduler.executors.default: Job "assign_courier_task (trigger: interval[0:05:00], next run at: 2025-06-01 15:32:43 +06)" executed successfully
+2025-06-01 15:27:43,262 [DEBUG] apscheduler.scheduler: Next wakeup is due at 2025-06-01 15:32:43.197828+06:00 (in 299.934977 seconds)
+2025-06-01 15:32:43,198 [DEBUG] apscheduler.scheduler: Looking for jobs to run
+2025-06-01 15:32:43,204 [INFO] apscheduler.executors.default: Running job "assign_florist_task (trigger: interval[0:05:00], next run at: 2025-06-01 15:37:43 +06)" (scheduled at 2025-06-01 15:32:43.197828+06:00)
+2025-06-01 15:32:43,205 [INFO] core.tasks: === Начало выполнения assign_florist_task ===
+2025-06-01 15:32:43,211 [INFO] core.tasks: Найдено 0 заказов для назначения флористам
+2025-06-01 15:32:43,212 [INFO] core.tasks: Текущее время: 2025-06-01 09:32:43.206465+00:00, мин. порог: 2025-06-01 10:02:43.206465+00:00, макс. порог: 2025-06-01 13:02:43.206465+00:00
+2025-06-01 15:32:43,216 [INFO] apscheduler.executors.default: Running job "assign_courier_task (trigger: interval[0:05:00], next run at: 2025-06-01 15:37:43 +06)" (scheduled at 2025-06-01 15:32:43.198705+06:00)
+2025-06-01 15:32:43,217 [INFO] core.tasks: === Начало выполнения assign_courier_task ===
+2025-06-01 15:32:43,217 [INFO] core.tasks: Нет заказов для назначения флористов.
+2025-06-01 15:32:43,221 [INFO] apscheduler.executors.default: Job "assign_florist_task (trigger: interval[0:05:00], next run at: 2025-06-01 15:37:43 +06)" executed successfully
+2025-06-01 15:32:43,224 [INFO] core.tasks: Найдено 0 заказов для назначения курьерам
+2025-06-01 15:32:43,227 [INFO] core.tasks: Нет заказов для назначения курьерам.
+2025-06-01 15:32:43,228 [INFO] apscheduler.executors.default: Job "assign_courier_task (trigger: interval[0:05:00], next run at: 2025-06-01 15:37:43 +06)" executed successfully
+2025-06-01 15:32:43,251 [DEBUG] apscheduler.scheduler: Next wakeup is due at 2025-06-01 15:37:43.197828+06:00 (in 299.946182 seconds)
+2025-06-01 15:33:24,646 [INFO] django.utils.autoreload: /home/baibolot/flower_shop_project/flower_shop/urls.py changed, reloading.
+2025-06-01 15:33:27,469 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-01 15:33:27,470 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-01 15:33:27,520 [INFO] apscheduler.scheduler: Added job "assign_florist_task" to job store "default"
+2025-06-01 15:33:27,532 [INFO] apscheduler.scheduler: Added job "assign_courier_task" to job store "default"
+2025-06-01 15:33:27,533 [INFO] apscheduler.scheduler: Scheduler started
+2025-06-01 15:33:27,534 [DEBUG] apscheduler.scheduler: Looking for jobs to run
+2025-06-01 15:33:27,570 [DEBUG] apscheduler.scheduler: Next wakeup is due at 2025-06-01 15:38:27.468856+06:00 (in 299.898520 seconds)
+2025-06-01 15:33:27,589 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-01 15:33:43,616 [INFO] django.utils.autoreload: /home/baibolot/flower_shop_project/flower_shop/urls.py changed, reloading.
+2025-06-01 15:33:45,746 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-01 15:33:45,747 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-01 15:33:45,791 [INFO] apscheduler.scheduler: Added job "assign_florist_task" to job store "default"
+2025-06-01 15:33:45,807 [INFO] apscheduler.scheduler: Added job "assign_courier_task" to job store "default"
+2025-06-01 15:33:45,807 [INFO] apscheduler.scheduler: Scheduler started
+2025-06-01 15:33:45,808 [DEBUG] apscheduler.scheduler: Looking for jobs to run
+2025-06-01 15:33:45,838 [DEBUG] apscheduler.scheduler: Next wakeup is due at 2025-06-01 15:38:45.746209+06:00 (in 299.907351 seconds)
+2025-06-01 15:33:45,856 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-01 15:33:57,768 [INFO] django.utils.autoreload: /home/baibolot/flower_shop_project/core/decorators.py changed, reloading.
+2025-06-01 15:33:59,783 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-01 15:33:59,784 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-01 15:33:59,822 [INFO] apscheduler.scheduler: Added job "assign_florist_task" to job store "default"
+2025-06-01 15:33:59,832 [INFO] apscheduler.scheduler: Added job "assign_courier_task" to job store "default"
+2025-06-01 15:33:59,832 [INFO] apscheduler.scheduler: Scheduler started
+2025-06-01 15:33:59,833 [DEBUG] apscheduler.scheduler: Looking for jobs to run
+2025-06-01 15:33:59,863 [DEBUG] apscheduler.scheduler: Next wakeup is due at 2025-06-01 15:38:59.783438+06:00 (in 299.919756 seconds)
+2025-06-01 15:33:59,877 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-01 15:34:10,711 [INFO] django.utils.autoreload: /home/baibolot/flower_shop_project/core/decorators.py changed, reloading.
+2025-06-01 15:34:12,990 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-01 15:34:12,991 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-01 15:34:13,037 [INFO] apscheduler.scheduler: Added job "assign_florist_task" to job store "default"
+2025-06-01 15:34:13,052 [INFO] apscheduler.scheduler: Added job "assign_courier_task" to job store "default"
+2025-06-01 15:34:13,052 [INFO] apscheduler.scheduler: Scheduler started
+2025-06-01 15:34:13,053 [DEBUG] apscheduler.scheduler: Looking for jobs to run
+2025-06-01 15:34:13,084 [DEBUG] apscheduler.scheduler: Next wakeup is due at 2025-06-01 15:39:12.990270+06:00 (in 299.906235 seconds)
+2025-06-01 15:34:13,099 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-01 15:34:35,358 [INFO] django.utils.autoreload: /home/baibolot/flower_shop_project/flower_shop/views.py changed, reloading.
+2025-06-01 15:34:38,168 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-01 15:34:38,170 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-01 15:34:38,220 [INFO] apscheduler.scheduler: Added job "assign_florist_task" to job store "default"
+2025-06-01 15:34:38,232 [INFO] apscheduler.scheduler: Added job "assign_courier_task" to job store "default"
+2025-06-01 15:34:38,232 [INFO] apscheduler.scheduler: Scheduler started
+2025-06-01 15:34:38,234 [DEBUG] apscheduler.scheduler: Looking for jobs to run
+2025-06-01 15:34:38,271 [DEBUG] apscheduler.scheduler: Next wakeup is due at 2025-06-01 15:39:38.168544+06:00 (in 299.897344 seconds)
+2025-06-01 15:34:38,297 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-01 15:35:21,055 [INFO] django.utils.autoreload: /home/baibolot/flower_shop_project/core/decorators.py changed, reloading.
+2025-06-01 15:35:23,386 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-01 15:35:23,387 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-01 15:35:23,437 [INFO] apscheduler.scheduler: Added job "assign_florist_task" to job store "default"
+2025-06-01 15:35:23,454 [INFO] apscheduler.scheduler: Added job "assign_courier_task" to job store "default"
+2025-06-01 15:35:23,455 [INFO] apscheduler.scheduler: Scheduler started
+2025-06-01 15:35:23,456 [DEBUG] apscheduler.scheduler: Looking for jobs to run
+2025-06-01 15:35:23,495 [DEBUG] apscheduler.scheduler: Next wakeup is due at 2025-06-01 15:40:23.386486+06:00 (in 299.891277 seconds)
+2025-06-01 15:35:23,514 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-01 15:36:00,146 [INFO] django.utils.autoreload: /home/baibolot/flower_shop_project/core/decorators.py changed, reloading.
+2025-06-01 15:36:02,427 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-01 15:36:02,428 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-01 15:36:02,474 [INFO] apscheduler.scheduler: Added job "assign_florist_task" to job store "default"
+2025-06-01 15:36:02,487 [INFO] apscheduler.scheduler: Added job "assign_courier_task" to job store "default"
+2025-06-01 15:36:02,487 [INFO] apscheduler.scheduler: Scheduler started
+2025-06-01 15:36:02,488 [DEBUG] apscheduler.scheduler: Looking for jobs to run
+2025-06-01 15:36:02,519 [DEBUG] apscheduler.scheduler: Next wakeup is due at 2025-06-01 15:41:02.427516+06:00 (in 299.907792 seconds)
+2025-06-01 15:36:02,542 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-01 15:36:14,016 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-01 15:36:14,017 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-06-01 15:36:14,056 [INFO] apscheduler.scheduler: Added job "assign_florist_task" to job store "default"
+2025-06-01 15:36:14,067 [INFO] apscheduler.scheduler: Added job "assign_courier_task" to job store "default"
+2025-06-01 15:36:14,068 [INFO] apscheduler.scheduler: Scheduler started
+2025-06-01 15:36:14,069 [DEBUG] apscheduler.scheduler: Looking for jobs to run
+2025-06-01 15:36:14,104 [DEBUG] apscheduler.scheduler: Next wakeup is due at 2025-06-01 15:41:14.016581+06:00 (in 299.912350 seconds)
+2025-06-01 15:36:14,119 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-01 15:36:21,022 [INFO] django.server: "GET /orders/florist/dashboard/ HTTP/1.1" 200 11985
+2025-06-01 15:36:24,787 [INFO] django.server: "GET / HTTP/1.1" 302 0
+2025-06-01 15:36:24,840 [INFO] django.server: "GET /orders/florist/dashboard/ HTTP/1.1" 200 11985
+2025-06-01 15:36:27,704 [INFO] django.server: "GET / HTTP/1.1" 302 0
+2025-06-01 15:36:27,758 [INFO] django.server: "GET /orders/florist/dashboard/ HTTP/1.1" 200 11985
+2025-06-01 15:36:29,639 [INFO] django.server: "POST /accounts/logout/ HTTP/1.1" 302 0
+2025-06-01 15:36:29,721 [INFO] django.server: "GET /catalog/ HTTP/1.1" 200 37291
+2025-06-01 15:36:29,941 [INFO] django.server: "GET /media/bouquets/%D0%97%D0%BE%D0%BB%D0%BE%D1%82%D0%BE%D0%B5%20%D1%81%D0%B8%D1%8F%D0%BD%D0%B8%D0%B5.webp HTTP/1.1" 304 0
+2025-06-01 15:36:29,944 [INFO] django.server: "GET /media/bouquets/%D0%92%D0%B5%D1%81%D0%B5%D0%BD%D0%BD%D0%B5%D0%B5%20%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B5%D0%BD%D0%B8%D0%B5.jpg HTTP/1.1" 304 0
+2025-06-01 15:36:29,955 [INFO] django.server: "GET /media/bouquets/%D0%A0%D0%BE%D0%BC%D0%B0%D0%BD%D1%82%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9%20%D1%81%D1%8E%D1%80%D0%BF%D1%80%D0%B8%D0%B7 HTTP/1.1" 304 0
+2025-06-01 15:36:29,961 [INFO] django.server: "GET /media/bouquets/%D0%9A%D0%BE%D1%80%D0%BE%D0%BB%D0%B5%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%20%D1%81%D0%B8%D0%BD%D0%B8%D0%B9.webp HTTP/1.1" 304 0
+2025-06-01 15:36:29,969 [INFO] django.server: "GET /media/bouquets/%D0%9E%D1%81%D0%B5%D0%BD%D0%BD%D0%B8%D0%B9%20%D0%B2%D0%B0%D0%BB%D1%8C%D1%81.jpg HTTP/1.1" 304 0
+2025-06-01 15:36:29,971 [INFO] django.server: "GET /media/bouquets/%D0%A1%D0%BE%D0%BB%D0%BD%D0%B5%D1%87%D0%BD%D1%8B%D0%B9%20%D0%B4%D0%B5%D0%BD%D1%8C.jpg HTTP/1.1" 304 0
+2025-06-01 15:36:29,973 [INFO] django.server: "GET /media/bouquets/%D0%9F%D0%BE%D0%BB%D0%B5%D0%B2%D0%BE%D0%B9%20%D1%88%D0%B8%D0%BA.jpg HTTP/1.1" 304 0
+2025-06-01 15:36:29,973 [INFO] django.server: "GET /media/bouquets/%D0%9D%D0%B5%D0%B6%D0%BD%D0%BE%D0%B5%20%D0%BF%D1%80%D0%B8%D0%B7%D0%BD%D0%B0%D0%BD%D0%B8%D0%B5.jpg HTTP/1.1" 304 0
+2025-06-01 15:36:29,974 [INFO] django.server: "GET /media/bouquets/%D0%9F%D1%80%D0%BE%D1%81%D1%82%D0%BE%20%D1%82%D0%B0%D0%BA.jpg HTTP/1.1" 304 0
+2025-06-01 15:36:30,060 [WARNING] django.request: Not Found: /favicon.ico
+2025-06-01 15:36:45,062 [INFO] django.server: "GET /orders/florist/dashboard/ HTTP/1.1" 302 0
+2025-06-01 15:36:45,132 [INFO] django.server: "GET /accounts/login/?next=/orders/florist/dashboard/ HTTP/1.1" 200 16658
+2025-06-01 15:36:45,401 [WARNING] django.request: Not Found: /favicon.ico

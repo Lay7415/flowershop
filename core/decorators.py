@@ -29,7 +29,13 @@ def deny_roles(denied_roles):
         def _wrapped_view(request, *args, **kwargs):
             if request.user.is_authenticated and request.user.role in denied_roles:
                 messages.error(request, "Доступ запрещен для вашей роли.")
-                return redirect('catalog:bouquet_list')
+                # Перенаправляем на соответствующую панель вместо каталога
+                if request.user.role == 'florist':
+                    return redirect('orders:florist_dashboard')
+                elif request.user.role == 'courier':
+                    return redirect('orders:courier_dashboard')
+                else:
+                    return redirect('catalog:bouquet_list')
             return view_func(request, *args, **kwargs)
         return _wrapped_view
     return decorator
