@@ -1,0 +1,748 @@
+{
+    "flowers": [
+        {
+            "name": "Красная роза",
+            "price": "150.00",
+            "description": "Классическая красная роза.",
+            "photo": "flowers/Красная роза.jpg"
+        },
+        {
+            "name": "Белая лилия",
+            "price": "180.00",
+            "description": "Элегантная белая лилия.",
+            "photo": "flowers/Белая лилия.jpg"
+        },
+        {
+            "name": "Желтая роза",
+            "price": "140.00",
+            "description": "Солнечная желтая роза, символ дружбы.",
+            "photo": "flowers/Желтая роза.jpg"
+        },
+        {
+            "name": "Розовая гвоздика",
+            "price": "120.00",
+            "description": "Нежная розовая гвоздика.",
+            "photo": "flowers/Розовая гвоздика.jpg"
+        },
+        {
+            "name": "Белая хризантема",
+            "price": "130.00",
+            "description": "Пушистая белая хризантема.",
+            "photo": "flowers/Белая хризантема.jpg"
+        },
+        {
+            "name": "Синий ирис",
+            "price": "160.00",
+            "description": "Загадочный синий ирис.",
+            "photo": "flowers/Синий ирис.jpg"
+        },
+        {
+            "name": "Оранжевая гербера",
+            "price": "170.00",
+            "description": "Яркая оранжевая гербера.",
+            "photo": "flowers/Оранжевая гербера.jpg"
+        },
+        {
+            "name": "Фиолетовая эустома",
+            "price": "190.00",
+            "description": "Изящная фиолетовая эустома.",
+            "photo": "flowers/Фиолетовая эустома.jpg"
+        },
+        {
+            "name": "Подсолнух",
+            "price": "200.00",
+            "description": "Веселый и крупный подсолнух.",
+            "photo": "flowers/Подсолнух.jpg"
+        },
+        {
+            "name": "Красный тюльпан",
+            "price": "110.00",
+            "description": "Весенний красный тюльпан.",
+            "photo": "flowers/Красный тюльпан.jpg"
+        }
+    ],
+    "ribbons": [
+        {
+            "name": "Атласная лента красная",
+            "price": "50.00",
+            "description": "Красная атласная лента для украшения букетов.",
+            "photo": "ribbons/Атласная лента красная.jpg"
+        },
+        {
+            "name": "Органза белая",
+            "price": "45.00",
+            "description": "Белая лента из органзы.",
+            "photo": "ribbons/Органза белая"
+        },
+        {
+            "name": "Шелковая лента синяя",
+            "price": "60.00",
+            "description": "Синяя шелковая лента с блеском.",
+            "photo": "ribbons/Шелковая лента синяя.jpg"
+        },
+        {
+            "name": "Бархатная лента зеленая",
+            "price": "70.00",
+            "description": "Зеленая бархатная лента, придает роскошь.",
+            "photo": "ribbons/Бархатная лента зеленая.jpg"
+        },
+        {
+            "name": "Лента из мешковины натуральная",
+            "price": "40.00",
+            "description": "Натуральная лента из мешковины для рустик стиля.",
+            "photo": "ribbons/Лента из мешковины натуральная.jpg"
+        },
+        {
+            "name": "Атласная лента розовая",
+            "price": "50.00",
+            "description": "Нежно-розовая атласная лента.",
+            "photo": "ribbons/Атласная лента розовая.jpg"
+        },
+        {
+            "name": "Золотая парчовая лента",
+            "price": "75.00",
+            "description": "Блестящая золотая парчовая лента.",
+            "photo": "ribbons/Золотая парчовая лента.jpg"
+        },
+        {
+            "name": "Серебряная лента с люрексом",
+            "price": "65.00",
+            "description": "Серебряная лента с мерцающим люрексом.",
+            "photo": "ribbons/Серебряная лента с люрексом.jpg"
+        },
+        {
+            "name": "Репсовая лента в полоску",
+            "price": "55.00",
+            "description": "Прочная репсовая лента в сине-белую полоску.",
+            "photo": "ribbons/Репсовая лента в полоску.jpg"
+        },
+        {
+            "name": "Кружевная лента белая",
+            "price": "80.00",
+            "description": "Изящная белая кружевная лента.",
+            "photo": "ribbons/Кружевная лента белая.jpg"
+        }
+    ],
+    "wrappers": [
+        {
+            "name": "Крафт-бумага",
+            "price": "30.00",
+            "description": "Экологичная крафтовая упаковка.",
+            "photo": "wrappers/Крафт-бумага.jpg"
+        },
+        {
+            "name": "Прозрачная пленка",
+            "price": "25.00",
+            "description": "Прозрачная упаковочная пленка.",
+            "photo": "wrappers/Прозрачная пленка.jpeg"
+        },
+        {
+            "name": "Цветная матовая пленка синяя",
+            "price": "40.00",
+            "description": "Матовая пленка насыщенного синего цвета.",
+            "photo": "wrappers/Цветная матовая пленка синяя.jpg"
+        },
+        {
+            "name": "Бумага тишью белая",
+            "price": "35.00",
+            "description": "Тонкая белая бумага тишью для объема.",
+            "photo": "wrappers/Бумага тишью белая.jpg"
+        },
+        {
+            "name": "Сетка флористическая золотая",
+            "price": "50.00",
+            "description": "Декоративная золотая флористическая сетка.",
+            "photo": "wrappers/Сетка флористическая золотая.JPG"
+        },
+        {
+            "name": "Корейская пленка двухсторонняя",
+            "price": "60.00",
+            "description": "Модная двухсторонняя пленка (розово-голубая).",
+            "photo": "wrappers/Корейская пленка двухсторонняя.jpg"
+        },
+        {
+            "name": "Фетр флористический зеленый",
+            "price": "45.00",
+            "description": "Мягкий зеленый фетр для упаковки.",
+            "photo": "wrappers/Фетр флористический зеленый.jpg"
+        },
+        {
+            "name": "Пленка с рисунком газета",
+            "price": "38.00",
+            "description": "Стильная пленка с принтом под газету.",
+            "photo": "wrappers/Пленка с рисунком газета.jpg"
+        },
+        {
+            "name": "Сизаль натуральный",
+            "price": "55.00",
+            "description": "Натуральное волокно сизаля для декора.",
+            "photo": "wrappers/Сизаль натуральный.jpg"
+        },
+        {
+            "name": "Джутовая ткань",
+            "price": "48.00",
+            "description": "Грубая джутовая ткань для эко-стиля.",
+            "photo": "wrappers/Джутовая ткань.jpg"
+        }
+    ],
+    "bouquets": [
+        {
+            "name": "Романтический сюрприз",
+            "price": "2500.00",
+            "description": "Великолепный букет из красных роз.",
+            "tag": "любовь",
+            "is_active": true,
+            "photo": "bouquets/Романтический сюрприз",
+            "composition": {
+                "flowers": [
+                    {"name": "Красная роза", "quantity": 11},
+                    {"name": "Белая лилия", "quantity": 3}
+                ],
+                "ribbons": [
+                    {"name": "Атласная лента красная", "length": 1.5}
+                ],
+                "wrappers": [
+                    {"name": "Крафт-бумага", "length": 1.0}
+                ]
+            }
+        },
+        {
+            "name": "Весеннее настроение",
+            "price": "1800.00",
+            "description": "Яркий весенний букет.",
+            "tag": "весна",
+            "is_active": true,
+            "photo": "bouquets/Весеннее настроение.jpg",
+            "composition": {
+                "flowers": [
+                    {"name": "Красный тюльпан", "quantity": 9},
+                    {"name": "Синий ирис", "quantity": 5}
+                ],
+                "ribbons": [
+                    {"name": "Органза белая", "length": 1.2}
+                ],
+                "wrappers": [
+                    {"name": "Прозрачная пленка", "length": 0.8}
+                ]
+            }
+        },
+        {
+            "name": "Солнечный день",
+            "price": "2200.00",
+            "description": "Букет, дарящий радость и тепло.",
+            "tag": "дружба",
+            "is_active": true,
+            "photo": "bouquets/Солнечный день.jpg",
+            "composition": {
+                "flowers": [
+                    {"name": "Желтая роза", "quantity": 7},
+                    {"name": "Подсолнух", "quantity": 3},
+                    {"name": "Оранжевая гербера", "quantity": 5}
+                ],
+                "ribbons": [
+                    {"name": "Лента из мешковины натуральная", "length": 1.0}
+                ],
+                "wrappers": [
+                    {"name": "Крафт-бумага", "length": 0.9}
+                ]
+            }
+        },
+        {
+            "name": "Нежное признание",
+            "price": "1950.00",
+            "description": "Букет из нежных розовых и белых цветов.",
+            "tag": "романтика",
+            "is_active": true,
+            "photo": "bouquets/Нежное признание.jpg",
+            "composition": {
+                "flowers": [
+                    {"name": "Розовая гвоздика", "quantity": 9},
+                    {"name": "Белая хризантема", "quantity": 7}
+                ],
+                "ribbons": [
+                    {"name": "Атласная лента розовая", "length": 1.3}
+                ],
+                "wrappers": [
+                    {"name": "Бумага тишью белая", "length": 1.0},
+                    {"name": "Корейская пленка двухсторонняя", "length": 0.7}
+                ]
+            }
+        },
+        {
+            "name": "Королевский синий",
+            "price": "2800.00",
+            "description": "Элегантный букет в синих тонах.",
+            "tag": "торжество",
+            "is_active": true,
+            "photo": "bouquets/Королевский синий.webp",
+            "composition": {
+                "flowers": [
+                    {"name": "Синий ирис", "quantity": 10},
+                    {"name": "Фиолетовая эустома", "quantity": 7}
+                ],
+                "ribbons": [
+                    {"name": "Шелковая лента синяя", "length": 1.5},
+                    {"name": "Серебряная лента с люрексом", "length": 0.8}
+                ],
+                "wrappers": [
+                    {"name": "Цветная матовая пленка синяя", "length": 1.0}
+                ]
+            }
+        },
+        {
+            "name": "Осенний вальс",
+            "price": "2300.00",
+            "description": "Теплый букет в осенних красках.",
+            "tag": "осень",
+            "is_active": true,
+            "photo": "bouquets/Осенний вальс.jpg",
+            "composition": {
+                "flowers": [
+                    {"name": "Оранжевая гербера", "quantity": 7},
+                    {"name": "Красная роза", "quantity": 5},
+                    {"name": "Желтая роза", "quantity": 5}
+                ],
+                "ribbons": [
+                    {"name": "Бархатная лента зеленая", "length": 1.2}
+                ],
+                "wrappers": [
+                    {"name": "Джутовая ткань", "length": 0.8}
+                ]
+            }
+        },
+        {
+            "name": "Золотое сияние",
+            "price": "3200.00",
+            "description": "Роскошный букет с золотыми акцентами.",
+            "tag": "юбилей",
+            "is_active": true,
+            "photo": "bouquets/Золотое сияние.webp",
+            "composition": {
+                "flowers": [
+                    {"name": "Белая лилия", "quantity": 5},
+                    {"name": "Желтая роза", "quantity": 9}
+                ],
+                "ribbons": [
+                    {"name": "Золотая парчовая лента", "length": 2.0}
+                ],
+                "wrappers": [
+                    {"name": "Сетка флористическая золотая", "length": 1.0}
+                ]
+            }
+        },
+        {
+            "name": "Просто так",
+            "price": "1500.00",
+            "description": "Милый букет без особого повода.",
+            "tag": "настроение",
+            "is_active": true,
+            "photo": "bouquets/Просто так.jpg",
+            "composition": {
+                "flowers": [
+                    {"name": "Белая хризантема", "quantity": 5},
+                    {"name": "Розовая гвоздика", "quantity": 5},
+                    {"name": "Оранжевая гербера", "quantity": 3}
+                ],
+                "ribbons": [
+                    {"name": "Репсовая лента в полоску", "length": 1.0}
+                ],
+                "wrappers": [
+                    {"name": "Пленка с рисунком газета", "length": 0.7}
+                ]
+            }
+        },
+        {
+            "name": "Элегантность в белом",
+            "price": "2700.00",
+            "description": "Изысканный букет из белых цветов.",
+            "tag": "свадьба",
+            "is_active": false,
+            "photo": "bouquets/Элегантность в белом.jpg",
+            "composition": {
+                "flowers": [
+                    {"name": "Белая лилия", "quantity": 7},
+                    {"name": "Белая хризантема", "quantity": 9}
+                ],
+                "ribbons": [
+                    {"name": "Кружевная лента белая", "length": 1.5},
+                    {"name": "Органза белая", "length": 1.0}
+                ],
+                "wrappers": [
+                    {"name": "Бумага тишью белая", "length": 1.2}
+                ]
+            }
+        },
+        {
+            "name": "Полевой шик",
+            "price": "1650.00",
+            "description": "Букет, напоминающий о лете и полевых цветах.",
+            "tag": "лето",
+            "is_active": true,
+            "photo": "bouquets/Полевой шик.jpg",
+            "composition": {
+                "flowers": [
+                    {"name": "Подсолнух", "quantity": 3},
+                    {"name": "Фиолетовая эустома", "quantity": 5},
+                    {"name": "Синий ирис", "quantity": 4}
+                ],
+                "ribbons": [
+                    {"name": "Лента из мешковины натуральная", "length": 1.1}
+                ],
+                "wrappers": [
+                    {"name": "Сизаль натуральный", "length": 0.6},
+                    {"name": "Крафт-бумага", "length": 0.5}
+                ]
+            }
+        }
+    ],
+    "clients": [
+        {
+            "email": "client1@example.com",
+            "username": "client_user_1",
+            "password": "clientpass",
+            "first_name": "Иван",
+            "last_name": "Петров",
+            "role": "client",
+            "phone": "+7 (777) 123-45-67"
+        },
+        {
+            "email": "client2@example.com",
+            "username": "client_user_2",
+            "password": "clientpass",
+            "first_name": "Мария",
+            "last_name": "Иванова",
+            "role": "client",
+            "phone": "+7 (777) 234-56-78"
+        },
+        {
+            "email": "client3@example.com",
+            "username": "client_user_3",
+            "password": "clientpass",
+            "first_name": "Сергей",
+            "last_name": "Кузнецов",
+            "role": "client",
+            "phone": "+7 (777) 300-00-03"
+        },
+        {
+            "email": "client4@example.com",
+            "username": "client_user_4",
+            "password": "clientpass",
+            "first_name": "Анна",
+            "last_name": "Смирнова",
+            "role": "client",
+            "phone": "+7 (777) 300-00-04"
+        },
+        {
+            "email": "client5@example.com",
+            "username": "client_user_5",
+            "password": "clientpass",
+            "first_name": "Алексей",
+            "last_name": "Попов",
+            "role": "client",
+            "phone": "+7 (777) 300-00-05"
+        },
+        {
+            "email": "client6@example.com",
+            "username": "client_user_6",
+            "password": "clientpass",
+            "first_name": "Ольга",
+            "last_name": "Васильева",
+            "role": "client",
+            "phone": "+7 (777) 300-00-06"
+        },
+        {
+            "email": "client7@example.com",
+            "username": "client_user_7",
+            "password": "clientpass",
+            "first_name": "Дмитрий",
+            "last_name": "Соколов",
+            "role": "client",
+            "phone": "+7 (777) 300-00-07"
+        },
+        {
+            "email": "client8@example.com",
+            "username": "client_user_8",
+            "password": "clientpass",
+            "first_name": "Елена",
+            "last_name": "Михайлова",
+            "role": "client",
+            "phone": "+7 (777) 300-00-08"
+        },
+        {
+            "email": "client9@example.com",
+            "username": "client_user_9",
+            "password": "clientpass",
+            "first_name": "Николай",
+            "last_name": "Новиков",
+            "role": "client",
+            "phone": "+7 (777) 300-00-09"
+        },
+        {
+            "email": "client10@example.com",
+            "username": "client_user_10",
+            "password": "clientpass",
+            "first_name": "Светлана",
+            "last_name": "Федорова",
+            "role": "client",
+            "phone": "+7 (777) 300-00-10"
+        }
+    ],
+    "florists": [
+        {
+            "email": "florist1@example.com",
+            "username": "florist_user_1",
+            "password": "floristpass",
+            "first_name": "Алиса",
+            "last_name": "Цветкова",
+            "role": "florist",
+            "phone": "+7 (777) 345-67-89",
+            "status": "available",
+            "work_records": [
+                {"days_ago": 1, "duration_hours": 8},
+                {"days_ago": 2, "duration_hours": 6}
+            ]
+        },
+        {
+            "email": "florist2@example.com",
+            "username": "florist_user_2",
+            "password": "floristpass",
+            "first_name": "Елена",
+            "last_name": "Розова",
+            "role": "florist",
+            "phone": "+7 (777) 456-78-90",
+            "status": "busy",
+            "work_records": [
+                {"days_ago": 1, "duration_hours": 7}
+            ]
+        },
+        {
+            "email": "florist3@example.com",
+            "username": "florist_user_3",
+            "password": "floristpass",
+            "first_name": "Олег",
+            "last_name": "Листьев",
+            "role": "florist",
+            "phone": "+7 (777) 400-00-03",
+            "status": "available",
+            "work_records": [
+                {"days_ago": 1, "duration_hours": 8},
+                {"days_ago": 3, "duration_hours": 7}
+            ]
+        },
+        {
+            "email": "florist4@example.com",
+            "username": "florist_user_4",
+            "password": "floristpass",
+            "first_name": "Ирина",
+            "last_name": "Травкина",
+            "role": "florist",
+            "phone": "+7 (777) 400-00-04",
+            "status": "available",
+            "work_records": [
+                {"days_ago": 2, "duration_hours": 6},
+                {"days_ago": 4, "duration_hours": 8}
+            ]
+        },
+        {
+            "email": "florist5@example.com",
+            "username": "florist_user_5",
+            "password": "floristpass",
+            "first_name": "Виктор",
+            "last_name": "Букетов",
+            "role": "florist",
+            "phone": "+7 (777) 400-00-05",
+            "status": "busy",
+            "work_records": [
+                {"days_ago": 0, "duration_hours": 5},
+                {"days_ago": 1, "duration_hours": 8}
+            ]
+        },
+        {
+            "email": "florist6@example.com",
+            "username": "florist_user_6",
+            "password": "floristpass",
+            "first_name": "София",
+            "last_name": "Лепесткова",
+            "role": "florist",
+            "phone": "+7 (777) 400-00-06",
+            "status": "available",
+            "work_records": [
+                {"days_ago": 1, "duration_hours": 7}
+            ]
+        },
+        {
+            "email": "florist7@example.com",
+            "username": "florist_user_7",
+            "password": "floristpass",
+            "first_name": "Петр",
+            "last_name": "Садовников",
+            "role": "florist",
+            "phone": "+7 (777) 400-00-07",
+            "status": "available",
+            "work_records": [
+                {"days_ago": 3, "duration_hours": 8},
+                {"days_ago": 5, "duration_hours": 6}
+            ]
+        },
+        {
+            "email": "florist8@example.com",
+            "username": "florist_user_8",
+            "password": "floristpass",
+            "first_name": "Дарья",
+            "last_name": "Василькова",
+            "role": "florist",
+            "phone": "+7 (777) 400-00-08",
+            "status": "busy",
+            "work_records": [
+                {"days_ago": 1, "duration_hours": 9}
+            ]
+        },
+        {
+            "email": "florist9@example.com",
+            "username": "florist_user_9",
+            "password": "floristpass",
+            "first_name": "Андрей",
+            "last_name": "Фиалкин",
+            "role": "florist",
+            "phone": "+7 (777) 400-00-09",
+            "status": "available",
+            "work_records": []
+        },
+        {
+            "email": "florist10@example.com",
+            "username": "florist_user_10",
+            "password": "floristpass",
+            "first_name": "Наталья",
+            "last_name": "Ландышева",
+            "role": "florist",
+            "phone": "+7 (777) 400-00-10",
+            "status": "available",
+            "work_records": [
+                {"days_ago": 2, "duration_hours": 7},
+                {"days_ago": 3, "duration_hours": 7}
+            ]
+        }
+    ],
+    "couriers": [
+        {
+            "email": "courier1@example.com",
+            "username": "courier_user_1",
+            "password": "courierpass",
+            "first_name": "Дмитрий",
+            "last_name": "Быстров",
+            "role": "courier",
+            "phone": "+7 (777) 567-89-01",
+            "status": "available",
+            "location": {"latitude": 42.87739, "longitude": 74.61749},
+            "work_records": [{"days_ago": 1, "duration_hours": 8}]
+        },
+        {
+            "email": "courier2@example.com",
+            "username": "courier_user_2",
+            "password": "courierpass",
+            "first_name": "Артем",
+            "last_name": "Скоров",
+            "role": "courier",
+            "phone": "+7 (777) 678-90-12",
+            "status": "busy",
+            "location": {"latitude": 42.87469, "longitude": 74.61889},
+            "work_records": [{"days_ago": 1, "duration_hours": 6}]
+        },
+        {
+            "email": "courier3@example.com",
+            "username": "courier_user_3",
+            "password": "courierpass",
+            "first_name": "Максим",
+            "last_name": "Ветров",
+            "role": "courier",
+            "phone": "+7 (777) 500-00-03",
+            "status": "available",
+            "location": {"latitude": 42.88010, "longitude": 74.60123},
+            "work_records": [{"days_ago": 2, "duration_hours": 7}]
+        },
+        {
+            "email": "courier4@example.com",
+            "username": "courier_user_4",
+            "password": "courierpass",
+            "first_name": "Егор",
+            "last_name": "Гонцов",
+            "role": "courier",
+            "phone": "+7 (777) 500-00-04",
+            "status": "busy",
+            "location": {"latitude": 42.86550, "longitude": 74.62345},
+            "work_records": [{"days_ago": 0, "duration_hours": 4}]
+        },
+        {
+            "email": "courier5@example.com",
+            "username": "courier_user_5",
+            "password": "courierpass",
+            "first_name": "Владимир",
+            "last_name": "Стрелов",
+            "role": "courier",
+            "phone": "+7 (777) 500-00-05",
+            "status": "available",
+            "location": {"latitude": 42.87123, "longitude": 74.59876},
+            "work_records": [{"days_ago": 1, "duration_hours": 8}, {"days_ago": 3, "duration_hours": 6}]
+        },
+        {
+            "email": "courier6@example.com",
+            "username": "courier_user_6",
+            "password": "courierpass",
+            "first_name": "Юрий",
+            "last_name": "Молниев",
+            "role": "courier",
+            "phone": "+7 (777) 500-00-06",
+            "status": "available",
+            "location": {"latitude": 42.89000, "longitude": 74.63000},
+            "work_records": [{"days_ago": 4, "duration_hours": 7}]
+        },
+        {
+            "email": "courier7@example.com",
+            "username": "courier_user_7",
+            "password": "courierpass",
+            "first_name": "Станислав",
+            "last_name": "Резвый",
+            "role": "courier",
+            "phone": "+7 (777) 500-00-07",
+            "status": "busy",
+            "location": {"latitude": 42.85987, "longitude": 74.60543},
+            "work_records": [{"days_ago": 1, "duration_hours": 9}]
+        },
+        {
+            "email": "courier8@example.com",
+            "username": "courier_user_8",
+            "password": "courierpass",
+            "first_name": "Илья",
+            "last_name": "Доставкин",
+            "role": "courier",
+            "phone": "+7 (777) 500-00-08",
+            "status": "available",
+            "location": {"latitude": 42.87500, "longitude": 74.61500},
+            "work_records": []
+        },
+        {
+            "email": "courier9@example.com",
+            "username": "courier_user_9",
+            "password": "courierpass",
+            "first_name": "Роман",
+            "last_name": "Дорожкин",
+            "role": "courier",
+            "phone": "+7 (777) 500-00-09",
+            "status": "available",
+            "location": {"latitude": 42.86000, "longitude": 74.61000},
+            "work_records": [{"days_ago": 2, "duration_hours": 8}]
+        },
+        {
+            "email": "courier10@example.com",
+            "username": "courier_user_10",
+            "password": "courierpass",
+            "first_name": "Павел",
+            "last_name": "Перевозов",
+            "role": "courier",
+            "phone": "+7 (777) 500-00-10",
+            "status": "busy",
+            "location": {"latitude": 42.88555, "longitude": 74.62555},
+            "work_records": [{"days_ago": 0, "duration_hours": 6}]
+        }
+    ]
+}

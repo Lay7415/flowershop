@@ -16,11 +16,15 @@ python manage.py migrate
 
 python manage.py createsuperuser
 
+отдельном терминале
+python manage.py seed_data
+
+отдельном терминале
 python manage.py runserver --verbosity 3
 
 отдельном терминале
 python manage.py run_sheduler
-python manage.py seed_data
+
 
 SELECT 
     relname AS table_name,
